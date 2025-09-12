@@ -1,0 +1,16 @@
+<html>
+<script>
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+        if (link.href.includes('common/css/styles.css')) {
+            link.remove();
+        }
+    });
+
+</script>
+
+<body>
+    一致する郵便番号情報がありません。<br />
+    <input type="button" value="入力画面に戻る" onClick="window.close()" />
+</body>
+
+</html>

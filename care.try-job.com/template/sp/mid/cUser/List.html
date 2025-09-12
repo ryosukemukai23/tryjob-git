@@ -1,0 +1,98 @@
+<li class="wsp_itemList__item">
+<!--# setTimeFormat U #-->
+<!--# ifbegin > attention_time (!--# code now u #--) #-->
+	<div class="wsp_embedItemCard wsp_embedItemCard--attention (!--# valueReplace publish on/off /wsp_embedItemCard--publishOff #--)">
+<!--# else #-->
+	<div class="wsp_embedItemCard (!--# valueReplace publish on/off /wsp_embedItemCard--publishOff #--)">
+<!--# endif #-->
+		<div class="wsp_embedItemCard__">
+			<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" class="wsp_embedItemCard__showMore"></a>
+			<div class="wsp_embedItemCard__body">
+			
+				<div class="wsp_embedItemPrev wsp_embedItemPrev--aiCenter">
+					<div class="wsp_embedItemPrev__thumb">
+						<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">
+						<!--# ifbegin nullcheck image1 #-->
+							<!--# object image image1 size 133 100 #-->
+						<!--# else #-->
+							<span class="wsp_embedItemPrev__thumb__icon wsp_embedItemPrev__thumb__icon--blue"><!--# code Continuation (!--# alias items_type category id name #--) 1 \  #--></span>
+						<!--# endif #-->
+						</a>
+					</div>
+					<div class="wsp_embedItemPrev__body">
+
+						<div class="wsp_itemDataPrev">
+							<div class="wsp_itemDataPrev__category">
+								<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">
+									(!--# alias items_type category id name #--)
+								</a>
+							</div>
+							<div class="wsp_itemDataPrev__data">
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name">
+											<!--# ifbegin = foreign_flg TRUE #-->
+												<!--# value foreign_address #-->
+											<!--# else #-->
+												<!--# alias adds work_place_adds id name  #-->
+												<!--# alias add_sub work_place_add_sub id name #-->
+											<!--# endif #-->
+											</span>
+										</div>
+									</li>
+								</ul>
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name"><!--# alias items_form work_style id name #--></span>
+										</div>
+									</li>
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-jpy" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name"><!--# valueReplace salary_type /時給/日給/月給/年俸 /時給/日給/月給/年俸 #--><!--# value salary #--><!--# valueReplace salary_type /時給/日給/月給/年俸 /円/円/万円/万円 #-->～</span>
+										</div>
+									</li>
+								<!--# ifbegin > attention_time (!--# code now u #--) #-->
+									<li class="wsp_articlePointList__item wsp_articlePointList__item--pickup">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-star" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name">おすすめ</span>
+										</div>
+									</li>
+								<!--# endif #-->
+								</ul>
+								<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item wsp_articlePointList__item--lock">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-lock" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name">会員限定</span>
+										</div>
+									</li>
+								</ul>
+								<!--# endif  #-->
+								<!--# ifbegin not val_equal (!--# view Job checkApply #--) 1 #-->
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item wsp_articlePointList__item--notice">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name">掲載期限や応募上限を見直してください。</span>
+										</div>
+									</li>
+								</ul>
+								<!--# endif  #-->
+							</div><!--wsp_itemDataPrev__data-->
+						</div><!--wsp_itemDataPrev-->
+
+					</div><!--wsp_embedItemPrev__body-->
+					
+				</div><!--wsp_embedItemPrev-->
+
+			</div><!--wsp_embedItemCard__body-->
+		</div><!--wsp_embedItemCard__-->
+	</div><!--wsp_embedItemCard-->
+</li>

@@ -1,0 +1,101 @@
+<div class="search_table">
+	<form id="search_form" method="get" action="index.php">
+		<input name="app_controller" type="hidden" value="search" />
+		<input name="run" type="hidden" value="true" />
+		<input type="hidden" name="type" value="(!--# get type #--)" />
+		<!--# form hidden pal (!--# get pal #--) #-->
+		<input name="mailtype_CHECKBOX" type="hidden" value="" />
+		<input name="mailtype_PAL[]" type="hidden" value="match or" />
+
+		<!-- 読み込み状態のフラグは JavaScript で動的に設定 -->
+		<input type="hidden" name="read_flg_CHECKBOX" value="" />
+		<input type="hidden" name="read_flg_PAL[]" value="match or" />
+
+		<ul class="tabs">
+			<li class="tab" id="tab-all" data-tab="all" onclick="setTab('all', this)">すべて</li>
+			<li class="tab" id="tab-unreplied" data-tab="unreplied" onclick="setTab('unreplied', this)">未読</li>
+		</ul>
+	</form>
+</div>
+
+<script>
+	function setTab(tabType, element) {
+		// フォームを取得
+		const form = document.getElementById('search_form');
+
+		// 既存の read_flg[] 入力フィールドを削除
+		const existingFields = form.querySelectorAll('input[name="read_flg[]"]');
+		existingFields.forEach(field => field.remove());
+
+		// タブに応じたパラメータを設定
+		if (tabType === 'unreplied') {
+			// 未返信のみの場合、FALSE のみをセット
+			const falseField = document.createElement('input');
+			falseField.type = 'hidden';
+			falseField.name = 'read_flg[]';
+			falseField.value = 'FALSE';
+			form.appendChild(falseField);
+		} else if (tabType === 'all') {
+			// すべての場合、TRUE と FALSE の両方をセット
+			const trueField = document.createElement('input');
+			trueField.type = 'hidden';
+			trueField.name = 'read_flg[]';
+			trueField.value = 'TRUE';
+			form.appendChild(trueField);
+
+			const falseField = document.createElement('input');
+			falseField.type = 'hidden';
+			falseField.name = 'read_flg[]';
+			falseField.value = 'FALSE';
+			form.appendChild(falseField);
+		}
+
+		// アクティブなタブを切り替え
+		const tabs = document.querySelectorAll('.tab');
+		tabs.forEach(tab => tab.classList.remove('active'));
+		element.classList.add('active');
+
+		// フォームを送信
+		form.submit();
+	}
+
+	// ページ読み込み時にURLパラメータをチェックして、適切なタブをアクティブ化
+	window.addEventListener('DOMContentLoaded', function () {
+		const urlParams = new URLSearchParams(window.location.search);
+		const readFlgValues = urlParams.getAll('read_flg[]');
+
+		// 初期表示時のフォームフィールド設定
+		const form = document.getElementById('search_form');
+
+		// 現在のURLパラメータに基づいて適切なタブをアクティブ化
+		if (readFlgValues.length === 1 && readFlgValues[0] === 'FALSE') {
+			// 未返信のみ（read_flg[]=FALSE のみの場合）
+			document.getElementById('tab-unreplied').classList.add('active');
+
+			// 対応するフィールドを設定
+			const falseField = document.createElement('input');
+			falseField.type = 'hidden';
+			falseField.name = 'read_flg[]';
+			falseField.value = 'FALSE';
+			form.appendChild(falseField);
+		} else {
+			// すべて（その他の場合）
+			document.getElementById('tab-all').classList.add('active');
+
+			// 対応するフィールドを設定（初期表示時）
+			if (!readFlgValues.length) {
+				const trueField = document.createElement('input');
+				trueField.type = 'hidden';
+				trueField.name = 'read_flg[]';
+				trueField.value = 'TRUE';
+				form.appendChild(trueField);
+
+				const falseField = document.createElement('input');
+				falseField.type = 'hidden';
+				falseField.name = 'read_flg[]';
+				falseField.value = 'FALSE';
+				form.appendChild(falseField);
+			}
+		}
+	});
+</script>

@@ -1,0 +1,28 @@
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サイトからのお知らせ</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace guide TRUE/FALSE 受信する/受信しない #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">お得な情報</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace information TRUE/FALSE 受信する/受信しない #--></p>
+	</dd>
+</dl>
+
+<!--# ifbegin val= (!--# login type #--) admin #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">強制送信除外</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace forse_reject TRUE/FALSE 有効/無効 #--></p>
+	</dd>
+</dl>
+<!--# endif #-->

@@ -1,0 +1,77 @@
+<!--# ifbegin login nUser #-->
+<ul>
+	<li>
+		<span style="width:220px;">送信先</span>
+		<p>
+			<!--# ecode getName (!--# value destination #--) #-->
+		</p>
+	</li>
+	<!--# ifbegin = mailtype scout &AND& ! val= (!--# post file_name #--) #-->
+	<li>
+		<span>求人情報</span>
+		<p>
+			<!--# ValueAlias mid (!--# post file_name #--) id name #-->
+			<!--# valueAlias fresh (!--# post file_name #--) id name #-->
+		</p>
+	</li>
+	<!--# endif #-->
+	<li>
+		<span>件名</span>
+		<p><!--# value sub #--></p>
+	</li>
+	<li>
+		<span>本文</span>
+		<p><!--# value message #--></p>
+	</li>
+</ul>
+<!--# form hidden file_name #-->
+
+<!--# elseif login cUser #-->
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">送信先</span>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<p>
+					<!--# ecode getName (!--# value destination #--) #-->
+				</p>
+			</dd>
+		</dl>
+
+	<!--# ifbegin = mailtype scout &AND& ! val= (!--# post file_name #--) #-->
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">求人情報</span>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<p>
+					<!--# ValueAlias mid (!--# post file_name #--) id name #-->
+					<!--# valueAlias fresh (!--# post file_name #--) id name #-->
+				</p>
+			</dd>
+		</dl>
+	<!--# endif #-->
+
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">件名</span>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<p>
+					<!--# value sub #-->
+				</p>
+			</dd>
+		</dl>
+
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">メッセージ</span>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<p>
+					<!--# value message #-->
+					<!--# form hidden file_name #-->
+				</p>
+			</dd>
+		</dl>
+<!--# endif #-->

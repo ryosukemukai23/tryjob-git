@@ -1,0 +1,173 @@
+<!--# include head #-->
+<style>
+	.description {
+		font-size: 1.4rem;
+	}
+
+	.form_table .flex {
+		gap: 1.2rem;
+	}
+
+	.label {
+		margin-bottom: 3rem;
+		color: #222;
+	}
+
+	.description {
+		font-size: 1.4rem;
+	}
+
+	.form_table .flex {
+		gap: 1.2rem;
+	}
+
+	.label {
+		margin-bottom: 3rem;
+	}
+
+	.form_table label.no-gap {
+		margin-right: -1.2rem;
+	}
+
+	#drawhope_work_placeSelecter {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+	}
+
+	.addHopeList {
+		color: #dd6e21;
+		font-size: 1.4rem;
+		margin-bottom: .8rem;
+	}
+
+	.addHopeList:first-of-type {
+		margin-top: 0.8rem;
+	}
+
+	.ha_del {
+		color: #999;
+		font-size: 1.4rem;
+		margin-right: 0.8rem;
+	}
+
+	.button {
+		display: flex;
+		gap: 1.2rem;
+		flex-direction: column;
+	}
+
+
+	@media screen and (max-width: 768px) {
+
+		.is-inner_content_right {
+			margin-bottom: 0 !important;
+		}
+
+		.label {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+
+		.label {
+			margin-bottom: 1.5rem;
+		}
+
+		.is-inner_content_right {
+			margin-bottom: 0 !important;
+		}
+
+	}
+</style>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const containers = document.querySelectorAll(".form_table .label2, .form_table .label3");
+
+		containers.forEach(container => {
+			const items = Array.from(container.children);
+
+			// 最終行のtop位置を特定
+			let lastRowTop = 0;
+			items.forEach(item => {
+				const top = item.getBoundingClientRect().top;
+				if (top > lastRowTop) {
+					lastRowTop = top;
+				}
+			});
+
+			// 最終行のアイテムにクラス付与
+			items.forEach(item => {
+				if (item.getBoundingClientRect().top === lastRowTop) {
+					item.classList.add("no-gap");
+				}
+			});
+		});
+	});
+</script>
+<main class="p-cv">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>履歴書・職務経歴書</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+            <nav class="is-inner_content">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">TOP</a></li>
+                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+                    <li>業種トップ</li>
+                </ol>
+            </nav>
+        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<h2>履歴書の編集</h2>
+			<!--# syscode validate is_error #-->
+			<div class="form_table">
+				<!--# variable form_begin #-->
+				<!--▼登録フォーム-->
+				<!--# include resumeRegistFormCommon #-->
+				<!--# include resumeRegistFormWish #-->
+				<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+				<!--# form hidden mid #-->
+				<!--# variable form_end #-->
+			</div><!--form_table END-->
+		</div>
+		<div class="is-inner_content_right">
+			<nav class="sidebar-nav">
+				<ul>
+					<li><a href="mypage.html">マイページ</a></li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+					</li>
+					<!-- <li><a href="interview.html">面接・選考</a></li> -->
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+					</li>
+					<li class="active"><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+					</li>
+					<!-- <li><a href="#">勤続支援金の申請</a></li>
+																	<li><a href="inform.html">違反行為の報告</a></li>
+																	<li><a href="#">新着求人メール</a></li>
+																	<li><a href="#">企業・法人のブロック</a></li>
+																	<li><a href="#">設定</a></li> -->
+				</ul>
+			</nav>
+			<div class="sidebar-overlay"></div>
+		</div>
+	</div>
+</main>
+<!--# include foot #-->

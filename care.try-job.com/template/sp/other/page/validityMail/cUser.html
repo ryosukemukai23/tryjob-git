@@ -1,0 +1,136 @@
+<!--# syscode setTitle 求人企業用フォーム - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						企業登録
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">企業登録</div>
+						<div class="wsp_cmnForm__sub">登録案内を受け取るメールアドレスを入力してください</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+
+						<form name="sys_form" id="valid_mail">
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">メールアドレス</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE">
+									<!--# form text mail 60 255  id="validity" #-->
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<div class="errorMsg"></div>
+								</span>
+								<p><span class="benForm"></span></p>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--center sendButton">
+									<!--# form hidden usertype (!--# get type #--) #-->
+									<script type="text/javascript">
+									document.write('<button class="wsp_formELE__next">送信</button>');
+									</script>
+
+								</div>
+							</dd>
+						</dl>
+
+						</form>
+
+						<noscript>
+							当サイトをご利用頂くにはJavaScriptを有効にする必要があります。<br>
+							お使いのブラウザでJavaScriptが無効な場合、機能が正常に動作せずご利用頂けません。
+						</noscript>
+
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<script type="text/javascript">
+
+$(function(){
+    $("#valid_mail").on("submit",function(event){
+        event.preventDefault();
+
+        var mail = $("#validity").val();
+        if(!mail){
+            $(".errorMsg").text("メールアドレスを入力して下さい。");
+            return;
+        }
+
+        var $form = $(this);
+        var $button = $form.find('button');
+        var type = $("input[name='usertype']",$form).val();
+
+        var flag = confirm( "メールを送信します。" );
+        if(flag){
+            var clone = $(".benForm>*").clone()
+            jQuery.ajax({
+				url: 'api.php',
+				type: 'POST',
+				dataType: "text",
+				data: modifyApiParam("c=commonApi&m=sendValidity&type=" + type + "&mail=" + encodeURIComponent(mail)),
+				beforeSend: function (xhr, settings) {
+					$(".benForm").html("<img src='./common/img/ajax-loader.gif' />");
+					$button.attr('disabled', true);
+				}
+			})
+			.done(function(res){
+				resetElement(clone);
+				switch(res){
+					case "ok":
+						$(".benForm").html("ご登録いただいたメールアドレスに、仮登録完了メールを送信しました。<br />メールの内容に従って本登録を行ってください。");
+						$button.attr("disabled",true);
+						break;
+					case "dup":
+						$(".errorMsg").text("このメールアドレスは使用されています。");
+						$button.attr('disabled', false);
+						break;
+					case "mailFormat":
+						$(".errorMsg").text("～～@～～.～～の形式で入力して下さい。");
+						$button.attr('disabled', false);
+						break;
+					default:
+						$(".errorMsg").text("通信に失敗しました。");
+				}
+			})
+			.fail(function(xml, status, e){});
+        }
+    });
+
+    function resetElement(clone){
+        $(".benForm").html(clone);
+        $(".errorMsg").html("");
+    }
+})
+</script>
+
+<!--# include foot #-->

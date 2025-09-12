@@ -1,0 +1,68 @@
+<!--▼ニュース表示開始デザイン-->
+<!--# readhead head_news #-->
+<div class="is-news">
+	<div class="is-inner_content">
+		<h2>お知らせ</h2>
+		<ul class="is-news__list">
+			<!--# readend #-->
+
+			<!--▼ニュースリストデザイン-->
+			<!--# readhead list_news #-->
+			<li class="is-news__item" onclick="handleNewsClick(this)">
+				<div class="is-news__link">
+					<div class="is-news__content">
+						<div class="is-news__info">
+							<p class="is-news__text"><!--# variable topic #--></p>
+							<p class="is-news__date">
+								<!-- <span class="is-news__category">お知らせ</span> -->
+								<span
+									class="is-news__time"><!--# value year #-->/<!--# value month #-->/<!--# value day #--></span>
+							</p>
+						</div>
+						<div class="is-news__arrow">
+							<span class="is-news__arrow-icon"><img src="common/images/common/icon_arw.svg"
+									alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!--# readend #-->
+
+			<!--▼ニュースダミーリストデザイン-->
+			<!--# readhead dummy_news #-->
+			<!--# readend #-->
+
+			<!--▼ニュースダミー表示終了デザイン-->
+			<!--# readhead foot_news #-->
+		</ul>
+		<div class="is-news__more-wrap">
+			<a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match comp"
+				class="o-btn is-wh is-arw">お知らせをもっと見る<i class="o-btn__icon"></i></a>
+		</div>
+	</div>
+</div>
+<!--contents_box END-->
+<script>
+	function handleNewsClick(newsItem) {
+		// p.is-news__text 内のaタグからURLを取得
+		const textElement = newsItem.querySelector('.is-news__text');
+		if (textElement) {
+			const anchorElement = textElement.querySelector('a');
+			if (anchorElement && anchorElement.href) {
+				window.location.href = anchorElement.href;
+			}
+		}
+	}
+
+	// スタイルの追加
+	document.addEventListener('DOMContentLoaded', function () {
+		const newsItems = document.querySelectorAll('.is-news__item');
+		newsItems.forEach(item => {
+			const textElement = item.querySelector('.is-news__text');
+			if (textElement && textElement.querySelector('a')) {
+				item.style.cursor = 'pointer';
+			}
+		});
+	});
+</script>
+<!--# readend #-->

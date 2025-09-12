@@ -1,0 +1,143 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						企業登録
+					</li>
+				</ul>
+			</div>
+
+			<!--# syscode validate is_error #-->
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">登録内容の確認</div>
+						<div class="wsp_cmnForm__sub">登録内容を確認してください</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+
+						<!--# variable form_begin #-->
+
+						<div class="wsp_cmnMessage">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									内容に問題がなければ「登録する」ボタンを押してください。入力をやりなおす場合は「戻る」ボタンを押します。
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div>
+
+						<!--▼確認フォーム-->
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">企業名</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# value name #--></p>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">所在地</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+							<!--# ifbegin = foreign_flg TRUE #-->
+								<p><!--# value foreign_address #--></p>
+							<!--# else #-->
+								<p>〒<!--# value zip1 #-->-<!--# value zip2 #--><br>
+								<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #--></p>
+							<!--# endif #-->
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">担当者名</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# value charge_name #--></p>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">担当者役職</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# value charge_rank #--></p>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">電話番号</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# value tel #--></p>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">FAX番号</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# value fax #--></p>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">メールアドレス</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# value mail #--></p>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">パスワード</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# code drawPassChar (!--# value pass #--)  #--></p>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--between">
+									<input type="submit" name="back" value="戻る" class="wsp_formELE__back">
+									<input type="submit" value="登録する" class="wsp_formELE__next">
+								</div>
+							</dd>
+						</dl>
+
+						<!--# form hidden guide TRUE #-->
+						<!--# form hidden information TRUE #-->
+						<!--# form hidden html #-->
+
+						<!--# variable form_end #-->
+
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

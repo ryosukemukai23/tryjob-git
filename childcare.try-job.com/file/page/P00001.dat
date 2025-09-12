@@ -1,0 +1,34 @@
+<!--# syscode setTitle 運営会社｜ (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription 「(!--# code getData system ADMIN site_title #--)」の運営会社情報です。 #-->
+<!--ヘッダーを表示-->
+<!--# include head #-->
+           <div id="p-company">
+      <div class="is-kv">
+        <div class="is-inner_content">
+          <h1>運営会社情報</h1>
+        </div>
+      </div>
+      <div class="breadcrumb-box">
+        <nav class="is-inner_content">
+          <ol class="breadcrumb">
+            <li><a href="https://childcare.try-job.com/index.php">TOP</a></li>
+            <i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+            <li>運営会社情報</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="is-inner_content">
+        <div class="is-inner_720">
+          <h2>運営会社情報</h2>
+          <dl>
+            <dt>法人名</dt>
+            <dd>株式会社グローバルコーポレーション</dd>
+            <dt>所在地</dt>
+            <dd>神奈川県川崎市多摩区西生田２丁目１４番３号－１０１</dd>
+            <dt>電話番号</dt>
+            <dd>044-400-0675</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+<!--# include foot #-->

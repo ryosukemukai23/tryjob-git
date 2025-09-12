@@ -1,0 +1,27 @@
+<!--# setTimeFormat Y/m/d #-->
+					<li class="wsp_notification__item">
+						<a href="index.php?app_controller=info&type=bill&id=(!--# value id #--)" class="wsp_notification__item__link"></a>
+						<div class="wsp_notificationCard">
+							<div class="wsp_notificationCard__thumb">
+								<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--(!--# valueReplace pay_flg TRUE/FALSE aqua/red #--)">
+									料金請求
+								</span>
+							</div>
+							<div class="wsp_notificationCard__body">
+								<div class="wsp_notificationCard__body__message">
+									<b><!--# value demand_s #--> から <!--# value demand_e #--> ご利用分</b>
+								</div>
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-jpy" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name"><!--# comma value money #--></span>
+										</div>
+									</li>
+								</ul>
+								<div class="wsp_notificationCard__body__date">
+									請求日：<!--# setTimeFormat Y/m/d #--><!--# value billdate #-->
+								</div>
+							</div><!--wsp_notificationCard__body-->
+						</div>
+					</li>

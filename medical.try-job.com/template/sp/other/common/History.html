@@ -1,0 +1,22 @@
+<!--# include head #-->
+<div id="contents">
+
+	<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+	<h2>最近見た求人リスト</h2>
+	<!--# else #-->
+	<h2>最近見た新卒求人リスト</h2>
+	<!--# endif #-->
+
+	<ul class="sub_menu">
+		<li><a href="javascript:void(0);" onclick="historyAllDelete('(!--# mod viewMode getSelectedType #--)');">履歴をすべて削除</a></li>
+	</ul>
+
+	<div class="jobOfferList" id="history_items">
+
+		<!--# code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=history_items #-->
+
+	</div><!--jobOfferList-->
+
+</div><!--contents END-->
+
+<!--# include foot #-->

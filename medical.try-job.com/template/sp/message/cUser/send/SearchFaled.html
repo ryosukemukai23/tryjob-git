@@ -1,0 +1,45 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						送信したメッセージ
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList">
+					<li><a onclick="$('#searchFormToggle').toggle();return false;"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;絞り込み</a></li>
+					<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&pal=(!--# get pal #--)"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+				</ul>
+				<div>
+					<a href="index.php?app_controller=search&type=message&run=true&pal=rec">受信したメッセージを表示</a>
+				</div>
+			</div><!--wsp_resultNav-->
+
+			<!--# include side_bar4message #-->
+
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						その条件に一致するメッセージはありませんでした。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div><!--wsp_cmnMessage-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

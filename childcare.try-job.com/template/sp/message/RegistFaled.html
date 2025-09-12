@@ -1,0 +1,44 @@
+<!--# readhead head #-->
+
+<!--# ifbegin login nUser #-->
+<div class="error">
+<!--# endif #-->
+
+<!--# readend #-->
+
+<!--# readhead is_error #-->
+
+<!--# ifbegin login nUser #-->
+入力内容に誤りがあります。<br />
+<!--# elseif login cUser #-->
+<div class="wsp_cmnMessage wsp_cmnMessage--red">
+	<div class="wsp_cmnMessage__">
+		<div class="wsp_cmnMessage__text">
+			入力内容を見直してください。
+		</div>
+	</div><!--wsp_cmnMessage__-->
+</div>
+<!--# endif #-->
+
+<!--# readend #-->
+
+<!--# readhead sub #-->
+件名が入力されていません。<br />
+<!--# readend #-->
+<!--# readhead message #-->
+本文が入力されていません。<br />
+<!--# readend #-->
+<!--# readhead file_name #-->
+対象の求人情報が選択されていません。<br />
+<!--# readend #-->
+<!--# readhead job_id_NOT_MINE #-->
+不正な値が選択されています。<br />
+<!--# readend #-->
+
+<!--# readhead foot #-->
+
+	<!--# ifbegin login nUser #-->
+</div>
+	<!--# endif #-->
+
+<!--# readend #-->

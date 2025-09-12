@@ -1,0 +1,626 @@
+
+<!--# ifbegin val_in (!--# view cUser drawJobCharges (!--# value owner #--) (!--# get type #--) #--) malti #-->
+<!--# ifbegin val= (!--# view Job drawExistApply (!--# get type #--) (!--# value id #--) #--) FALSE |OR| ! val= (!--# get cp #--)  #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">課金方式</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio term_type apply  apply/employment 応募課金/採用課金 #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※　応募課金 ･･･ 応募発生時に課金が発生する課金方式です。
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※　採用課金 ･･･ 採用時に課金が発生する課金方式です。
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate term_type #-->
+		</span>
+	</dd>
+</dl>
+<!--# else #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">課金方式</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# valueReplace term_type apply/employment 応募課金/採用課金 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			※　求職者の応募があるためこちらの項目は変更できません。
+		</span>
+	</dd>
+</dl>
+<!--# endif #-->
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人タイトル</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate name #--)">
+			<!--# form text name 80 50 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate name #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務形態</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_style #--)">
+			<!--# code tableSelectForm work_style items_form name id  選択して下さい  sort_rank sort asc #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate work_style #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">募集職種</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate category #--)">
+			<!--# code tableSelectForm category items_type name id  選択して下さい  sort_rank sort asc #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate category #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務地（検索用）</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<script type="text/javascript">
+			$(function(){
+				toggleforeignDisp();
+				$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+			});
+		</script>
+		<span class="wsp_stylishLabel">
+			<!--# form radio foreign_flg FALSE  FALSE/TRUE 国内/海外 #-->
+		</span>
+		<div id="foreign">
+			<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate foreign_address #--)">
+				<!--# form text foreign_address 50 256  placeholder="住所" #-->
+				<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+					<button onclick="addressToMap('map','foreign_address');return false;">地図を移動</button>
+				<!--# endif #-->
+			</span>
+		</div>
+		<div id="japan">
+			<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate work_place_zip1/work_place_zip2 #--)">
+				〒&nbsp;<!--# form text work_place_zip1 3 3  #-->&nbsp;-&nbsp;<!--# form text work_place_zip2 4 4  #-->&nbsp;<!--# view Zip drawButton job #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_place_adds/work_place_add_sub/adds/add_sub #--)">
+				<!--# view Area drawSelectboxAddress work_place_adds work_place_add_sub regist disp #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_place_add_sub2 #--)">
+				<!--# form text work_place_add_sub2 80 80 #-->
+			</span>
+			<span class="wsp_formELE">
+				<!--# form text work_place_add_sub3 80 80 #-->
+			</span>
+		</div>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate work_place_zip1 work_place_zip2 work_place_adds work_place_add_sub work_place_add_sub2 adds add_sub foreign_address #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務地（表示用）</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE">
+			<button class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--black" type="button" onclick="assistArea()">検索用の値を挿入する</button>
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_place_label #--)">
+			<!--# form textarea work_place_label 80 4 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate work_place_label #-->
+		</span>
+	</dd>
+</dl>
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">地図</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<script type="text/javascript">
+		$(function(){loadMap( 'map', (!--# value lat  0 #--), (!--# value lon  0 #--), true, "regist" )});
+		</script>
+		<div id="map" style="width:100%; margin:0 0 8px; height:180px; border:1px solid #ccc;" ></div>
+
+		<span class="wsp_formELE">
+			<button class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--black" type="button" onclick="addsToMap('map','work_place_adds','work_place_add_sub','work_place_add_sub2');return false;">地図を移動</button>
+		</span>
+		<span class="wsp_formELE">
+			<button class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--black" type="button" onclick="setLatLon('map','lat','lon');return false;">マップの表示位置を記録する</button>
+		</span>
+		<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate lat #--)">
+			緯度 ： <!--# form text lat 24 48  id="lat" #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate lon #--)">
+			経度 ： <!--# form text lon 24 48  id="lon" #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			位置情報を登録することで、求職者が「検索方法：地図から探す」で正確に探せるようになります。
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			「地図を移動」をクリックするとGoogleMapsが該当位置へ移動します。<br>
+			移動したことを確認し「マップの表示位置を記録する」をクリックし、経度と緯度を入力します。
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate lat lon #-->
+		</span>
+	</dd>
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅（検索用）1</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column">
+			<!--# view Area drawSelectboxTrain traffic1_line traffic1_station traffic1_adds #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅（検索用）2</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column">
+			<!--# view Area drawSelectboxTrain traffic2_line traffic2_station traffic2_adds #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅（検索用）3</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column">
+			<!--# view Area drawSelectboxTrain traffic3_line traffic3_station traffic3_adds #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅（検索用）4</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column">
+			<!--# view Area drawSelectboxTrain traffic4_line traffic4_station traffic4_adds #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅（検索用）5</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column">
+			<!--# view Area drawSelectboxTrain traffic5_line traffic5_station traffic5_adds #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅（表示用）</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE">
+			<button type="button" class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--black" onclick="assistStation()">検索用の値を挿入する</button>
+		</span>
+		<span class="wsp_formELE">
+			<!--# form textarea transport 80 5 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">給与（検索用）</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate salary/salary_type #--)">
+			<!--# form option salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 onclick="changeSalaryDisp(this)" #-->&nbsp;
+			<!--# form text salary 8 16  #-->&nbsp;
+			<span id='salary_unit_disp'><!--# valueReplace salary_type /時給/日給/月給/年俸 円/円/円/万円/万円 #--></span>
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate salary_type #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate salary #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">給与（表示用）</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE">
+			<button type="button" class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--black" onclick="assistSalary()">検索用の値を挿入する</button>
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate salary_label #--)">
+			<!--# form textarea salary_label 80 4 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate salary_label #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">仕事内容</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_detail #--)">
+			<!--# form textarea work_detail 80 6 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate work_detail #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">待遇</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate treatment #--)">
+			<!--# form textarea treatment 80 5 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate treatment #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">休日・休暇</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate holiday #--)">
+			<!--# form textarea holiday 80 5 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate holiday #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務時間</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_time #--)">
+			<!--# form textarea work_time 80 5 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate work_time #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">PR</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate job_pr #--)">
+			<!--# form textarea job_pr 80 6 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate job_pr #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">備考</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate remarks #--)">
+			<!--# form textarea remarks 80 6 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人の特徴</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel wsp_stylishLabel--2">
+			<!--# code tableCheckForm addition job_addition name id     sort_rank sort asc #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募資格</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate apply_license #--)">
+			<!--# form textarea apply_license 80 5 #-->
+		</span>
+	</dd>
+</dl>
+
+<!--# ifbegin val= (!--# view cUser isCharge (!--# get type #--) (!--# value owner  (!--# code loginid #--) #--) #--) TRUE #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募方法詳細</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate apply_detail #--)">
+			<!--# form textarea apply_detail 80 5 #-->
+		</span>
+	</dd>
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">採用担当者名</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate charger_name #--)">
+			<!--# form text charger_name 40 255 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">メイン画像</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column wsp_formELE--inputFile wsp_formELE--(!--# syscode is_validate image1_FILE_NULL/image1 #--)">
+			<!--# form image image1  削除 320 240 #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate image1_comment #--)">
+			<!--# form text image1_comment 100 255  placeholder="コメント(255文字以内)" #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 画像のファイルサイズは1MB以下のものを使用して下さい
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate image1_FILE_NULL image1 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブ画像１</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column wsp_formELE--inputFile wsp_formELE--(!--# syscode is_validate image2 #--)">
+			<!--# form image image2  削除 320 240 #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate image2_comment #--)">
+			<!--# form text image2_comment 100 255  placeholder="コメント(255文字以内)" #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 画像のファイルサイズは1MB以下のものを使用して下さい
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate image2 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブ画像２</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column wsp_formELE--inputFile wsp_formELE--(!--# syscode is_validate image3 #--)">
+			<!--# form image image3  削除 320 240 #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate image3_comment #--)">
+			<!--# form text image3_comment 100 255  placeholder="コメント(255文字以内)" #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 画像のファイルサイズは1MB以下のものを使用して下さい
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate image3 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募通知</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel wsp_stylishLabel--1">
+			<!--# form checkbox notice_flg cUser  job/cUser 下記に入力したメールアドレスに通知/企業情報で登録したメールアドレスに通知 #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate notice_mail #--)">
+			<!--# form text notice_mail 64 128 #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 求職者が応募した旨、また下記「応募上限」にて「制限あり」とした場合、上限人数に達した旨が通知されます。
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate notice_mail #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募上限</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio use_max_apply FALSE  FALSE/TRUE 制限なし/制限あり #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate use_max_apply_error/max_apply_REGEX/max_apply #--)">
+			<!--# code num_option max_apply 100  1 --- #-->&nbsp;人まで
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate use_max_apply_error max_apply max_apply_low #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人公開</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio publish on  on/off 公開/非公開 #-->
+		</span>
+	<!--# ifbegin not val=  (!--# view Conf drawData job ad_check #--) #-->
+		<span class="wsp_formSet__desc__hint">
+			※　公開としていても管理者が承認するまでは公開されません。
+		</span>
+	<!--# endif #-->
+		<span class="wsp_formSet__desc__hint">
+			※　非公開の求人情報をスカウト時に指定することで、特定の求職者にのみ閲覧可能な非公開求人情報として扱えます。
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate publish #-->
+		</span>
+	</dd>
+</dl>
+
+<!--# ifbegin val= select (!--# view Conf drawData job publish #--) #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人情報の公開範囲</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio limitation FALSE  FALSE/TRUE 制限なし/会員限定 #-->
+		</span>
+	<!--# ifbegin val= on (!--# view Conf drawData job nuser_disp #--) #-->
+		<span class="wsp_formSet__desc__hint">
+			※ 会員限定の求人は、詳細ページを閲覧する際にログインが必要になります。
+		</span>
+	<!--# endif #-->
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate limitation #-->
+		</span>
+	</dd>
+</dl>
+<!--# else #-->
+<dl class="wsp_formSet">
+	<!--# form hidden limitation FALSE #-->
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">掲載期限</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio use_limit_time_apply FALSE  FALSE/TRUE 制限なし/制限あり #-->
+		</span>
+		<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate limits #--)">
+			<!--# form time limits Y/m/d &nbsp;年&nbsp;/&nbsp;月&nbsp;/&nbsp;日 #-->&nbsp;まで
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate limits #-->
+		</span>
+	</dd>
+</dl>

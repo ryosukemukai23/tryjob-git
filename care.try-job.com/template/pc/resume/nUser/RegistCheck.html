@@ -1,0 +1,195 @@
+<!--# include head #-->
+<style>
+	.p-cv .check_table {
+		background: #fff;
+		padding: 3.2rem 3.2rem 4.8rem;
+	}
+
+	/* Table styling */
+	.p-cv table {
+		border-collapse: collapse;
+		margin-bottom: 2.4rem;
+		width: 100%;
+	}
+
+
+	.p-cv caption {
+		border-bottom: 1px solid #d98e32;
+		color: #111;
+		font-size: 2.4rem;
+		font-weight: bold;
+		line-height: 150%;
+		margin-bottom: 1.2rem;
+		padding-bottom: 1rem;
+		text-align: left;
+	}
+
+	.p-cv th,
+	.p-cv td {
+		border-bottom: 1px solid #eee;
+		line-height: 100%;
+		padding: 1.2rem 0;
+		vertical-align: top;
+	}
+
+	.p-cv th {
+		color: #111;
+		font-size: 1.6rem;
+		font-weight: bold;
+		text-align: left;
+		width: 220px;
+	}
+
+	.p-cv td {
+		color: #111;
+		font-size: 1.6rem;
+		font-weight: normal;
+	}
+
+	/* Button styling */
+	.p-cv .button {
+		display: flex;
+		gap: 1.2rem;
+		justify-content: center;
+		margin-top: 3.2rem;
+	}
+
+	.p-cv .btn_back,
+	.p-cv .btn_regist {
+		background-color: #d98e32;
+		border: none;
+		border-radius: 4px;
+		color: white;
+		cursor: pointer;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 180%;
+		padding: 0.8rem 1.2rem;
+		width: 12rem;
+	}
+
+	.p-cv .btn_back:hover {
+		opacity: 0.8;
+	}
+
+	.p-cv .btn_regist:hover {
+		opacity: 0.8;
+	}
+
+
+	.p-cv .is-inner_720 {
+		padding: 0 0 4.8em;
+	}
+
+	/* Responsive design */
+	@media screen and (max-width: 768px) {
+
+		.is-inner_content_right {
+			margin-bottom: 0 !important;
+		}
+
+		.p-cv .is-inner_720 {
+			padding: 0 0 0;
+		}
+
+		.p-cv .check_table {
+			padding: 1.6rem !important;
+		}
+
+		.p-cv th,
+		.p-cv td {
+			display: block;
+			width: 100%;
+		}
+
+		.p-cv th {
+			padding-bottom: 0.5rem;
+		}
+
+		.p-cv td {
+			padding-bottom: 1.6rem;
+			padding-top: 0.5rem;
+		}
+
+		.p-cv th[style="width:220px;"] {
+			width: 100% !important;
+		}
+
+		.p-cv .button {
+			align-items: center;
+		}
+
+		.p-cv .btn_back,
+		.p-cv .btn_regist {
+			margin-bottom: 1rem;
+			max-width: 24rem;
+			width: 100%;
+		}
+	}
+</style>
+<main class="p-cv">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>履歴書・職務経歴書</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+            <nav class="is-inner_content">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">TOP</a></li>
+                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+                    <li>業種トップ</li>
+                </ol>
+            </nav>
+        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<div class="is-inner_720">
+				<div class="check_table">
+					<!--# variable form_begin #-->
+					<!--▼確認フォーム-->
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input
+							type="submit" name="Submit" value="登録する" class="btn_regist" /></p>
+					<!--# include resumeCheckForm #-->
+					<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input
+							type="submit" name="Submit" value="登録する" class="btn_regist" /></p>
+					<!--# variable form_end #-->
+				</div><!--check_table END-->
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<nav class="sidebar-nav">
+				<ul>
+					<li><a href="mypage.html">マイページ</a></li>
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+					</li>
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+					</li>
+					<!-- <li><a href="interview.html">面接・選考</a></li> -->
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+					</li>
+					<li class="active"><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+					</li>
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+					</li>
+					<!-- <li><a href="#">勤続支援金の申請</a></li>
+																					<li><a href="inform.html">違反行為の報告</a></li>
+																					<li><a href="#">新着求人メール</a></li>
+																					<li><a href="#">企業・法人のブロック</a></li>
+																					<li><a href="#">設定</a></li> -->
+				</ul>
+			</nav>
+			<div class="sidebar-overlay"></div>
+		</div>
+	</div>
+</main>
+<!--# include foot #-->

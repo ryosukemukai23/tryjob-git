@@ -1,0 +1,75 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						メッセージの送信
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">送信内容の確認</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+					
+						<!--# variable form_begin #-->
+
+						<div class="wsp_cmnMessage">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									内容に問題がなければ「送信する」ボタンを押してください。入力をやりなおす場合は「戻る」ボタンを押します。
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div>
+
+						<!--▼確認フォーム-->
+						<!--# include messageCheckForm #-->
+
+						<!--# ifbegin val_in (!--# view Conf drawData charges scout #--) advance/deferred/read &AND& val= (!--# get mailtype #--) scout #-->
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">スカウト課金(利用料金)</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p>
+									<!--# comma code findData scout cost  id = SC001 #-->&nbsp;円&nbsp;+&nbsp;
+									<!--# comma view payJob drawCost scout SC001 tax #-->&nbsp;円(消費税)&nbsp;=&nbsp;
+									<!--# comma view payJob drawCost scout SC001 total #-->&nbsp;円
+								</p>
+							</dd>
+						</dl>
+						<!--# endif #-->
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--between">
+									<input type="submit" name="back" value="戻る" class="wsp_formELE__back">
+									<input type="submit" value="送信する" class="wsp_formELE__next">
+								</div>
+							</dd>
+						</dl>
+
+						<!--# variable form_end #-->
+				
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

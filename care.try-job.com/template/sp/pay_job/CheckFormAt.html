@@ -1,0 +1,34 @@
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">掲載希望求人</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			<!--# alias mid target_id id name #--><!--# alias fresh target_id id name #--> (<!--# value target_id #-->)
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">掲載プラン</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			<!--# valueAlias at_term (!--# post at_term #--) id name #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">請求金額</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+            ￥<!--# comma view payJob drawCost at_term (!--# post at_term #--) cost #--> + ￥<!--# comma view payJob drawCost at_term (!--# post at_term #--) tax #-->(消費税) ＝ ￥<!--# comma view payJob drawCost at_term (!--# post at_term #--) total #-->
+		</p>
+		<!--# form hidden at_term #-->
+	</dd>
+</dl>

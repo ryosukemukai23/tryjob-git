@@ -1,0 +1,25 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+
+					<div class="TL__part">
+						<div class="TL__part__body">
+							<a href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=send" class="TL__part__body__more"></a>
+							<div class="TL__part__body__name">
+							<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value owner #--) (!--# value destination #--) #--) TRUE #-->
+								<!--# alias nUser destination id name 退会ユーザー  #-->
+							<!--# else #-->
+								<!--# valueAlias nUser (!--# alias nUser destination id id (!--# value destination #--) #--) id nick_name 退会ユーザー  #-->
+							<!--# endif #-->
+								<span>(<!--# code getRow message thread_id = (!--# value thread_id #--) #-->通)</span>
+							</div>
+							<div class="TL__part__body__message">
+								<div class="TL__part__body__message__data">
+									<span class="TL__part__body__message__data__mark"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span>
+									<span class="TL__part__body__message__data__time"><!--# value regist #--></span>
+								</div>
+								<div class="TL__part__body__message__text">
+									<div class="TL__part__body__message__text__sub"><!--# value sub  件名なし #--></div>
+									<div class="TL__part__body__message__text__body"><!--# code Continuation (!--# escp value message false 本文なし #--) 40 ... #--></div>
+								</div>
+							</div>
+						</div><!--TL__part__body-->
+					</div><!--threadList__part-->

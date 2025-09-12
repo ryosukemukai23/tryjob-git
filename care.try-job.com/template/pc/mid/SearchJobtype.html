@@ -1,0 +1,32 @@
+<!--職種から探す表示開始デザイン-->
+<!--# readhead head #-->
+<div class="is-read_content is-num">
+	<style>
+		li.IT016 {
+			display: none;
+		}
+	</style>
+	<h3 class="is-medical">医療</h3>
+	<p>看護師/准看護師・薬剤師・看護助手・臨床検査技師　他13職種</p>
+	<ul>
+		<!--# readend #-->
+
+		<!--職種から探す表示リストデザイン-->
+		<!--# readhead element num=10 #-->
+		<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+		<li class="(!--# variable id #--)"><a
+				href="(!--# mod viewMode getSelectedType #--)-(!--# variable id #--)"><!--# variable name #-->
+				<span>(<!--# variable row #-->)</span></a></li>
+		<!--# else #-->
+		<li class="(!--# variable id #--)"><a
+				href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&category=(!--# variable id #--)&category_PAL[]=match+or"><!--# variable name #-->
+				<span>(<!--# variable row #-->)</span></a></li>
+		<!--# endif #-->
+		<!--# readend #-->
+
+		<!--職種から探す表示終了デザイン-->
+		<!--# readhead foot #-->
+	</ul>
+
+</div><!--top_search-->
+<!--# readend #-->

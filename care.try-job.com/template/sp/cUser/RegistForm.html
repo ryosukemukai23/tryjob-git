@@ -1,0 +1,282 @@
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">企業名</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate name #--)">
+			<!--# form text name 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate name #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">所在地</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<script type="text/javascript">
+			$(function(){
+				toggleforeignDisp();
+				$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+			});
+		</script>
+		<span class="wsp_stylishLabel">
+			<!--# form radio foreign_flg FALSE  FALSE/TRUE 国内/海外 #-->
+		</span>
+		<div id="foreign">
+			<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate foreign_address #--)">
+				<!--# form text foreign_address 50 256  placeholder="住所" #-->
+			</span>
+		</div>
+		<div id="japan">
+			<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate zip1/zip2 #--)">
+				〒&nbsp;<!--# form text zip1 3 3  #-->&nbsp;-&nbsp;<!--# form text zip2 4 4  #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				<!--# view Zip drawButton normal #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate adds/add_sub #--)">
+				<!--# view Area drawSelectboxAddress adds add_sub none #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate add_sub2 #--)">
+				<!--# form text add_sub2 50 256 #-->
+			</span>
+			<span class="wsp_formELE">
+				<!--# form text add_sub3 50 256 #-->
+			</span>
+		</div>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate zip1 zip2 adds add_sub add_sub2 foreign_address #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">代表者名</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate owner_name #--)">
+			<!--# form text owner_name 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate owner_name #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">担当者名</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate charge_name #--)">
+			<!--# form text charge_name 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate charge_name #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">担当者役職</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE">
+			<!--# form text charge_rank 40 255 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">会社設立日</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate establish_date #--)">
+			<!--# form text establish_date 30 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate establish_date #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">従業員数</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate employee #--)">
+			<!--# form text employee 8 8 #-->&nbsp;人
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate employee #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">平均年齢</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate mean_age #--)">
+			<!--# form text mean_age 6 6 #-->&nbsp;歳
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate mean_age #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">事業内容</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate work_detail #--)">
+			<!--# form textarea work_detail 80 8 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate work_detail #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">電話番号</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate tel #--)">
+			<!--# form text tel 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate tel #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">FAX番号</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate fax #--)">
+			<!--# form text fax 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate fax #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">メールアドレス</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate mail #--)">
+			<!--# form text mail 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate mail #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブアドレス1</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate sub_mail #--)">
+			<!--# form text sub_mail 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate sub_mail #-->
+		</span>
+	</dd>
+</dl>
+
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブアドレス2</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate sub_mail2 #--)">
+			<!--# form text sub_mail2 40 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate sub_mail2 #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">企業ホームページ</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate url #--)">
+			<!--# form text url 64 255 #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate url #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">企業イメージ画像</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE wsp_formELE--column wsp_formELE--inputFile wsp_formELE--(!--# syscode is_validate image #--)">
+			<!--# form image image  削除 320 240 #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 1MBまで
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 企業イメージ画像が未設定の場合は、トップページ下部の「新着の求人企業」に表示されません。
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate image #-->
+		</span>
+	</dd>
+</dl>

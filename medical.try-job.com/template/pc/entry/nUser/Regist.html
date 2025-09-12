@@ -1,0 +1,44 @@
+<!--# include head #-->
+<main class="p-contact">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1><!--# valueAlias mid (!--# get mid_id #--) id name #--><!--# valueAlias fresh (!--# get fresh_id #--) id name #-->の求人応募
+			</h1>
+		</div>
+	</div>
+	<div class="breadcrumb-box">
+		<nav class="is-inner_content">
+			<ol class="breadcrumb">
+				<li><a href="index.html">TOP</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a href="industry.html">業種トップ</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a href="search.html">検索結果</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a href="specifics.html">業種詳細</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li>求人応募</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="is-inner_720">
+
+		<!--# syscode validate is_error #-->
+		<div class="form_table">
+			<!--# variable form_begin #-->
+			<!--▼登録フォーム-->
+			<!--# include entryRegistForm #-->
+
+			<!--# ifbegin val= (!--# code getRow resume owner = (!--# code loginid #--) #--) 0 #-->
+			<p class="button">※ 案件へ応募するには履歴書を作成しておく必要があります。</p>
+			<!--# else #-->
+			<p class="button"><input type="submit" name="Submit" value="確認画面へ" class="btn_check" /></p>
+			<!--# endif #-->
+
+			<!--# variable form_end #-->
+		</div><!--form_table END-->
+
+	</div><!--main END-->
+
+
+	<!--# include foot #-->

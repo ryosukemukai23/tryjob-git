@@ -1,0 +1,659 @@
+▼ 18時25分01秒 のエラーメッセージ
+
+----------
+
+error : fgets(): Argument #1 ($stream) must be of type resource, bool given
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/adminTool/mvc/log_download/view.php 18
+trace : 
+[error point]
+↑
+fgets(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/adminTool/mvc/log_download/view.php 18
+↑
+Applog_downloadView::drawDownloadHeader( Applog_downloadModel )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/adminTool/mvc/log_download/controller.php 10
+↑
+Applog_downloadController::doDownload(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/mvc/mvc.php 47
+↑
+MVC::Call( 'log_download' ,  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/tool.php 41
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 150.147.201.27
+User Agent                 ... Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Request URI                ... /tool.php
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:2:{s:14:"app_controller";s:12:"log_download";s:4:"file";s:14:"logs/error.log";}
+SESSION ... a:14:{s:3:"jc2";s:3:"mid";s:0:"";s:32:"0b411b489cf168ee1b7bf280a2ce3c1f";s:18:"search_query_index";s:1:"3";s:17:"search_query_hash";a:3:{s:40:"0d66e76007870e9b1ff9a8fb1f7498400174955b";s:1:"0";s:40:"0d82c89ab632b0599c4685c592d43f8629dd6d32";s:1:"1";s:40:"a48fa8e72c5867e9f9e09caf423619896de7a5ab";s:1:"2";}s:12:"search_query";a:3:{i:0;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"6";s:1:"q";s:1:"0";}i:1;a:7:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:8:"category";s:10:"7aa03c3c18";s:1:"q";s:1:"1";}i:2;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:1:"q";s:1:"2";}}s:51:"authenticity_token_25695c3f8e7a445d833266406c79ebc0";s:32:"25695c3f8e7a445d833266406c79ebc0";s:15:"firstToolAccess";s:1:"1";s:16:"loginedAdminTool";s:1:"1";s:41:"async_cc_b0e956aa2e9044ec669412b2e6db715f";s:87:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=6 #-->";s:41:"async_cc_29df370d615e9127af669b2a81597285";s:107:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3&category=7aa03c3c18 #-->";s:18:"jc2__system_path__";s:1:"/";s:10:"jc2loginid";s:5:"ADMIN";s:12:"jc2logintype";s:5:"admin";s:11:"admin_count";s:12:"0/1751966691";}
+COOKIE  ... a:1:{s:9:"PHPSESSID";s:32:"351ce273ea29eaf49941290701080c7c";}
+
+-----------------------------------------------------
+
+▼ 18時25分01秒 のエラーメッセージ
+
+----------
+
+[shutdown log] Uncaught Error: Class "System" not found in /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ExceptionManager.php:57
+Stack trace:
+#0 /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ExceptionManager.php(32): ExceptionManager::DrawErrorPage('TypeError')
+#1 /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ExceptionManager.php(129): ExceptionManager->ExceptionHandler(Object(TypeError))
+#2 /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ErrorLog.php(49): ExceptionManager_ExceptionHandler(Object(TypeError))
+#3 [internal function]: ErrorLog::HandlingException(Object(TypeError))
+#4 {main}
+  thrown
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 150.147.201.27
+User Agent                 ... Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Request URI                ... /tool.php
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:2:{s:14:"app_controller";s:12:"log_download";s:4:"file";s:14:"logs/error.log";}
+SESSION ... a:14:{s:3:"jc2";s:3:"mid";s:0:"";s:32:"0b411b489cf168ee1b7bf280a2ce3c1f";s:18:"search_query_index";s:1:"3";s:17:"search_query_hash";a:3:{s:40:"0d66e76007870e9b1ff9a8fb1f7498400174955b";s:1:"0";s:40:"0d82c89ab632b0599c4685c592d43f8629dd6d32";s:1:"1";s:40:"a48fa8e72c5867e9f9e09caf423619896de7a5ab";s:1:"2";}s:12:"search_query";a:3:{i:0;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"6";s:1:"q";s:1:"0";}i:1;a:7:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:8:"category";s:10:"7aa03c3c18";s:1:"q";s:1:"1";}i:2;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:1:"q";s:1:"2";}}s:51:"authenticity_token_25695c3f8e7a445d833266406c79ebc0";s:32:"25695c3f8e7a445d833266406c79ebc0";s:15:"firstToolAccess";s:1:"1";s:16:"loginedAdminTool";s:1:"1";s:41:"async_cc_b0e956aa2e9044ec669412b2e6db715f";s:87:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=6 #-->";s:41:"async_cc_29df370d615e9127af669b2a81597285";s:107:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3&category=7aa03c3c18 #-->";s:18:"jc2__system_path__";s:1:"/";s:10:"jc2loginid";s:5:"ADMIN";s:12:"jc2logintype";s:5:"admin";s:11:"admin_count";s:12:"0/1751966691";}
+COOKIE  ... a:1:{s:9:"PHPSESSID";s:32:"351ce273ea29eaf49941290701080c7c";}
+
+-----------------------------------------------------
+
+▼ 18時25分14秒 のエラーメッセージ
+
+----------
+
+error : fgets(): Argument #1 ($stream) must be of type resource, bool given
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/adminTool/mvc/log_download/view.php 18
+trace : 
+[error point]
+↑
+fgets(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/adminTool/mvc/log_download/view.php 18
+↑
+Applog_downloadView::drawDownloadHeader( Applog_downloadModel )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/adminTool/mvc/log_download/controller.php 10
+↑
+Applog_downloadController::doDownload(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/mvc/mvc.php 47
+↑
+MVC::Call( 'log_download' ,  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/tool.php 41
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 150.147.201.27
+User Agent                 ... Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Request URI                ... /tool.php
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:2:{s:14:"app_controller";s:12:"log_download";s:4:"file";s:14:"logs/debug.log";}
+SESSION ... a:14:{s:3:"jc2";s:3:"mid";s:0:"";s:32:"0b411b489cf168ee1b7bf280a2ce3c1f";s:18:"search_query_index";s:1:"3";s:17:"search_query_hash";a:3:{s:40:"0d66e76007870e9b1ff9a8fb1f7498400174955b";s:1:"0";s:40:"0d82c89ab632b0599c4685c592d43f8629dd6d32";s:1:"1";s:40:"a48fa8e72c5867e9f9e09caf423619896de7a5ab";s:1:"2";}s:12:"search_query";a:3:{i:0;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"6";s:1:"q";s:1:"0";}i:1;a:7:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:8:"category";s:10:"7aa03c3c18";s:1:"q";s:1:"1";}i:2;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:1:"q";s:1:"2";}}s:51:"authenticity_token_25695c3f8e7a445d833266406c79ebc0";s:32:"25695c3f8e7a445d833266406c79ebc0";s:15:"firstToolAccess";s:1:"1";s:16:"loginedAdminTool";s:1:"1";s:41:"async_cc_b0e956aa2e9044ec669412b2e6db715f";s:87:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=6 #-->";s:41:"async_cc_29df370d615e9127af669b2a81597285";s:107:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3&category=7aa03c3c18 #-->";s:18:"jc2__system_path__";s:1:"/";s:10:"jc2loginid";s:5:"ADMIN";s:12:"jc2logintype";s:5:"admin";s:11:"admin_count";s:12:"0/1751966691";}
+COOKIE  ... a:1:{s:9:"PHPSESSID";s:32:"351ce273ea29eaf49941290701080c7c";}
+
+-----------------------------------------------------
+
+▼ 18時25分14秒 のエラーメッセージ
+
+----------
+
+[shutdown log] Uncaught Error: Class "System" not found in /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ExceptionManager.php:57
+Stack trace:
+#0 /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ExceptionManager.php(32): ExceptionManager::DrawErrorPage('TypeError')
+#1 /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ExceptionManager.php(129): ExceptionManager->ExceptionHandler(Object(TypeError))
+#2 /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/Exception/ErrorLog.php(49): ExceptionManager_ExceptionHandler(Object(TypeError))
+#3 [internal function]: ErrorLog::HandlingException(Object(TypeError))
+#4 {main}
+  thrown
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 150.147.201.27
+User Agent                 ... Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Request URI                ... /tool.php
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:2:{s:14:"app_controller";s:12:"log_download";s:4:"file";s:14:"logs/debug.log";}
+SESSION ... a:14:{s:3:"jc2";s:3:"mid";s:0:"";s:32:"0b411b489cf168ee1b7bf280a2ce3c1f";s:18:"search_query_index";s:1:"3";s:17:"search_query_hash";a:3:{s:40:"0d66e76007870e9b1ff9a8fb1f7498400174955b";s:1:"0";s:40:"0d82c89ab632b0599c4685c592d43f8629dd6d32";s:1:"1";s:40:"a48fa8e72c5867e9f9e09caf423619896de7a5ab";s:1:"2";}s:12:"search_query";a:3:{i:0;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"6";s:1:"q";s:1:"0";}i:1;a:7:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:8:"category";s:10:"7aa03c3c18";s:1:"q";s:1:"1";}i:2;a:6:{s:4:"type";s:7:"article";s:3:"run";s:4:"true";s:4:"mode";s:3:"top";s:7:"embedID";s:14:"article_simple";s:3:"num";s:1:"3";s:1:"q";s:1:"2";}}s:51:"authenticity_token_25695c3f8e7a445d833266406c79ebc0";s:32:"25695c3f8e7a445d833266406c79ebc0";s:15:"firstToolAccess";s:1:"1";s:16:"loginedAdminTool";s:1:"1";s:41:"async_cc_b0e956aa2e9044ec669412b2e6db715f";s:87:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=6 #-->";s:41:"async_cc_29df370d615e9127af669b2a81597285";s:107:"<!--# code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3&category=7aa03c3c18 #-->";s:18:"jc2__system_path__";s:1:"/";s:10:"jc2loginid";s:5:"ADMIN";s:12:"jc2logintype";s:5:"admin";s:11:"admin_count";s:12:"0/1751966691";}
+COOKIE  ... a:1:{s:9:"PHPSESSID";s:32:"351ce273ea29eaf49941290701080c7c";}
+
+-----------------------------------------------------
+
+▼ 01時19分31秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 147.92.179.117
+User Agent                 ... facebookexternalhit/1.1;line-poker/1.0
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 16時59分05秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 91.134.35.95
+User Agent                 ... Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/16.16299
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 08時26分53秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 198.235.24.200
+User Agent                 ... Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 06時38分38秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 205.210.31.178
+User Agent                 ... 
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 07時04分03秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 91.134.35.95
+User Agent                 ... Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 19時29分10秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 147.185.132.106
+User Agent                 ... Hello from Palo Alto Networks, find out more about our scans in https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 16時32分38秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 147.185.132.246
+User Agent                 ... Hello from Palo Alto Networks, find out more about our scans in https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 07時57分04秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 91.134.35.95
+User Agent                 ... Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 16時22分42秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 138.197.5.63
+User Agent                 ... Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 10時48分33秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 198.235.24.59
+User Agent                 ... 
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 14時18分14秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 162.142.125.211
+User Agent                 ... Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 16時02分37秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 205.169.39.57
+User Agent                 ... Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 19時29分44秒 のエラーメッセージ
+
+----------
+
+error : Non-static method SSLUtil::sessionLocation() cannot be called statically
+on    : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 103
+trace : 
+[error point]
+↑
+SSLUtil::scheme_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/include/extends/SSLUtil.php 33
+↑
+SSLUtil::ssl_check(  )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php 198
+↑
+include_once( '/home/xs252061/try-job.com/public_html/medical.try-job.com/custom/head_main.php' )
+		 ... on : /home/xs252061/try-job.com/public_html/medical.try-job.com/index.php 11
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 180.163.220.52
+User Agent                 ... Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Request URI                ... /
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/medical.try-job.com
+
+----------
+
+GET     ... a:0:{}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+

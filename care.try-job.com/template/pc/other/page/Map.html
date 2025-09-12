@@ -1,0 +1,355 @@
+<!--# syscode setTitle 地図から探す - (!--# code getData system ADMIN site_title #--) #-->
+<!--# include head #-->
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+	<script type="text/javascript">
+		var map;
+		var marker_ary = new Array();
+		var currentInfoWindow;
+		var def_zoom = 13;
+		
+		$(function(){
+			/*エリア未設定時の初期表示位置*/
+			initialize(35.6894875,139.6917064);
+			<!--# ifbegin ! val= (!--# code loginid #--)  #-->
+			$("select[name=adds]").val("<!--# code getData nUser (!--# code loginid #--) adds #-->");
+			$("select[name=add_sub]").val("<!--# code getData nUser (!--# code loginid #--) add_sub #-->");
+			moveAdrressMap4Search('<!--# valueAlias adds (!--# code getData nUser (!--# code loginid #--) adds #--) id name #--><!--# valueAlias add_sub (!--# code getData nUser (!--# code loginid #--) add_sub #--) id name #-->');
+			<!--# endif #-->
+
+			$("#changeMap").change(function() {
+				setPointMarker();
+			});
+
+			$("input").on("keydown", function(e) {
+                if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+                    return false;
+                } else {
+                    return true;
+                }
+			});
+			
+			$('#toggleDetail').toggleShow({
+				hideClass: 'none',
+				targetDataName: 'target',
+				toggleHtmlFlg: true,
+				htmlDataName: 'html'
+			});
+		});
+	</script>
+<!--# endif #-->
+<style>
+.detailTR.none {
+	display: none !important;
+}
+</style>
+	<main class="p-map">
+		<div class="is-kv">
+			<div class="is-inner_content">
+				<h1>自宅周辺から探す</h1>
+			</div>
+		</div>
+		<div class="breadcrumb-box">
+			<nav class="is-inner_content">
+				<ol class="breadcrumb">
+					<li><a href="index.html">TOP</a></li>
+					<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+					<li><a href="">業種トップ</a></li>
+					<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+					<li>地図から探す</li>
+				</ol>
+			</nav>
+		</div>
+				<div id="map_canvas"></div>
+		<div class="is-inner_content">
+			<div class="is-map">
+				<h3>地図から探す</h3>
+					<form name="sys_form" id="mapForm">
+						<!--# form hidden type (!--# mod viewMode getSelectedType #--) #-->
+						<input type="hidden" name="cUser_alias" value="owner id match comp" />
+						<div class="search_table">
+							<div class="prefectures">
+								<p>都道府県</p>
+								<!--# ifbegin val= (!--# code getData job_conf ADMIN top_area_range #--) area #-->
+								<!--# code tableSelectForm adds adds name id  未選択 onchange="loadAddSub(this,'adds','add_sub','add_sub','adds_id','none','','','disp')" disp = true area_id = (!--# code getData job_conf ADMIN def_area #--) #-->
+								<!--# elseif val= (!--# code getData job_conf ADMIN top_area_range #--) adds #-->
+								<!--# code tableSelectForm adds adds name id  未選択 onchange="loadAddSub(this,'adds','add_sub','add_sub','adds_id','none','','','disp')" disp = true id = (!--# code getData job_conf ADMIN def_adds #--) #-->
+								<!--# else #-->
+								<!--# code tableSelectForm adds adds name id  未選択 onchange="loadAddSub(this,'adds','add_sub','add_sub','adds_id','none','','','disp')" disp = true #-->
+								<!--# endif #-->
+							</div>
+							<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+							<div class="prefectures_sub">
+								<p>市区町村</p>
+								<!--# code tableSelectForm add_sub add_sub name id  未選択  adds_id = (!--# code getData nUser (!--# code loginid #--) adds #--) disp = true #-->
+								<!--# else #-->
+								<select name="add_sub">
+									<option value="">未選択</option>
+								</select>
+								<!--# endif #-->
+							</div>
+							<!--# endif #-->
+							<p id="foundCounter">マップ上の該当件数<span class="count">0</span>件</p>
+						</div>
+						<div class="is-search__search">
+							<div class="is-search__search__form">
+								<button onclick="addsToMap4Search('adds','add_sub','add_sub2');return false;" class="primary"><i><img src="./common/images/common/icon_search_w.svg" alt=""></i>地図を移動</button>
+								<button type="button" class="secondary" onclick="location.href='index.php?app_controller=search&type=mid&run=true'">
+									<i><img src="./common/images/common/icon_search_2.svg" alt=""></i>条件を選んで探す
+								</button>
+							</div>
+						</div>
+					</form>
+			</div>
+		</div>
+		<div class="is-inner_content is-inner_content--search flex">
+		<div class="is-inner_content_left">
+		<div class="contents_box embed_job other">
+		<h2 style="margin-bottom: 2.4rem;">求人情報リスト</h2>
+		<div class="body">
+			<div class="list_table" id="pointlist">
+				<ul class="cuser_list clearfix">
+					<li>地図描画準備中...</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="is-contacts">
+			<div class="is-contacts-box">
+				<img src="./common/images/common/dammy_img.png" alt="" />
+				<h3>お仕事をお探しの方へ</h3>
+				<p>
+					会員登録をするとあなたに合った転職情報をお知らせできます。1週間で00,000名がスカウトを受け取りました!!
+				</p>
+				<a href="https://care.try-job.com/index.php?app_controller=other&key=CheckValidityForm&type=nUser"
+					class="btn red">無料で会員登録</a>
+				<a href="#" class="link">会員登録でできること</a>
+			</div>
+		
+			<div class="is-contacts-box">
+				<img src="./common/images/common/dammy_img.png" alt="" />
+				<h3>お悩みはありませんか</h3>
+				<p>ジョブメドレーの使い方で不明な点がある場合はお問い合わせください</p>
+				<a href="https://care.try-job.com/index.php?app_controller=register&type=inquiry"
+					class="btn white">お問い合わせ</a>
+				<p class="time">9:00-18:00（土日祝除く）</p>
+			</div>
+		
+			<div class="is-contacts-box">
+				<div class="contact-icon">
+					<img src="./common/images/common/dammy_img.png" alt="" />
+				</div>
+				<h3>もっと気軽に楽しく</h3>
+				<p>転職活動を始めるか悩んでいる時は、友だち追加しておくと希望に近い求人をLINEで受け取れます</p>
+				<div class="qr-box">
+					<img src="./common/images/common/dammy_img.png" alt="QRコード" />
+					<p>QRコード<br />からアクセス</p>
+				</div>
+				<a href="#" class="btn green">友だち追加する</a>
+			</div>
+		</div>
+		<div class="is-column">
+			<h2>求人コラム新着記事</h2>
+			<ul class="media-column">
+				<li>
+		
+					<ul class="flex">
+						<!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3 #--><!--embed-articleListHorizntal END--><!--embed-articleListHorizntal END-->
+					</ul><!--view-article__embed END-->
+				</li>
+			</ul>
+			<a href="(!--# code link searchResult article #--)" class="o-btn is-wh is-arw">もっと見る<i class="o-btn__icon"></i></a>
+		</div>
+		</div>
+		<div class="is-inner_content_right">
+		<div class="is-right_boxes">
+		<div class="is-right_box">
+			<h2>勤続支援金について</h2>
+		</div>
+		<div class="is-right_box">
+			<h2>キャンペーン情報等のバナー</h2>
+		</div>
+		</div>
+
+		<div class="side-bar">
+		<h2>成功するための仕事探し術</h2>
+		<a class="side-bar_contents">
+			<img src="./common/images/common/dammy_img_circle.png" alt="">
+			<p>ぴったりな仕事を探すには</p>
+		</a>
+		<a class="side-bar_contents">
+			<img src="./common/images/common/dammy_img_circle.png" alt="">
+			<p>応募の仕方</p>
+		</a>
+		<a class="side-bar_contents">
+			<img src="./common/images/common/dammy_img_circle.png" alt="">
+			<p>履歴書の書き方</p>
+		</a>
+		<a class="side-bar_contents">
+			<img src="./common/images/common/dammy_img_circle.png" alt="">
+			<p>メッセージの書き方</p>
+		</a>
+		<a class="side-bar_contents">
+			<img src="./common/images/common/dammy_img_circle.png" alt="">
+			<p>初出勤までの準備</p>
+		</a>
+		</div>
+		<div class="is-sns__section">
+		<h2>トライジョブ公式SNS</h2>
+		<ul class="is-sns__list">
+			<li>
+				<a href="#" class="twitter-link"><img src="common/images/common/btn_x.png" alt="Twitter"></a>
+			</li>
+		</ul>
+		<div class="is-sns__facebook">
+			<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/facebook" data-tabs="timeline"
+				data-width="500" data-height="130" data-small-header="false" data-adapt-container-width="true"
+				data-hide-cover="false" data-show-facepile="false" fb-xfbml-state="rendered"
+				fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=248&amp;height=130&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=500">
+				<span style="vertical-align: bottom; width: 248px; height: 130px;"><iframe name="fbc36feb8ed6911d1"
+						width="500px" height="130px" data-testid="fb:page Facebook Social Plugin"
+						title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true"
+						allowfullscreen="true" scrolling="no" allow="encrypted-media"
+						src="https://www.facebook.com/v12.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Dfa80ca76b101924a5%26domain%3Dnetter1.xsrv.jp%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fnetter1.xsrv.jp%252Ffbf8ee554903b78ef%26relation%3Dparent.parent&amp;container_width=248&amp;height=130&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=500"
+						style="border: none; visibility: visible; width: 248px; height: 130px;"
+						class=""></iframe></span>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+<!--contents_box END-->
+	</main>
+
+<!--# include foot #-->
+
+<style>
+	.p-map {
+		background: #FAF7F7;
+	}
+
+	.is-map {
+		padding: 1.6rem;
+		margin-top: -2.4rem;
+		background: #fff;
+	}
+
+	.is-map h3 {
+		font-size: 1.6rem;
+		line-height: 180%;
+		font-weight: bold;
+	}
+
+	.search_table {
+		display: flex;
+		align-items: center;
+		margin-top: 1.6rem;
+		justify-content: center;
+	}
+
+	.search_table .prefectures,
+	.search_table .prefectures_sub {
+		display: flex;
+		width: 37rem;
+		align-items: center;
+		margin-right: 3.2rem;
+	}
+
+	.search_table .prefectures_sub {
+		display: flex;
+		width: 37rem;
+		align-items: center;
+		margin-right: 4.8rem;
+	}
+
+	.search_table .prefectures p,
+	.search_table .prefectures_sub p {
+		font-size: 1.6rem;
+		line-height: 180%;
+		color: #222;
+		font-weight: 500;
+		white-space: nowrap;
+		margin-right: .8rem;
+	}
+
+	.search_table select {
+		flex: 1;
+		padding: 1.3rem 1.2rem;
+		border: 1px solid #999;
+		border-radius: 4px;
+		font-size: 1.4rem;
+		letter-spacing: .04em;
+		cursor: pointer;
+		color: #999;
+	}
+
+	.search_table>p {
+		font-size: 1.4rem;
+		white-space: nowrap;
+		color: #222;
+	}
+
+	.search_table>p span {
+		color: #EE032B;
+		font-size: 2.4rem;
+		font-weight: bold;
+	}
+
+	/* Responsive adjustments */
+	@media screen and (max-width: 768px) {
+		.search_table {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.search_table .prefectures,
+		.search_table .prefectures_sub {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+
+		.search_table>p {
+			margin-top: 10px;
+		}
+
+		.is-offers__item .flex {
+			flex-direction: column;
+		}
+
+		.is-column .flex {
+			flex-direction: column;
+		}
+	}
+
+	.primary {
+		max-width: unset !important;
+	}
+
+	.is-offers__item .flex .text-wrap h3 a {
+		color: #d98e32;
+		font-size: 2rem;
+		font-weight: bold;
+		line-height: 150%;
+	}
+
+	.is-offers__item .flex .text-wrap p {
+		color: #666;
+		font-size: 1.6rem;
+		line-height: 180%;
+	}
+
+	.is-column .flex {
+		display: flex;
+		gap: 1.6rem;
+	}
+
+	.is-column {
+		margin-bottom: 4.8rem;
+	}
+
+@media screen and (max-width: 768px) {
+		.is-column {
+			margin-bottom: 0;
+		}
+	}
+</style>

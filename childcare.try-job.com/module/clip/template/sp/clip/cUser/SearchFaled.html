@@ -1,0 +1,46 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+		<!--# ifbegin val= (!--# get c_id #--)  #-->
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+				<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user scout #--) off &AND& not val= (!--# view Conf drawData user disp_nuser #--) off #-->
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=resume&run=true">求職者を探す</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						検討中リスト
+					</li>
+				<!--# else #-->
+					<li class="wsp_breadcrumnbList__item">
+						検討中リスト
+					</li>
+				<!--# endif #-->
+				</ul>
+			</div>
+		<!--# else #-->
+			<h2>「<!--# valueAlias (!--# get mode #--) (!--# get c_id #--) id name #-->」を検討中の求職者一覧</h2>
+		<!--# endif #-->
+
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						リストにデータがありません。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div><!--wsp_cmnMessage-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

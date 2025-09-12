@@ -1,0 +1,64 @@
+<!--# ifbegin > attention_time (!--# code now u #--) #-->
+<div class="list list_pickup">
+	<!--# else #-->
+	<div class="list">
+		<!--# endif #-->
+	<div class="is-offers_item">
+		<a href="index.php?app_controller=info&type=mid&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #-->
+			<div class="is-offers_item_content">
+				<p><!--# alias items_form work_style id name #-->/<!--# alias items_type category id name #--></p>
+				<h3>
+					<span class=""><!--# alias items_type category id name #-->-</span><a
+						href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=<!--# value id #-->"><!--# value name #--></a>
+					<!--# setTimeFormat U #-->
+					<!--# ifbegin > attention_time (!--# code now u #--) #-->
+					<span class="">おすすめ</span>
+					<!--# endif #-->
+				</h3>
+				<div class="is-offers_item_details">
+					<dl>
+						<dt>給与</dt>
+						<dd><!--# alias items_form work_style id name #--></span><!--# value salary_label #--></dd>
+					</dl>
+					<dl>
+						<dt>仕事内容</dt>
+						<dd><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=mid&id=(!--# value id #--)">続きを読む</a> #-->
+						</dd>
+					</dl>
+					<dl>
+						<dt>応募要件</dt>
+						<dd><!--# value apply_license #--></dd>
+					</dl>
+					<dl>
+						<dt>住所</dt>
+						<dd><!--# ifbegin = foreign_flg TRUE #-->
+							<!--# value foreign_address #-->
+							<!--# else #-->
+							<!--# value work_place_label #-->
+							<!--# endif #-->
+						</dd>
+					</dl>
+				</div>
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+				<div class="buttons">
+					<!--# ifbegin val= (!--# ecode loginUserType #--) nobody #-->
+					<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+					<button class="btn-favorite"
+						onclick="location.href='login.php?redirect_path=index.php%3Fapp_controller=other%26key=history'">
+						<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+					</button>
+					<!--# endif #-->
+					<!--# else #-->
+					<button class="btn-favorite">
+						<!--# mod Clip drawButton (!--# mod viewMode getSelectedType #--) (!--# value id #--) #-->
+					</button>
+					<!--# endif #-->
+
+					<button class="btn-apply"
+						onclick="location.href='index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)'">
+						求人を見る
+					</button>
+				</div>
+			</div>
+	</div>
+	</div><!--list-->

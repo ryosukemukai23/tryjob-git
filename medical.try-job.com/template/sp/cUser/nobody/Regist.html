@@ -1,0 +1,239 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						企業登録
+					</li>
+				</ul>
+			</div>
+
+			<!--# syscode validate is_error #-->
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">企業登録</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+
+						<!--# variable form_begin #-->
+
+						<!--▼登録フォーム-->
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">企業名</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate name #--)">
+									<!--# form text name 40 255 #-->
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate name #-->
+								</span>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">所在地</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<script type="text/javascript">
+									$(function(){
+										toggleforeignDisp();
+										$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+									});
+								</script>
+								<span class="wsp_stylishLabel">
+									<!--# form radio foreign_flg FALSE  FALSE/TRUE 国内/海外 #-->
+								</span>
+								<div id="foreign">
+									<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate foreign_address #--)">
+										<!--# form text foreign_address 50 256  placeholder="住所" #-->
+									</span>
+								</div>
+								<div id="japan">
+									<span class="wsp_formELE wsp_formELE--auto wsp_formELE--(!--# syscode is_validate zip1/zip2 #--)">
+										〒&nbsp;<!--# form text zip1 3 3  #-->&nbsp;-&nbsp;<!--# form text zip2 4 4  #-->
+									</span>
+									<span class="wsp_formELE wsp_formELE--auto">
+										<!--# view Zip drawButton normal #-->
+									</span>
+									<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate adds/add_sub #--)">
+										<!--# view Area drawSelectboxAddress adds add_sub none #-->
+									</span>
+									<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate add_sub2 #--)">
+										<!--# form text add_sub2 50 256 #-->
+									</span>
+									<span class="wsp_formELE">
+										<!--# form text add_sub3 50 256 #-->
+									</span>
+								</div>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate zip1 zip2 adds add_sub add_sub2 foreign_address #-->
+								</span>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">担当者名</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate charge_name #--)">
+									<!--# form text charge_name 40 255 #-->
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate charge_name #-->
+								</span>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">担当者役職</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE">
+									<!--# form text charge_rank 40 255 #-->
+								</span>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">電話番号</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate tel #--)">
+									<!--# form text tel 40 255 #-->
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate tel #-->
+								</span>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">FAX番号</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate fax #--)">
+									<!--# form text fax 40 255 #-->
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate fax #-->
+								</span>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">メールアドレス</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p>
+									<!--# value mail #-->
+									<!--# form hidden mail #-->
+								</p>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate mail #-->
+								</span>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">パスワード</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate pass #--)">
+									<!--# form password pass 30 50 #-->
+								</span>
+								<span class="wsp_formSet__desc__hint">
+									※　ご希望の半角英数字6文字以上
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate pass #-->
+								</span>
+							</dd>
+						</dl>
+						
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">パスワード（確認用）</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate pass_CONFIRM_NOT/pass_CONFIRM_CHECK #--)">
+									<!--# form password pass_confirm 30 50 #-->
+								</span>
+								<span class="wsp_formSet__desc__hint">
+									※　上記と同じものを確認のために入力して下さい。
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate pass_CONFIRM_NOT pass_CONFIRM_CHECK #-->
+								</span>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--center">
+									<input type="submit" value="確認画面へ" class="wsp_formELE__next">
+								</div>
+							</dd>
+						</dl>
+						<!--# form hidden guide TRUE #-->
+						<!--# form hidden information TRUE #-->
+
+						<!--# variable form_end #-->
+
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->
+<script type="text/javascript">
+    $(function(){
+        toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change",toggleforeignDisp);
+    });
+</script>

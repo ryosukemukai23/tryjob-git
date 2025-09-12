@@ -1,0 +1,376 @@
+<!--# include head #-->
+<style>
+	.p-profile .is-inner_content_left {
+		gap: 0;
+	}
+
+	.description {
+		font-size: 1.4rem;
+	}
+
+	.cancel {
+		background-color: #fff;
+		border: none;
+		border-radius: 4px;
+		color: #dd6e21;
+		cursor: pointer;
+		display: block;
+		font-size: 1.2rem;
+		font-weight: normal;
+		line-height: 180%;
+		margin: 1.6rem auto 0;
+		padding: 0.2rem .4rem;
+		width: 10rem;
+		text-align: center;
+		border: 1px solid #dd6e21;
+	}
+
+	.p-profile__policy {
+		margin-top: 2.4rem;
+
+		margin-bottom: 2.4rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile__policy {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.form_table {
+		padding: 0 0 0 0;
+	}
+
+	.is-inner_720 {
+		margin: 0 auto;
+		max-width: 720px;
+		padding: 4.8em 0;
+	}
+
+	.flex {
+		gap: 1.2rem;
+		align-items: center;
+	}
+
+	.closed{
+		color:#dd6e21;
+		width: 47px;
+		height: 20px;
+		line-height: 19px;
+		border: 1px solid #dd6e21;
+		border-radius: 4px;
+		font-size: 1.2rem;
+		font-weight: 500;
+		margin-top: .5rem;
+		display: block;
+    width: fit-content;
+		padding: 0 4px;
+
+	}
+
+	.form_table th{
+		line-height: 180%;
+	}
+
+	.hint{
+		line-height: 150%;
+	}
+
+	.form_table form{
+		max-width: stretch;
+	}
+
+	.form_table select[name="add_sub"],.error{
+		margin-top: 1.2rem;
+	}
+
+	.error{
+		color: red;
+		font-size: 1rem;
+	}
+
+	.form_table input[type="radio"]:checked + label, .form_table label:has(input[type="radio"]:checked) {
+		border-color: #999999 !important;
+		color: #dd6e21 !important;
+	}
+
+	.form_table input[type="radio"]:checked{
+		background: #dd6e21 !important;
+	}
+
+	.form_table input[type="radio"]:checked::after {
+		border-bottom: 1px solid #fff !important;
+    border-left: 1px solid #fff !important;
+	}
+
+	.form_table label{
+		color: #222222 ! important;
+	}
+
+	.terms-link{
+		color: #0066C0 ! important;
+		text-decoration: underline;
+	}
+	.terms-link:hover{
+		color: #0066C0 ! important;
+		text-decoration: underline;
+		opacity: 0.8;
+	}
+
+	input[type="button"][value="郵便番号から住所を検索"]{
+		border-radius: 4px !important;
+		background: #FAF1EB !important;
+		border: none !important;
+		
+	}
+	input[type="button"][value="郵便番号から住所を検索"]:hover{
+		color: #dd6e21;
+		cursor: pointer;
+	}
+
+.terms-label{
+	border: none ! important;
+    white-space: nowrap ! important;
+    margin: 0 auto ! important;
+    width: fit-content ! important;
+		color: #222222 ! important;
+		font-size: 1.6rem !important;
+	}
+
+	@media screen and (max-width: 768px) {
+		.is-inner_720 {
+			padding: 2.4rem 2rem;
+		}
+	}
+</style>
+<main class="p-profile">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>求職者の登録</h1>
+		</div>
+	</div>
+	<div class="breadcrumb-box">
+            <nav class="is-inner_content">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">TOP</a></li>
+                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+                    <li>求職者の登録</li>
+                </ol>
+            </nav>
+        </div>
+	<div class="is-inner_720">
+		<!--# syscode validate is_error #-->
+		<!--# syscode validate is_error #-->
+		<div class="form_table">
+			<!--# variable form_begin #-->
+			<!--▼登録フォーム-->
+
+			<table>
+				<h2 style="margin-bottom: 3.2rem;">登録情報の登録</h2>
+				<caption>求職者情報</caption>
+				<tr>
+					<th>氏名<span class="requisite">必須</span>
+						<br />
+						<span class="closed">非公開</span>
+					</th>
+
+					<td class="(!--# syscode is_validate name/kana #--)">
+						<!--# form text name 40 128 #-->
+						<span class="hint">例：田中太郎</span>
+						<!--# syscode validate name #-->
+					</td>
+				</tr>
+				<tr>
+					<th>氏名(フリガナ)<span class="requisite">必須</span>
+						<br />
+						<span class="closed">非公開</span>
+					</th>
+
+					<td class="(!--# syscode is_validate name/kana #--)">
+						<!--# form text kana 40 128 #-->
+						<span class="hint">例：たなかたろう</span>
+						<!--# syscode validate kana #-->
+					</td>
+				</tr>
+				<tr>
+					<th>ニックネーム<span class="requisite">必須</span></th>
+					<td class="(!--# syscode is_validate nick_name #--)">
+						<!--# form text nick_name 30 128  #-->
+						<span class="hint">※当サイト内における名前表示ではこちらのニックネームが表示されます。</span>
+						<!--# syscode validate nick_name #-->
+					</td>
+				</tr>
+				<tr>
+					<th>住所<span class="requisite">必須</span>
+						<br />
+						<span class="closed">非公開</span>
+					</th>
+
+					<td class="(!--# syscode is_validate zip1/zip2/adds/add_sub #--)">
+						<div class="flex">
+							〒<!--# form text zip1 3 3  #-->-<!--# form text zip2 4 4  #--><!--# view Zip drawButton normal #-->
+						</div>
+						<div class="flex" style="align-items: center;">
+						<!--# view Area drawSelectboxAddress adds add_sub none #-->
+						</div>
+						<!--# form text add_sub2 50 256  #-->
+						<!--# form text add_sub3 50 256 #-->
+						<!--# syscode validate zip1 zip2 adds add_sub add_sub2 #-->
+					</td>
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							// 都道府県セレクトボックス
+							const prefectureSelect = document.querySelector('select[name="adds"]');
+							if (prefectureSelect) {
+								const firstOption = prefectureSelect.querySelector('option');
+								if (firstOption && firstOption.value === "") {
+									firstOption.textContent = '都道府県';
+								} else {
+									const placeholderOption = document.createElement('option');
+									placeholderOption.textContent = '都道府県';
+									placeholderOption.value = '';
+									placeholderOption.disabled = true;
+									placeholderOption.selected = true;
+									prefectureSelect.insertBefore(placeholderOption, prefectureSelect.firstChild);
+								}
+							}
+					
+							// 市区町村セレクトボックス
+							const citySelect = document.querySelector('select[name="add_sub"]');
+							if (citySelect) {
+								const firstOption = citySelect.querySelector('option');
+								if (firstOption && firstOption.value === "") {
+									firstOption.textContent = '市区町村';
+								} else {
+									const placeholderOption = document.createElement('option');
+									placeholderOption.textContent = '市区町村';
+									placeholderOption.value = '';
+									placeholderOption.disabled = true;
+									placeholderOption.selected = true;
+									citySelect.insertBefore(placeholderOption, citySelect.firstChild);
+								}
+							}
+					
+							// 番地の入力欄
+							const addressInput = document.querySelector('input[name="add_sub2"]');
+							if (addressInput) {
+								addressInput.placeholder = '番地';
+							}
+					
+							// ビル・マンション名の入力欄
+							const buildingInput = document.querySelector('input[name="add_sub3"]');
+							if (buildingInput) {
+								buildingInput.placeholder = 'マンション・ビル名等';
+							}
+						});
+					</script>
+					
+
+				</tr>
+				<tr>
+					<th>メールアドレス<span class="requisite">必須</span>
+					<br>
+					<span class="closed">非公開</span></th>
+					<td class="(!--# syscode is_validate mail #--)">
+						<!--# value mail #-->
+						<!--# form hidden mail #-->
+						<!--# syscode validate mail #-->
+					</td>
+				</tr>
+				<tr>
+					<th>電話番号<br />
+						<span class="closed">非公開</span></th>
+
+					<td class="(!--# syscode is_validate tel #--)">
+						<!--# form text tel 32 64 #-->
+						<!--# syscode validate tel #-->
+						<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+					</td>
+				</tr>
+				<tr>
+					<th>携帯電話番号<br />
+						<span class="closed">非公開</span></th>
+
+					<td class="(!--# syscode is_validate mobile_tel #--)">
+						<!--# form text mobile_tel 32 64 #-->
+						<!--# syscode validate mobile_tel #-->
+						<span class="hint">求人企業側からの連絡手段のひとつとなりますので、誤りのないよう正確に入力します。</span>
+					</td>
+				</tr>
+				<tr>
+					<th>パスワード<span class="requisite">必須</span>
+						<br />
+						<span class="closed">非公開</span>
+					</th>
+
+					<td class="(!--# syscode is_validate pass #--)">
+						<!--# form password pass 30 50 #-->
+						<span class="hint">※ご希望の半角英数字6文字以上</span>
+						<!--# syscode validate pass #-->
+					</td>
+				</tr>
+				<tr>
+					<th>確認用パスワード<span class="requisite">必須</span>
+						<br />
+						<span class="closed">非公開</span>
+					</th>
+
+					<td class="(!--# syscode is_validate pass_CONFIRM_NOT/pass_CONFIRM_CHECK #--)">
+						<!--# form password pass_confirm 30 50 #-->
+						<span class="hint">※確認のために上記と同じものを入力して下さい。</span>
+						<!--# syscode validate pass_CONFIRM_NOT pass_CONFIRM_CHECK #-->
+					</td>
+				</tr>
+			</table>
+			<!--# include DMConfRegistForm_n #-->
+
+			<form id="termsForm">
+				<div class="terms-check-area">
+					<label class="terms-label">
+						<input type="checkbox" id="termsCheck" />
+						<span class="check-text">
+							<a href="https://childcare.try-job.com/index.php?app_controller=page&p=membership"class="terms-link">利用規約、プライバシーポリシー</a>の内容を確認し同意します。
+						</span>
+					</label>
+				</div>
+				<p class="button">
+					<input type="submit" name="Submit" value="確認画面へ" class="btn_check" id="submitBtn" disabled />
+				</p>
+			</form>
+			<!--# form hidden mid #-->
+			<!--# variable form_end #-->
+		</div><!--form_table END-->
+	</div>
+	</div>
+</main>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const checkbox = document.getElementById('termsCheck');
+		const button = document.getElementById('submitBtn');
+	
+		// 最初はグレーアウト
+		button.disabled = true;
+		button.style.background = '#ccc';
+		button.style.cursor = 'not-allowed';
+		button.style.opacity = '0.6';
+	
+		// チェック状態でボタンの状態切り替え
+		checkbox.addEventListener('change', function () {
+			if (this.checked) {
+				button.disabled = false;
+				button.style.background = '#dd6e21'; // 有効時の色
+				button.style.cursor = 'pointer';
+				button.style.opacity = '1';
+			} else {
+				button.disabled = true;
+				button.style.background = '#ccc'; // 無効時の色
+				button.style.cursor = 'not-allowed';
+				button.style.opacity = '0.6';
+			}
+		});
+	});
+	</script>
+
+<!--# include foot #-->

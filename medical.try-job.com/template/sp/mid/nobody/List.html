@@ -1,0 +1,124 @@
+<!--# setTimeFormat Y/m/d #-->
+
+<!--# ifbegin > attention_time (!--# code now u #--) #-->
+<!--# // ピックアップ求人 #-->
+			<div class="jobInfoCard jobInfoCard--pickup">
+				<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)" class="jobInfoCard__more"></a>
+				<div class="jobInfoCard__head">
+					<div class="jobInfoCard__head__data">
+						<span class="jobInfoCard__head__data__workstyle"><!--# alias items_form work_style id name #--></span>
+					<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+						<div class="jobInfoCard__gift">
+							<div class="jobInfoCard__gift__">
+								<span class="jobInfoCard__gift__label">お祝い金</span>
+								<span class="jobInfoCard__gift__price"><!--# comma alias items_form work_style id gift #-->円</span>
+							</div>
+						</div>
+					<!--# endif #-->
+						<span class="jobInfoCard__head__data__pickup">おすすめ</span>
+						<span class="jobInfoCard__head__data__edit">更新日:<!--# value edit #--></span>
+					</div>
+					<h3 class="jobInfoCard__head__title">
+						<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 38 #--></a>
+					</h3>
+				</div><!--jobInfoCard__head-->
+				<div class="jobInfoCard__body">
+					<div class="jobInfoCard__body__pr">
+						<div class="jobInfoCard__body__pr__thumb"><!--# object image image1 size 600 450 not <img\ src="common/img/noimage.gif"> #--></div>
+						<div class="jobInfoCard__body__pr__text"><!--# code Continuation (!--# value job_pr false #--) 128 #--></div>
+					</div>
+					<div class="jobInfoCard__body__data">
+						<table>
+							<tr>
+								<th>職業</th>
+								<td><!--# alias items_type category id name #--></td>
+							</tr>
+							<tr>
+								<th>勤務形態</th>
+								<td><!--# alias items_form work_style id name #--></td>
+							</tr>
+							<tr>
+								<th>給与</th>
+								<td><!--# code Continuation (!--# escp value salary_label false #--) 38 #--></td>
+							</tr>
+							<tr>
+								<th>勤務地</th>
+								<td><!--# alias adds work_place_adds id name #-->&nbsp;<!--# alias add_sub work_place_add_sub id name #--></td>
+							</tr>
+						</table>
+					</div>
+				</div><!--jobInfoCard__body-->
+				<div class="jobInfoCard__foot">
+					<div class="userActionLinks">
+						<div class="userActionLinks__fav"><a href="login.php" class="userActionLinks__fav__btn"><span>検討中リストに追加</span></a></div>
+						<div class="userActionLinks__more"><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)" class="userActionLinks__more__btn"><span><i class="fa fa-file-text-o" aria-hidden="true"></i>詳細を見る</span></a></div>
+					</div>
+					<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+					<div class="jobInfoCardLimitation">
+						<span class="jobInfoCardLimitation__label"><i class="fa fa-lock" aria-hidden="true"></i>会員限定の求人情報です</span>
+					</div>
+					<!--# endif #-->
+				</div><!--jobInfoCard__foot-->
+
+			</div><!--jobInfoCard-->
+<!--# else #-->
+<!--# // ピックアップ求人ではない #-->
+			<div class="jobInfoCard">
+				<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)" class="jobInfoCard__more"></a>
+				<div class="jobInfoCard__head">
+					<div class="jobInfoCard__head__data">
+						<span class="jobInfoCard__head__data__workstyle"><!--# alias items_form work_style id name #--></span>
+					<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+						<div class="jobInfoCard__gift">
+							<div class="jobInfoCard__gift__">
+								<span class="jobInfoCard__gift__label">お祝い金</span>
+								<span class="jobInfoCard__gift__price"><!--# comma alias items_form work_style id gift #-->円</span>
+							</div>
+						</div>
+					<!--# endif #-->
+						<span class="jobInfoCard__head__data__edit">更新日:<!--# value edit #--></span>
+					</div>
+					<h3 class="jobInfoCard__head__title">
+						<a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 38 #--></a>
+					</h3>
+				</div><!--jobInfoCard__head-->
+				<div class="jobInfoCard__body">
+					<div class="jobInfoCard__body__pr">
+						<div class="jobInfoCard__body__pr__thumb"><!--# object image image1 size 600 450 not <img\ src="common/img/noimage.gif"> #--></div>
+						<div class="jobInfoCard__body__pr__text"><!--# code Continuation (!--# value job_pr false #--) 128 #--></div>
+					</div>
+					<div class="jobInfoCard__body__data">
+						<table>
+							<tr>
+								<th>職業</th>
+								<td><!--# alias items_type category id name #--></td>
+							</tr>
+							<tr>
+								<th>勤務形態</th>
+								<td><!--# alias items_form work_style id name #--></td>
+							</tr>
+							<tr>
+								<th>給与</th>
+								<td><!--# code Continuation (!--# escp value salary_label false #--) 38 #--></td>
+							</tr>
+							<tr>
+								<th>勤務地</th>
+								<td><!--# alias adds work_place_adds id name #-->&nbsp;<!--# alias add_sub work_place_add_sub id name #--></td>
+							</tr>
+						</table>
+					</div>
+				</div><!--jobInfoCard__body-->
+				<div class="jobInfoCard__foot">
+					<div class="userActionLinks">
+						<div class="userActionLinks__fav"><a href="login.php" class="userActionLinks__fav__btn"><span>検討中リストに追加</span></a></div>
+						<div class="userActionLinks__more"><a href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)" class="userActionLinks__more__btn"><span><i class="fa fa-file-text-o" aria-hidden="true"></i>詳細を見る</span></a></div>
+					</div>
+					<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+					<div class="jobInfoCardLimitation">
+						<span class="jobInfoCardLimitation__label"><i class="fa fa-lock" aria-hidden="true"></i>会員限定の求人情報です</span>
+					</div>
+					<!--# endif #-->
+				</div><!--jobInfoCard__foot-->
+
+			</div><!--jobInfoCard-->
+<!--# endif #-->

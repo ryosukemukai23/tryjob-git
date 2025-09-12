@@ -1,0 +1,70 @@
+<!--# readhead job #-->
+
+<!--# setTimeFormat Y/m/d #-->
+
+<div class="is-offers__item" style="margin-bottom: 1.6rem;">
+	<div class="flex" style="border-bottom: 1px solid #e6e6e6; gap: 1.6rem; padding: 1.6rem;">
+		<div class="img-wrap" style="min-width: 304px;">
+			<a
+				href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=<!--# value id #-->"><!--# object image image1 size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></a>
+		</div>
+		<div class="text-wrap">
+			<h3>
+				<span class=""><!--# alias items_type category id name #-->-</span><a
+					href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=<!--# value id #-->"><!--# value name #--></a>
+				<!--# setTimeFormat U #-->
+				<!--# ifbegin > attention_time (!--# code now u #--) #-->
+				<span class="">おすすめ</span>
+				<!--# endif #-->
+			</h3>
+			<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ...\ <a\ href="index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)">続きを読む</a> #-->
+			</p>
+		</div>
+	</div>
+	<div class="is-offers__content">
+		<div class="is-offers__details">
+			<dl>
+				<dt>給与</dt>
+				<dd><span
+						style="margin-right: .8rem;"><!--# alias items_form work_style id name #--></span><!--# value salary_label #-->
+				</dd>
+			</dl>
+			<dl>
+				<dt>応募資格</dt>
+				<dd><!--# value apply_license #--></dd>
+			</dl>
+			<dl>
+				<dt>勤務地</dt>
+				<dd><!--# ifbegin = foreign_flg TRUE #-->
+					<!--# value foreign_address #-->
+					<!--# else #-->
+					<!--# value work_place_label #-->
+					<!--# endif #-->
+				</dd>
+			</dl>
+		</div>
+		<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+		<div class="buttons">
+			<!--# ifbegin val= (!--# ecode loginUserType #--) nobody #-->
+			<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on #-->
+			<button class="btn-favorite"
+				onclick="location.href='login.php?redirect_path=index.php%3Fapp_controller=other%26key=history'">
+				<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+			</button>
+			<!--# endif #-->
+			<!--# else #-->
+			<button class="btn-favorite">
+				<!--# mod Clip drawButton (!--# mod viewMode getSelectedType #--) (!--# value id #--) #-->
+			</button>
+			<!--# endif #-->
+
+			<button class="btn-apply"
+				onclick="location.href='index.php?app_controller=info&type=(!--# mod viewMode getSelectedType #--)&id=(!--# value id #--)'">
+				求人を見る
+			</button>
+		</div>
+	</div>
+</div>
+
+<!--# readend #-->
+

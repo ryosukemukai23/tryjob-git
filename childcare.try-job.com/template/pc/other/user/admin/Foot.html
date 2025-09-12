@@ -1,0 +1,43 @@
+
+</div><!--container END-->
+</div><!--wrapper END-->
+
+</div><!--cmslWrapper END-->
+
+<script type="text/javascript">
+
+	$(function(){
+		var defaultWrapperHeight = $(window).height();
+
+		$('.cpcNav__item__toggle').on("click",function() {
+			$(this).toggleClass('cpcNav__item__toggle--active');
+			$(this).next('.cpcNav__').stop(true, true).toggle({
+				duration:0,
+				done:function(){
+					var minHeight;
+					var currentMinHeight = $(".ctrlPanel__container").height();
+
+					if(defaultWrapperHeight < currentMinHeight)
+						minHeight = currentMinHeight;
+					else
+						minHeight = defaultWrapperHeight;
+
+					$("[data-wrapper-height]").css("min-height",minHeight);
+				}
+			});
+		});
+
+		//クリックイベント
+		$('#ctrlPanelSwitch').on("click",function(){
+			$('.ctrlPanel').toggleClass('ctrlPanel--open');
+		});
+		//クリックイベント
+		$('#ctrlPanelSwitch2').on("click",function(){
+			$('.ctrlPanel').toggleClass('ctrlPanel--open--sp');
+		});
+		//クリックイベント
+		$('#searchPanelSwitch').on("click",function(){
+			$('#commonForm--toggle').toggleClass('commonForm--toggle');
+		});
+	});
+</script>

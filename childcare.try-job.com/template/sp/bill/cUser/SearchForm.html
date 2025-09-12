@@ -1,0 +1,46 @@
+<div class="wsp_cmnSearchBox" style="display:none;background:#FFF;" id="searchFormToggle">
+	<div class="wsp_cmnSearchBox__">
+		<div class="wsp_cmnSearchBox__body">
+
+			<form name="search_form" id="search_form" method="get" action="index.php">
+				<input name="app_controller" type="hidden" value="search" />
+				<input name="run" type="hidden" value="true" />
+				<input type="hidden" name="type" value="(!--# get type #--)" />
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">入金報告</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# form checkbox notice   TRUE/FALSE 済/未 #-->
+							<input name="notice_PAL[]" type="hidden" value="match in" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">入金確認</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# form checkbox pay_flg   TRUE/FALSE 済/未 #-->
+							<input name="pay_flg_PAL[]" type="hidden" value="match in" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dd class="wsp_formSet__desc">
+						<div class="wsp_formELE wsp_formELE--center">
+							<input type="submit" value="検索する" class="wsp_formELE__next">
+						</div>
+					</dd>
+				</dl>
+
+			</form>
+
+		</div><!--wsp_cmnSearchBox__body-->
+	</div><!--wsp_cmnSearchBox-->
+</div><!--wsp_cmnSearchBox-->

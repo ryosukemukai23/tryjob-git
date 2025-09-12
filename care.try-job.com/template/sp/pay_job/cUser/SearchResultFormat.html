@@ -1,0 +1,85 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						利用状況
+					</li>
+				</ul>
+			</div>
+
+<!--# ifbegin get= view vm2 #-->
+<!--# // アクティブなタブがvm2 #-->
+			<div class="cmn-listTab">
+				<ul class="cmn-listTab__list">
+					<li class="cmn-listTab__list__item"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&view=vm1">利用履歴</a></li>
+					<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&view=vm2">契約中の基本サービス</a></li>
+				</ul>
+			</div>
+
+			<div id="pay_simple">
+				<ul class="linkListPanel" style="font-size:12px;">
+					<!--# async code embedSearch type=pay_job&run=true&pay_flg=true&pay_flg_PAL[]=match+comp&embedID=pay_simple&max=label #-->
+				</ul>
+			</div>
+
+<!--# else #-->
+<!--# // アクティブなタブがvm2以外 #-->
+			<div class="cmn-listTab">
+				<ul class="cmn-listTab__list">
+					<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&view=vm1">利用履歴</a></li>
+					<li class="cmn-listTab__list__item"><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&view=vm2">契約中の基本サービス</a></li>
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList">
+					<li><a onclick="$('#searchFormToggle').toggle();return false;"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;絞り込み</a></li>
+					<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+				</ul>
+			<!--# ifbegin val= (!--# view Conf drawData charges user_limit #--) on #-->
+				<ul class="wsp_switchList wsp_switchList--blue">
+					<li class="wsp_switchList__active"><a href="./index.php?app_controller=register&type=pay_job">有料サービスを新規契約</a></li>
+				</ul>
+			<!--# endif #-->
+			</div><!--wsp_resultNav-->
+			
+			<!--# include pay_jobSearchForm #-->
+
+			<div class="main">
+				<ul class="wsp_notification wsp_notification--auto">
+					<!--# syscode searchResult result #-->
+				</ul>
+			</div>
+
+			<!--# syscode searchResult info #-->
+			<!--# syscode searchResult pageChange #-->
+
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						ご利用になられたサービスの利用料金は月単位で一括で請求が行われます。
+						請求は(!--# view bill drawCloseDay #--)締め、請求書は(!--# view bill drawBillingDay #--)にご登録のメールアドレス宛に送信されます。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div>
+<!--# endif #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

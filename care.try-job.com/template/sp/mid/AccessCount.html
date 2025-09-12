@@ -1,0 +1,117 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						アクセス状況
+					</li>
+				</ul>
+			</div>
+
+			<!--# ifbegin val= (!--# code loginid #--) ADMIN |OR| val= (!--# code loginid #--) (!--# view Job getJobData (!--# value id #--) owner #--) #-->
+			<div class="cmslPanel">
+				<div class="cmslPanel__title">求人情報(<a href="index.php?app_controller=info&type=mid&id=(!--# value id #--)">(!--# value id #--)</a>)へのアクセス</div>
+				<div class="cmslPanel__body">
+
+					<script type="text/javascript">
+					$(function () {
+						var chart;
+						$(document).ready(function() {
+							chart = new Highcharts.Chart({
+								chart: {
+									renderTo: 'charts_container',
+									type: 'line',
+									marginRight: 15,
+									marginBottom: 50
+								},
+								title: {
+									text: '<span style="font-family: Meiryo;font-size: 14px;">(!--# value y  (!--# code now y #--) #--)年 (!--# value m  (!--# code now m #--) #--)月 の訪問者 ： <!--# ecode drawAccessCountAll (!--# get y #--) (!--# get m #--) (!--# get id #--) #--> 人</span>',
+									x: -20 //center
+								},
+								subtitle: {
+									text: '<span style="font-family: Meiryo;"></span>',
+									x: -20
+								},
+								xAxis: {
+									categories: [<!--# ecode drawAccessCountDate (!--# get y #--) (!--# get m #--) #-->]
+								},
+								yAxis: {
+									title: {
+										text: ''
+									},
+									plotLines: [{
+										value: 0,
+										width: 1,
+										color: '#0099ff'
+									}]
+								},
+								tooltip: {
+									formatter: function() {
+											return '<b>訪問者数</b><br/>'+this.x +'日 ： '+ this.y +'人';
+									}
+								},
+								legend: {
+									layout: 'vertical',
+									align: 'right',
+									verticalAlign: 'top',
+									x: -10,
+									y: 100,
+									borderWidth: 0
+								},
+								series: [{
+									name: '<span style="font-family: Meiryo;">訪問者数</span>',
+									data: [<!--# ecode drawAccessCountNum (!--# get y #--) (!--# get m #--) (!--# get id #--) #-->]
+								}]
+							});
+						});
+					});
+					function acJump(){
+						var year=$("select[name=year] option:selected").val();
+						var month=$("select[name=month] option:selected").val();
+						location.href="index.php?app_controller=other&key=AccessCount&id=<!--# value id #-->&type=mid&y="+year+"&m="+month;
+					}
+					</script>
+					<script src="./common/js/module/highcharts/highcharts.js"></script>
+					<script src="./common/js/module/highcharts/modules/exporting.js"></script>
+					
+						<span class="wsp_formELE wsp_formELE--right">
+							<!--# code num_option year (!--# code now y #--) (!--# value y  (!--# code now y #--) #--) 2011 -- #-->&nbsp;年&nbsp;
+							<!--# code num_option month 12 (!--# value m  (!--# code now m #--) #--) 1 -- #-->&nbsp;月の&nbsp;
+							<input type="button" value="データを表示" onclick="acJump();">
+						</span>
+					</div><!--cmslPanel__body-->
+					
+					<div class="cmslPanel__body">
+						<div id="charts_container" style="width: 100%; height: 360px; margin:10px 0px;"></div>
+					</div>
+
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+			<!--# else #-->
+
+				<div class="wsp_cmnMessage wsp_cmnMessage--red">
+					<div class="wsp_cmnMessage__">
+						<div class="wsp_cmnMessage__text">
+							このページへのアクセス権限がありません。<br>アクセス元のリンクに問題がある可能性があります。
+						</div>
+					</div><!--wsp_cmnMessage__-->
+				</div><!--wsp_cmnMessage-->
+				
+			<!--# endif #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

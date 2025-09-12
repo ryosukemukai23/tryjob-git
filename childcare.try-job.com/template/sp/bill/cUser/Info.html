@@ -1,0 +1,190 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">料金請求</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						詳細
+					</li>
+				</ul>
+			</div>
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__body">
+
+					<ul class="wsp_notification wsp_notification--auto">
+						<!--# setTimeFormat Y/m/d #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--(!--# valueReplace pay_flg TRUE/FALSE aqua/red #--)">
+										料金請求
+									</span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										<b><!--# value demand_s #--> から <!--# value demand_e #--> ご利用分</b>
+									</div>
+									<ul class="wsp_articlePointList">
+										<li class="wsp_articlePointList__item">
+											<div class="wsp_articlePointList__item__">
+												<span class="wsp_articlePointList__item__label"><i class="fa fa-jpy" aria-hidden="true"></i></span>
+												<span class="wsp_articlePointList__item__name"><!--# comma value money #--></span>
+											</div>
+										</li>
+									</ul>
+									<div class="wsp_notificationCard__body__date">
+										請求日：<!--# setTimeFormat Y/m/d #--><!--# value billdate #-->
+									</div>
+								</div><!--wsp_notificationCard__body-->
+							</div>
+						</li>
+					</ul>
+					
+				</div><!--cmslPanel__body-->
+
+				<div class="cmslPanel__body cmslPanel__body--p20">
+<!--# ifbegin get= view vm3 #-->
+<!--# // アクティブなタブがvm3 #-->
+
+					<div class="cmn-listTab">
+						<ul class="cmn-listTab__list">
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm1">請求情報</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">利用明細</a></li>
+							<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">入金状況</a></li>
+						</ul>
+					</div>
+
+					<!--# variable form_begin #-->
+					<div class="wsp_cmnForm">
+						<div class="wsp_cmnForm__">
+							<div class="wsp_cmnForm__body">
+
+								<dl class="wsp_formSet">
+									<dt class="wsp_formSet__title">
+										<span class="wsp_formSet__title__name">入金報告</span>
+									</dt>
+									<dd class="wsp_formSet__desc">
+									<!--# ifbegin = notice TRUE #-->
+										<p>済</p>
+									<!--# else #-->
+										<span class="wsp_stylishLabel">
+											<!--# form radio notice notice  TRUE/FALSE 済/未 #-->
+											<input name="pay_flg_PAL[]" type="hidden" value="match in" />
+										</span>
+										<span class="wsp_formSet__desc__hint">銀行振込にて入金後、こちらの入金報告を「済」にし、「変更を反映」してください。</span>
+									<!--# endif #-->
+									</dd>
+								</dl>
+			
+								<!--# ifbegin = notice TRUE #-->
+								<!--# else #-->
+								<dl class="wsp_formSet wsp_formSet--horizontal">
+									<dd class="wsp_formSet__desc">
+										<div class="wsp_formELE wsp_formELE--center">
+											<input type="submit" value="変更を反映する" class="wsp_formELE__next">
+										</div>
+									</dd>
+								</dl>
+								<!--# endif #-->
+			
+								<!--# ifbegin = notice TRUE #-->
+								<dl class="wsp_formSet">
+									<dt class="wsp_formSet__title">
+										<span class="wsp_formSet__title__name">入金確認</span>
+									</dt>
+									<dd class="wsp_formSet__desc">
+										<p><!--# valueReplace pay_flg TRUE/FALSE 済/<span\ class="att">未<\/span> #--></p>
+									</dd>
+								</dl>
+								<!--# endif #-->
+
+							</div><!--wsp_cmnForm__body-->
+						</div><!--wsp_cmnForm__-->
+					</div><!--wsp_cmnForm-->
+
+					<!--# variable form_end #-->
+
+<!--# elseif get= view vm2 #-->
+<!--# // アクティブなタブがvm2 #-->
+
+					<div class="cmn-listTab">
+						<ul class="cmn-listTab__list">
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm1">請求情報</a></li>
+							<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">利用明細</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">入金状況</a></li>
+						</ul>
+					</div>
+
+					<!--# view bill drawBillsList (!--# value id #--) html #-->
+
+
+<!--# else #-->
+<!--# // アクティブなタブがそれら以外 #-->
+
+					<div class="cmn-listTab">
+						<ul class="cmn-listTab__list">
+							<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm1">請求情報</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">利用明細</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">入金状況</a></li>
+						</ul>
+					</div>
+					
+					<div class="commonForm">
+						<div class="commonForm__">
+	
+							<table class="commonForm__tbl commonForm__tbl--check commonForm__tbl--responsive">
+								<tr>
+									<th style="width:200px;">請求日</th>
+									<td>
+										<p><!--# setTimeFormat Y/m/d #--><!--# value billdate #--></p>
+									</td>
+								</tr>
+								<tr>
+									<th>請求対象期間</th>
+									<td>
+										<p><!--# setTimeFormat Y/m/d #--><!--# value demand_s #--> ～ <!--# value demand_e #--></p>
+									</td>
+								</tr>
+								<tr>
+									<th>請求代金</th>
+									<td><p><!--# comma value money #--> 円</p></td>
+								</tr>
+								<tr>
+									<th style="width:200px;">お振込み口座情報</th>
+									<td>
+										<p>
+											<!--# ecode getSiteProfile bank_name #--><br />
+											支店名:<!--# ecode getSiteProfile branch_name #--><br />
+											口座番号: (<!--# valueValueReplace (!--# ecode getSiteProfile account_type #--) 1/2/4 普通/当座/貯蓄 #-->) <!--# ecode getSiteProfile account_cd #--><br />
+											振込先:	<!--# ecode getSiteProfile account_name #-->
+										</p>
+									</td>
+								</tr>
+							</table>
+						</div><!--commonForm__-->
+					</div><!--commonForm-->
+
+<!--# endif #-->
+
+				</div><!--cmslPanel__body-->
+
+			</div><!--cmslPanel-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

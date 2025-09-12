@@ -1,0 +1,54 @@
+<!--# setTimeFormat Y/m/d #-->
+<li class="wsp_itemList__item">
+	<div class="wsp_embedItemCard">
+		<div class="wsp_embedItemCard__">
+			<a href="index.php?app_controller=info&type=resume&id=(!--# value id #--)" class="wsp_embedItemCard__showMore"></a>
+			<div class="wsp_embedItemCard__body">
+				<div class="wsp_embedItemPrev wsp_embedItemPrev--aiCenter">
+					<div class="wsp_embedItemPrev__thumb wsp_embedItemPrev__thumb--padding">
+						<span class="wsp_embedItemPrev__thumb__uIcon wsp_embedItemPrev__thumb__uIcon--blue"><!--# code Continuation (!--# alias nUser owner id nick_name #--) 1 \  #--></span>
+					</div>
+					<div class="wsp_embedItemPrev__body">
+						<div class="wsp_itemDataPrev">
+							<div class="wsp_itemDataPrev__name"><span><!--# alias nUser owner id nick_name #--></span>&nbsp;さん</div>
+							<div class="wsp_itemDataPrev__data">
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name">
+												<!--# alias adds adds_id id name 未指定 #-->&nbsp;<!--# valueAlias add_sub (!--# alias nUser owner id add_sub #--) id name #-->
+											</span>
+										</div>
+									</li>
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name"><!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #-->歳/<!--# valueReplace sex m/f 男性/女性 #--></span>
+										</div>
+									</li>
+								</ul>
+								<ul class="wsp_articlePointList">
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-sliders" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name"><!--# value recent_state #--></span>
+										</div>
+									</li>
+									<!--# ifbegin ! val= (!--# value transfer #--) #-->
+									<li class="wsp_articlePointList__item">
+										<div class="wsp_articlePointList__item__">
+											<span class="wsp_articlePointList__item__label"><i class="fa fa-sliders" aria-hidden="true"></i></span>
+											<span class="wsp_articlePointList__item__name"><!--# value transfer #--></span>
+										</div>
+									</li>
+									<!--# endif #-->
+								</ul>
+							</div><!--wsp_itemDataPrev__data-->
+						</div><!--wsp_itemDataPrev-->
+					</div><!--wsp_embedItemPrev__body-->
+				</div>
+			</div><!--wsp_embedItemCard__body-->
+		</div>
+	</div><!--wsp_embedItemCard-->
+</li>

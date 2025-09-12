@@ -1,0 +1,111 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&pal=(!--# get pal #--)">受信したメッセージ</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						履歴
+					</li>
+				</ul>
+			</div>
+
+			<div id="message_simple">
+				<!--# async code embedSearch type=message&run=true&thread_id=(!--# value thread_id #--)&thread_id_PAL[]=match+comp&sort=regist&sort_PAL=asc&embedID=message_simple #-->
+				<p class="description" data-async-loader>メッセージ履歴を読み込んでいます...</p>
+			</div>
+
+			<script type="text/javascript">
+			function shortMessage(){
+				$("form[method=post]").attr("action",$("form[method=post]").attr("action")+"&mailtype=reply&destination="+$("input[name=id]").val());
+				$("form[method=post]").submit();
+			}
+			</script>
+
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">返信メッセージの作成</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+			
+						<form action="index.php?app_controller=register&type=message" method="post">
+
+							<dl class="wsp_formSet">
+								<dt class="wsp_formSet__title">
+									<span class="wsp_formSet__title__name">送信先</span>
+									<div class="wsp_formSet__title__tool">
+										<span class="wsp_formSetRequired">※必須</span>
+									</div>
+								</dt>
+								<dd class="wsp_formSet__desc">
+									<p>
+									<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+										<!--# alias nUser owner id name 退会ユーザー #-->
+									<!--# else #-->
+										<!--# alias nUser owner id nick_name 退会ユーザー #-->
+									<!--# endif #-->
+									</p>
+		         					<input type="hidden" name="id" value="<!--# value owner #-->">
+								</dd>
+							</dl>
+
+							<dl class="wsp_formSet">
+								<dt class="wsp_formSet__title">
+									<span class="wsp_formSet__title__name">件名</span>
+									<div class="wsp_formSet__title__tool">
+										<span class="wsp_formSetRequired">※必須</span>
+									</div>
+								</dt>
+								<dd class="wsp_formSet__desc">
+									<span class="wsp_formELE">
+										<!--# form text sub 60 60 #-->
+									</span>
+								</dd>
+							</dl>
+
+							<dl class="wsp_formSet">
+								<dt class="wsp_formSet__title">
+									<span class="wsp_formSet__title__name">メッセージ</span>
+									<div class="wsp_formSet__title__tool">
+										<span class="wsp_formSetRequired">※必須</span>
+									</div>
+								</dt>
+								<dd class="wsp_formSet__desc">
+									<span class="wsp_formELE">
+										<!--# form textarea message 85 10 #-->
+									</span>
+								</dd>
+							</dl>
+
+							<dl class="wsp_formSet">
+								<dd class="wsp_formSet__desc">
+									<div class="wsp_formELE wsp_formELE--center">
+										<input type="submit" value="メッセージの送信画面へ" class="wsp_formELE__next" onclick="shortMessage();">
+									</div>
+								</dd>
+							</dl>
+
+						</form>
+			
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

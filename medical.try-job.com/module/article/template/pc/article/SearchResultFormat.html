@@ -1,0 +1,85 @@
+<!--# syscode searchResult setResultNum 30 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<main class="p-column">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>求人特集コラム（仮称）</h1>
+		</div>
+	</div>
+
+	<div class="breadcrumb-box">
+		<nav class="is-inner_content">
+			<ol class="breadcrumb">
+				<li><a href="https://medical.try-job.com/index.php">TOP</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li>求人特集コラム（仮称）</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="is-inner_content">
+		<p class="description">「求人特集コラム」は、医療や介護、保育などのお仕事に就いている人や就きたい人のための「働く」を考えるメディアです。</p>
+		<div class="p-column__header" style="margin-top: 0 !important;">
+			<div class="is-column" style="margin-top: 0 !important;">
+				<ul class="media-column">
+					<li>
+						<ul class="flex">
+							<!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3 #--><!--embed-articleListHorizntal END--><!--embed-articleListHorizntal END-->
+						</ul><!--view-article__embed END-->
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="p-column__list" style="margin-top: 3.2rem;">
+			<div class="cmslBlock__">
+				<!--# ifbegin ! val= (!--# get tag #--)  #-->
+				<!--# syscode setTitle (!--# valueAlias article_tag (!--# get tag #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+				<!--# syscode setDescription (!--# valueAlias article_tag (!--# get tag #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+				<h2><!--# valueAlias article_tag (!--# get tag #--) id name #-->の記事
+				</h2>
+				<!--# elseif ! val= (!--# get category #--)  #-->
+				<!--# syscode setTitle (!--# valueAlias article_category (!--# get category #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+				<!--# syscode setDescription (!--# valueAlias article_category (!--# get category #--) id name #--)の記事 | (!--# ecode getSiteProfile site_title #--) #-->
+				<h2>
+					<!--# valueAlias article_category (!--# get category #--) id name #-->の記事
+				</h2>
+				<!--# else #-->
+				<!--# endif #-->
+				<ul class="result-articleList">
+					<!--# syscode searchResult result #-->
+				</ul>
+				<!--# syscode searchResult info #-->
+				<!--# syscode searchResult pageChange #-->
+
+			</div><!--cmslBlock__-->
+		</div>
+	</div>
+</main>
+<!--# include foot #-->
+
+<style>
+	.p-column__header {
+		margin-top: 0;
+	}
+
+	.search_page {
+		padding-bottom: 4.8rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.search_page {
+			padding-bottom: 2.4rem;
+		}
+
+	}
+
+	.flex li {
+		width: 100%;
+	}
+
+	.flex a {
+		width: unset;
+	}
+</style>

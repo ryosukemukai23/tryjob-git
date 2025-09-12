@@ -1,0 +1,29 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+
+					<div class="TL__part TL__part--(!--# valueValueReplace (!--# value read_flg #--) TRUE/FALSE read/unread #--)">
+						<div class="TL__part__body">
+							<a href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=rec" class="TL__part__body__more"></a>
+							<div class="TL__part__body__name">
+							<!--# ifbegin match (!--# value owner #--) NB #-->
+								<!--# alias nobody owner id name #-->
+							<!--# else #-->
+								<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+									<!--# alias nUser owner id name 退会ユーザー  #-->
+								<!--# else #-->
+									<!--# alias nUser owner id nick_name 退会ユーザー  #-->
+								<!--# endif #-->
+							<!--# endif #-->
+								<span>(<!--# code getRow message thread_id = (!--# value thread_id #--) #-->通)</span>
+							</div>
+							<div class="TL__part__body__message">
+								<div class="TL__part__body__message__data">
+									<span class="TL__part__body__message__data__mark"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span>
+									<span class="TL__part__body__message__data__time"><!--# value regist #--></span>
+								</div>
+								<div class="TL__part__body__message__text">
+									<div class="TL__part__body__message__text__sub"><!--# value sub  件名なし #--></div>
+									<div class="TL__part__body__message__text__body"><!--# code Continuation (!--# escp value message false 本文なし #--) 40 ... #--></div>
+								</div>
+							</div>
+						</div><!--TL__part__body-->
+					</div><!--threadList__part-->

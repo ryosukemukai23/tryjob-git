@@ -1,0 +1,6 @@
+id,char,10,,Const,,,,,,,
+mid,varchar,20,,Const,,,,,,,
+point,int,,,,,,,,,,
+point_type,varchar,20,,,,,,,,,,
+description,text,,,,,,,,,,
+regist,timestamp,,,,,,,,,,

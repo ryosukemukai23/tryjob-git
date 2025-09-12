@@ -1,0 +1,352 @@
+<!--# code saveRedirectPage #-->
+<script type="text/javascript">
+$(function(){
+	if($.cookie("fresh")){
+		var itemsData=$.cookie("fresh").split(",");
+		var id = '<!--# value id #-->';
+		$index = $.inArray(id, itemsData);
+		if($index>=0){
+			itemsData.splice($index, 1);	// 順番入れ替えの為、削除
+		}
+		itemsData.unshift(id);
+		if(itemsData.length > 100){ // 100件超不可。(最大372:(4096 - length('mid=;')+3) / 11(J0000XXX%2C))
+			itemsData.pop();
+		}
+		$.cookie("fresh",itemsData, { expires: 365 });
+	}else{
+		$.cookie("fresh","<!--# value id #-->", { expires: 365 });
+	}
+	<!--# ifbegin not val= (!--# view Conf drawData job pv #--) no &AND& ! val= (!--# get app_controller #--) preview #-->
+	var aid="<!--# value id #-->";
+	var script=document.createElement("script");
+	script.src="./api.php?c=adApi&m=clickCount&get_p=true&aid="+aid+"&c_type=fresh"+'&user_api_token=' + $USER_API_TOKEN;
+	document.body.appendChild(script);
+	<!--# endif #-->
+});
+</script>
+<!--# syscode setTitle (!--# alias cUser owner id name #--)の新卒求人 (!--# alias items_type category id name #--) [(!--# alias items_form work_style id name #--)] - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias items_type category id name #--),新卒採用,(!--# alias items_form work_style id name #--),(!--# alias cUser owner id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value name #--)、(!--# code Continuation (!--# escp value work_detail #--) 60 #--) #-->
+<!--# include head #-->
+<div id="contents">
+
+	<div class="wsp_breadcrumnb wsp_breadcrumnb--scroll">
+		<ul class="wsp_breadcrumnbList">
+	<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</li>
+			<li class="wsp_breadcrumnbList__item">
+				<a href="(!--# get type #--)-(!--# value category #--)"><!--# alias items_type category id name #-->の求人</a>
+			</li>
+		<!--# ifbegin = foreign_flg TRUE #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="(!--# get type #--)-foreign">海外</a>
+			</li>
+		<!--# else #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)"><!--# alias adds work_place_adds id name #--></a>
+			</li>
+			<!--# ifbegin ! = work_place_add_sub  #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)-(!--# value work_place_add_sub #--)"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			</li>
+			<!--# else #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="(!--# get type #--)-(!--# value category #--)-(!--# value work_place_adds #--)"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			</li>
+			<!--# endif #-->
+		<!--# endif #-->
+	<!--# else #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</li>
+			<li class="wsp_breadcrumnbList__item">
+				<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&category=(!--# value category #--)&category_PAL[]=match like"><!--# alias items_type category id name #-->の求人</a>
+			</li>
+		<!--# ifbegin = foreign_flg TRUE #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&foreign_flg=TRUE&foreign_flg_PAL%5B%5D=match+in">海外</a>
+			</li>
+		<!--# else #-->
+			<li class="wsp_breadcrumnbList__item">
+				<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&category=(!--# value category #--)&category_PAL[]=match like&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match comp&foreign_flg=FALSE"><!--# alias adds work_place_adds id name #--></a>
+			</li>
+			<li class="wsp_breadcrumnbList__item">
+				<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&category=(!--# value category #--)&category_PAL[]=match like&work_place_adds=(!--# value work_place_adds #--)&work_place_adds_PAL[]=match comp&work_place_add_sub=(!--# value work_place_add_sub #--)&work_place_add_sub_PAL[]=match comp&foreign_flg=FALSE"><!--# alias add_sub work_place_add_sub id name 不明 #--></a>
+			</li>
+		<!--# endif #-->
+	<!--# endif #-->
+		</ul>
+	</div>
+
+<div class="l-pagebody">
+
+    <div class="jobDetailCard">
+        <div class="jobDetailCard__">
+            <div class="jobDetailCard__head">
+				<div class="jobDetailCard__head__color">
+					<div class="jobColorIcon">
+						<ul class="jobColorIcon__list">
+							<!--# view Job drawJobAdditionIcon #-->
+						</ul>
+					</div>
+					<!--jobColorIcon-->
+				</div>
+                <div class="jobDetailCard__head__data">
+					<span class="jobDetailCard__head__data__workstyle"><!--# alias items_form work_style id name #--></span>
+				<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+					<div class="jobDetailCard__gift">
+						<div class="jobDetailCard__gift__">
+							<span class="jobDetailCard__gift__label">お祝い金</span>
+							<span class="jobDetailCard__gift__price"><!--# comma alias items_form work_style id gift #-->円</span>
+						</div>
+					</div>
+				<!--# endif #-->
+					<!--# setTimeFormat U #-->
+					<!--# ifbegin > attention_time (!--# code now u #--) #-->
+					<span class="jobDetailCard__head__data__pickup">おすすめ</span>
+					<!--# endif #-->
+					<span class="jobDetailCard__head__data__edit">更新日:<!--# setTimeFormat Y/m/d #--><!--# value edit #--></span>
+                </div>
+                <div class="jobDetailCard__head__owner">
+                    <a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)">
+                        <!--# alias cUser owner id name #-->
+                    </a>
+                </div>
+            </div>
+            <!--jobDetailCard__head-->
+            <div class="jobDetailCard__body">
+
+                <h1 class="jobDetailCard__body__title">
+                    <!--# value name #-->
+                </h1>
+
+                <div class="flickSimple">
+                    <div class="flickSimple__navi flickSimple__navi--back"><a href="javascript:;" id="flickbackbtn1" class="backbtn"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></div>
+                    <div class="flickSimple__navi flickSimple__navi--next"><a href="javascript:;" id="flicknextbtn1" class="nextbtn"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></div>
+                    <div id="flickable1" class="flick">
+                        <ul id="fl1">
+                            <li class="photo_box p">
+                                <p class="img">
+                                    <!--# object image image1 size 320 240 #-->
+                                </p>
+                                <p class="text">
+                                    <!--# value image1_comment #-->
+                                </p>
+                            </li>
+                            <!--# ifbegin nullcheck image2 |OR| nullcheck image2_comment #-->
+                            <li class="photo_box p">
+                                <p class="img">
+                                    <!--# object image image2 size 300 240 #-->
+                                </p>
+                                <p class="text">
+                                    <!--# value image2_comment #-->
+                                </p>
+                            </li>
+                            <!--# endif #-->
+                            <!--# ifbegin nullcheck image3 |OR| nullcheck image3_comment #-->
+                            <li class="photo_box p">
+                                <p class="img">
+                                    <!--# object image image3 size 300 240 #-->
+                                </p>
+                                <p class="text">
+                                    <!--# value image3_comment #-->
+                                </p>
+                            </li>
+                            <!--# endif #-->
+                        </ul>
+                    </div>
+                    <div id="indicator1" class="flickSimple__indicator"><img src="./common/img/sp/indicater.png" width="13" height="5" alt="" /></div>
+                </div>
+
+                <p class="jobDetailCard__body__pr">
+                    <!--# value job_pr #-->
+                </p>
+
+            </div>
+            <!--jobDetailCard__body-->
+
+            <div class="jobDetailCard__action">
+
+                <div class="userActionLinks">
+                    <div class="userActionLinks__entry">
+                        <a href="index.php?app_controller=register&type=entry&fresh_id=(!--# value id #--)" class="userActionLinks__entry__btn">
+                            <span>この求人に応募する</span>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="userActionLinks">
+                    <div class="userActionLinks__fav">
+                        <!--# mod Clip drawButton fresh (!--# value id #--) #-->
+                    </div>
+                    <!--# ifbegin val= (!--# code getData cUser (!--# value owner #--) inquiry #--) on #-->
+                    <div class="userActionLinks__inq"><a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value owner #--)&fresh_id=(!--# value id #--)" class="userActionLinks__inq__btn"><span>この求人について<br>問い合わせ</span></a></div>
+                    <!--# endif #-->
+                </div>
+
+            </div>
+            <!--jobDetailCard__action-->
+
+            <div class="jobDetailCard__body">
+
+                <h2 class="jobDetailCard__body__title jobDetailCard__body__title--lv2">募集情報詳細</h2>
+
+                <div class="jobDetailCard__body__data">
+                    <table>
+                        <tr>
+                            <th>企業</th>
+                            <td>
+                                <a href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)">
+                                    <!--# alias cUser owner id name #-->
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>募集職種</th>
+                            <td>
+                                <!--# alias items_type category id name #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>募集年度</th>
+                            <td>
+                                <!--# value target_graduation #-->年度卒</td>
+                        </tr>
+                        <tr>
+                            <th>仕事内容</th>
+                            <td>
+                                <!--# value work_detail #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>勤務形態</th>
+                            <td>
+                                <!--# alias items_form work_style id name #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>給与</th>
+                            <td>
+                                <!--# value salary_label #-->
+                            </td>
+                        </tr>
+						<tr>
+							<th>勤務地</th>
+							<td>
+								<!--# alias adds work_place_adds id name #-->&nbsp;<!--# alias add_sub work_place_add_sub id name #-->&nbsp;<!--# value work_place_add_sub2 #-->&nbsp;<!--# value work_place_add_sub3 #-->
+							</td>
+						</tr>
+                        <tr>
+                            <th>勤務地<br>(詳細)</th>
+                            <td>
+                                <div>
+                                    <!--# value work_place_label #-->
+                                </div>
+                                <div><a href="https://maps.google.co.jp/maps?q=(!--# urlenc alias adds work_place_adds id name #--)(!--# urlenc alias add_sub work_place_add_sub id name #--)(!--# urlenc value work_place_add_sub2 #--)(!--# urlenc value work_place_add_sub3 #--)&hl=ja&ie=UTF8"
+                                        target="_blank" class="jobDetailCard__body__data__link">地図を見る</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>最寄り駅</th>
+                            <td>
+                                <!--# value transport #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>待遇</th>
+                            <td>
+                                <!--# value treatment #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>休日・休暇</th>
+                            <td>
+                                <!--# value holiday #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>勤務時間</th>
+                            <td>
+                                <!--# value work_time #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>備考</th>
+                            <td>
+                                <!--# value remarks #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>応募資格</th>
+                            <td>
+                                <!--# value apply_license #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>応募方法詳細</th>
+                            <td>
+                                <!--# ifbegin val= (!--# view cUser isCharge (!--# get type #--) (!--# value owner #--) #--) TRUE #-->
+                                <!--# value apply_detail #-->
+                                <!--# else #-->
+                                WEB応募(24時間)
+                                <!--# endif #-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>採用担当者</th>
+                            <td>
+                                <!--# value charger_name #-->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--jobDetailCard__body__data-->
+
+            </div>
+            <!--jobDetailCard__body-->
+
+            <div class="jobDetailCard__action">
+
+                <div class="userActionLinks">
+                    <div class="userActionLinks__entry">
+                        <a href="index.php?app_controller=register&type=entry&fresh_id=(!--# value id #--)" class="userActionLinks__entry__btn">
+                            <span>この求人に応募する</span>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="userActionLinks">
+                    <div class="userActionLinks__fav">
+                        <!--# mod Clip drawButton fresh (!--# value id #--) #-->
+                    </div>
+                    <!--# ifbegin val= (!--# code getData cUser (!--# value owner #--) inquiry #--) on #-->
+                    <div class="userActionLinks__inq"><a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value owner #--)&fresh_id=(!--# value id #--)" class="userActionLinks__inq__btn"><span>この求人について<br>問い合わせ</span></a></div>
+                    <!--# endif #-->
+                </div>
+
+            </div>
+            <!--jobDetailCard__action-->
+
+			<!--# ifbegin ! = limits 0 #-->
+			<div class="jobDetailCard__date">掲載:<!--# setTimeFormat Y/m/d #--><!--# value regist #-->～<!--# value limits #-->(残り<!--# ecode getDayBack (!--# setTimeFormat U #--)(!--# value limits #--) #-->日)</div>
+			<!--# else #-->
+			<div class="jobDetailCard__date">掲載:<!--# setTimeFormat Y/m/d #--><!--# value regist #-->～</div>
+			<!--# endif #-->
+
+        </div>
+        <!--jobDetailCard__-->
+    </div>
+    <!--jobDetailCard-->
+
+	<!--# ecode drawSocial (!--# get type #--) (!--# get id #--) (!--# alias cUser owner id name #--)の新卒求人\ (!--# alias items_type category id name #--)\ [(!--# alias items_form work_style id name #--)]\ -\ (!--# code getData system ADMIN site_title #--) #-->
+
+</div>
+<!--l-pagebody-->
+
+</div><!--contents END-->
+
+<!--# include foot #-->

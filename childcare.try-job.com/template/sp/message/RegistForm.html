@@ -1,0 +1,118 @@
+<!--# ifbegin login nUser #-->
+<ul>
+	<li>
+		<span>送信先<span class="requisite">必須</span></span>
+		<p>
+            <!--# ifbegin val= (!--# ecode getUserType #--) cUser #-->
+                <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value destination #--) #--) TRUE #-->
+                    <!--# alias nUser destination id name 退会ユーザー #-->
+                <!--# else #-->
+                    <!--# alias nUser destination id nick_name 退会ユーザー #-->
+                <!--# endif #-->
+            <!--# else #-->
+			<!--# ecode getName (!--# get destination #--) #-->
+            <!--# endif #-->
+            <!--# form hidden destination #-->
+		</p>
+	</li>
+		<!--# ifbegin val= (!--# get mailtype #--) scout #-->
+	<li>
+			<span>求人情報<span class="requisite">必須</span></span>
+		<p>
+				<!--# view message getItemsList file_name both #-->
+				<!--# syscode validate file_name #-->
+		</p>
+	</li>
+	<!--# endif #-->
+	<li>
+		<span>件名<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate sub #--)">
+			<!--# form text sub 30 32 #-->
+			<!--# syscode validate sub #-->
+		</p>
+	</li>
+	<li>
+		<span>本文<span class="requisite">必須</span></span>
+		<p class="(!--# syscode is_validate message #--)">
+			<!--# form textarea message 5 10 #-->
+			<!--# syscode validate message #-->
+		</p>
+	</li>
+</ul>
+<!--# elseif login cUser #-->
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">送信先</span>
+				<div class="wsp_formSet__title__tool">
+					<span class="wsp_formSetRequired">※必須</span>
+				</div>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<p>
+            <!--# ifbegin val= (!--# ecode getUserType #--) cUser #-->
+                <!--# ifbegin val= (!--# view Entry haveUserEntry (!--# code loginid #--) (!--# value destination #--) #--) TRUE #-->
+                    <!--# alias nUser destination id name 退会ユーザー #-->
+                <!--# else #-->
+                    <!--# alias nUser destination id nick_name 退会ユーザー #-->
+                <!--# endif #-->
+            <!--# else #-->
+                <!--# ecode getName (!--# get destination #--) #-->
+            <!--# endif #-->
+            <!--# form hidden destination #-->
+				</p>
+			</dd>
+		</dl>
+
+	<!--# ifbegin val= (!--# get mailtype #--) scout #-->
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">求人情報</span>
+				<div class="wsp_formSet__title__tool">
+					<span class="wsp_formSetRequired">※必須</span>
+				</div>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate file_name #--)">
+					<!--# view message getItemsList file_name both #-->
+				</span>
+				<span class="wsp_formSet__desc__error">
+					<!--# syscode validate file_name #-->
+				</span>
+			</dd>
+		</dl>
+	<!--# endif #-->
+
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">件名</span>
+				<div class="wsp_formSet__title__tool">
+					<span class="wsp_formSetRequired">※必須</span>
+				</div>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate sub #--)">
+					<!--# form text sub 60 60 #-->
+				</span>
+				<span class="wsp_formSet__desc__error">
+					<!--# syscode validate sub #-->
+				</span>
+			</dd>
+		</dl>
+
+		<dl class="wsp_formSet">
+			<dt class="wsp_formSet__title">
+				<span class="wsp_formSet__title__name">メッセージ</span>
+				<div class="wsp_formSet__title__tool">
+					<span class="wsp_formSetRequired">※必須</span>
+				</div>
+			</dt>
+			<dd class="wsp_formSet__desc">
+				<span class="wsp_formELE wsp_formELE--(!--# syscode is_validate message #--)">
+					<!--# form textarea message 5 10 #-->
+				</span>
+				<span class="wsp_formSet__desc__error">
+					<!--# syscode validate message #-->
+				</span>
+			</dd>
+		</dl>
+<!--# endif #-->

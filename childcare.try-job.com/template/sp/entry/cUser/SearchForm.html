@@ -1,0 +1,61 @@
+
+<div class="wsp_cmnSearchBox" style="display:none;background:#FFF;" id="searchFormToggle">
+	<div class="wsp_cmnSearchBox__">
+		<div class="wsp_cmnSearchBox__body">
+
+			<form name="search_form" id="search_form" method="get" action="index.php">
+				<input name="run" type="hidden" value="true" />
+				<input type="hidden" name="type" value="(!--# get type #--)" />
+				<input type="hidden" name="app_controller" value="search" />
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">求人情報</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_formELE wsp_formELE--auto">
+							<!--# view message getItemsList items_id both all #-->
+							<input name="items_id_PAL[]" type="hidden" value="match like" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">求人種別</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# form checkbox items_type   mid/fresh 中途/新卒 #-->
+							<input name="items_type_PAL[]" type="hidden" value="match in" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">進捗</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# code tableCheckForm status entry_progress name id #-->
+							<input name="status_PAL[]" type="hidden" value="match in" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dd class="wsp_formSet__desc">
+						<div class="wsp_formELE wsp_formELE--center">
+							<input type="submit" value="検索する" class="wsp_formELE__next">
+						</div>
+					</dd>
+				</dl>
+				
+				<!--# form hidden searchQuery true #-->
+				<!--# form hidden items_id #-->
+			</form>
+
+		</div><!--wsp_cmnSearchBox__body-->
+	</div><!--wsp_cmnSearchBox-->
+</div><!--wsp_cmnSearchBox-->

@@ -1,0 +1,69 @@
+<!--# syscode setTitle 【求人企業インタビュー】(!--# value copy #--) | (!--# alias cUser owner id name #--) - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias cUser owner id name #--),(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value message #--) #-->
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+		<!--# ifbegin = owner (!--# code loginid #--) &AND& val= (!--# code getRow interview owner = (!--# code loginid #--) #--) 1 #-->  
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=register&type=interview">インタビューの作成</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						詳細
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList wsp_switchList--transparent">
+					<li>(!--# value id #--)</li>
+				</ul>
+				<ul class="wsp_switchList">
+					<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;削除</a></li>
+					<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;編集</a></li>
+				</ul>
+			</div><!--wsp_resultNav-->
+
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						すでにインタビューページを作成済みです。<br>※ インタビューページは1件だけ作成できます。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div><!--wsp_cmnMessage-->
+
+			<!--# ifbegin val= (!--# view interview drawAdminActivateCheck regist #--) 1 #-->
+			<!--# ifbegin val= (!--# value activate #--) 1 #-->
+			<div class="wsp_cmnMessage wsp_cmnMessage--red">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						このインタビューは、管理者による確認後に掲載されます。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div>
+			<!--# endif #-->
+			<!--# endif #-->
+
+		<!--# endif #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+				<h2><!--# alias cUser owner id name #--></h2>
+				<div class="main">
+					<!--# include interviewCheckForm #-->
+				</div><!--main END-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

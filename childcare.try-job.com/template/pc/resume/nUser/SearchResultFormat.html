@@ -1,0 +1,207 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<style>
+	.dropdown-menu {
+		display: none;
+		position: absolute;
+		top: 100%;
+		/* ボタンの真下に配置 */
+		right: 0;
+		/* ボタン右端に揃える */
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-radius: 0.6rem;
+		box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+		padding: 0.4rem 0;
+		z-index: 100;
+		min-width: 12rem;
+		overflow: hidden;
+	}
+
+	.dropdown-menu a {
+		display: block;
+		padding: 0.8rem 1.2rem;
+		color: #333;
+		text-decoration: none;
+		font-size: 1.4rem;
+		transition: background-color 0.2s ease, color 0.2s ease;
+	}
+
+	.dropdown-menu a:hover {
+		background-color: #f0f0f0;
+		color: #dd6e21;
+	}
+
+	/* ボタンラップ用 */
+	.buttons {
+		position: relative;
+	}
+
+	/* ･･･ ボタンのデザイン強化（任意）*/
+	.more-options {
+		background: none;
+		border: none;
+		font-size: 2.2rem;
+		line-height: 1;
+		color: #555;
+		cursor: pointer;
+		padding: 0 0.6rem;
+		transition: color 0.2s ease;
+	}
+
+	.more-options:hover {
+		color: #dd6e21;
+	}
+
+	input[type="radio"]:checked {
+		border-color: #dd6e21;
+	}
+
+	input[type="radio"] {
+		appearance: none;
+		background-color: #fff;
+		border: 1px solid #c4c4c4;
+		border-radius: 4px;
+		cursor: pointer;
+		height: 14px;
+		margin-right: 1rem;
+		padding: 0;
+		position: relative;
+		width: 14px;
+	}
+
+	input[type="radio"]:checked::after {
+		border-bottom: 1px solid #dd6e21;
+		border-left: 1px solid #dd6e21;
+		content: "";
+		height: 5.5px;
+		left: 2px;
+		opacity: 1;
+		position: absolute;
+		top: 3px;
+		transform: rotate(-45deg);
+		width: 8.5px;
+	}
+
+	@media screen and (max-width: 768px) {
+		.is-inner_content_right {
+			margin-bottom: 0 !important;
+		}
+
+		.p-cv__contents {
+			margin-bottom: 0;
+		}
+	}
+</style>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const moreButtons = document.querySelectorAll(".more-options");
+
+		moreButtons.forEach(button => {
+			button.addEventListener("click", function (e) {
+				e.stopPropagation(); // 外側クリック対策
+
+				const dropdown = this.nextElementSibling;
+
+				// すでに表示されてるなら閉じる（トグル）
+				const isVisible = dropdown.style.display === "block";
+
+				// 全てのドロップダウンを閉じる
+				document.querySelectorAll(".dropdown-menu").forEach(menu => {
+					menu.style.display = "none";
+				});
+
+				// 今クリックしたやつが非表示だったら表示する
+				if (!isVisible) {
+					dropdown.style.display = "block";
+				}
+			});
+		});
+
+		// メニュー外クリックで閉じる
+		document.addEventListener("click", function () {
+			document.querySelectorAll(".dropdown-menu").forEach(menu => {
+				menu.style.display = "none";
+			});
+		});
+	});
+</script>
+
+
+<main class="p-cv">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>履歴書・職務経歴書</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+            <nav class="is-inner_content">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">TOP</a></li>
+                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+                    <li>業種トップ</li>
+                </ol>
+            </nav>
+        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<div class="p-cv__contents">
+				<h2>履歴書・職務経歴書の作成・送付</h2>
+				<p class="p-cv__contents--description">履歴書・職務経歴書はお勤め先へのメッセージに添付できます。</p>
+				<div class="p-cv__contents--actions">
+					<button class="p-cv__contents--button"
+						onclick="location.href='index.php?app_controller=register&type=resume'">+ 履歴書を作成する</button>
+				</div>
+				<a href="https://childcare.try-job.com/index.php?app_controller=edit&type=nUser"
+					class="p-cv__contents--profile">プロフィールを見る</a>
+			</div>
+			<div class="p-cv__contents">
+				<h2>履歴書一覧</h2>
+				<ul>
+					<!--# syscode searchResult result #-->
+					<!--# syscode searchResult info #-->
+					<p><button onClick="togglePublish('(!--# code loginid #--)')"
+							class="o-btn is-wh is-arw">公開する履歴書を変更する</button></p>
+					<!--# syscode searchResult pageChange #-->
+				</ul>
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<nav class="sidebar-nav">
+				<ul>
+					<li><a href="mypage.html">マイページ</a></li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+					</li>
+					<!-- <li><a href="interview.html">面接・選考</a></li> -->
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+					</li>
+					<li class="active"><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+					</li>
+					<!-- <li><a href="#">勤続支援金の申請</a></li>
+					<li><a href="inform.html">違反行為の報告</a></li>
+					<li><a href="#">新着求人メール</a></li>
+					<li><a href="#">企業・法人のブロック</a></li>
+					<li><a href="#">設定</a></li> -->
+				</ul>
+			</nav>
+			<div class="sidebar-overlay"></div>
+		</div>
+	</div>
+</main>
+
+<!--# include foot #-->

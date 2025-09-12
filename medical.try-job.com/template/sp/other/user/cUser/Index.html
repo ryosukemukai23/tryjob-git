@@ -1,0 +1,307 @@
+<!--# include head #-->
+
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__body">
+
+					<ul class="wsp_notification wsp_notification--auto">
+					<!--# ifbegin val= (!--# valueAlias cUser (!--# code loginid #--) id edit_comp #--) FALSE #-->
+						<li class="wsp_notification__item">
+							<a class="wsp_notification__item__link" href="index.php?app_controller=edit&type=cUser"></a>
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--red"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										求人サービスのご利用にあたり、まずは登録情報の必須項目を埋めてください。
+									</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+
+					<!--# ifbegin ! val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+						<li class="wsp_notification__item">
+							<a class="wsp_notification__item__link" href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp"></a>
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--red"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										未読メッセージ&nbsp;<b><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></b>&nbsp;件
+									</div>
+								</div>
+							</div>
+						</li>
+					<!--# else #-->
+						<li class="wsp_notification__item">
+							<a class="wsp_notification__item__link" href="index.php?app_controller=search&type=message&run=true&pal=rec"></a>
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--red"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										未読メッセージはありません。
+									</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin ! val= (!--# code getRow bill owner = (!--# code loginid #--) notice = 0 money ! 0 publish = TRUE #--) 0 #-->
+						<li class="wsp_notification__item">
+							<a href="index.php?app_controller=search&type=bill&run=true&notice=FALSE&notice_PAL[]=match+in&publish=TRUE&publish_PAL[]=match+comp" class="wsp_notification__item__link"></a>
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--red"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">入金報告が完了していない請求が&nbsp;<b><!--# code getRow bill owner = (!--# code loginid #--) notice = 0 money ! 0 publish = TRUE #--></b>&nbsp;件あります。</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin val> (!--# code getRow mid publish = off owner = (!--# code loginid #--) delete_flg = 0 #--) 0 |OR| val> (!--# code getRow fresh publish = off owner = (!--# code loginid #--) delete_flg = 0 #--) 0 #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--sun"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										<!--# ifbegin val> (!--# code getRow mid publish = off owner = (!--# code loginid #--) delete_flg = 0 #--) 0 #-->
+											非公開設定の求人が
+											<a href="index.php?app_controller=search&type=mid&run=true&publish=off&publish_PAL[]=match+comp">&nbsp;<b><!--# code getRow mid publish = off owner = (!--# code loginid #--) delete_flg = 0 #--></b>&nbsp;件</a>
+											あります。<br>
+										<!--# endif #-->
+										<!--# ifbegin val> (!--# code getRow fresh publish = off owner = (!--# code loginid #--) delete_flg = 0 #--) 0 #-->
+											非公開設定の求人(新卒)が
+											<a href="index.php?app_controller=search&type=fresh&run=true&publish=off&publish_PAL[]=match+comp">&nbsp;<b><!--# code getRow fresh publish = off owner = (!--# code loginid #--) delete_flg = 0 #--></b>&nbsp;件</a>
+											あります。<br>
+										<!--# endif #-->
+										この求人情報は、検索・閲覧されません。<br>
+										必要に応じて公開設定を見直してください。
+									</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin ! val= (!--# code getData cUser (!--# code loginid #--) receive_notice #--) 1 #-->
+						<li class="wsp_notification__item">
+							<a class="wsp_notification__item__link" href="index.php?app_controller=edit&type=cUser"></a>
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--lgray"><i class="fa fa-cog" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										応募発生時やメッセージ受信時、サイトからメールで「通知しない」設定になっています。
+									</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin not val= 0 (!--# view Conf drawData job max #--) #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--sun"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">求人情報は&nbsp;<b><!--# view Conf drawData job max #--></b>&nbsp;件まで登録できます。</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin val_eq regist (!--# view Conf drawData job ad_check #--) #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--sun"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">求人情報の登録後に管理者による確認が入ります。登録完了時点では、まだ掲載されませんのでご留意ください。</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin val_eq edit (!--# view Conf drawData job ad_check #--) #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--sun"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">求人情報の編集後に管理者による確認が入ります。確認後の掲載となりますのでご注意ください。</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin val_eq regist/edit (!--# view Conf drawData job ad_check #--) #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--sun"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">求人情報の登録・編集後に管理者による確認が入ります。確認後の掲載となりますのでご注意ください。</div>
+								</div>
+							</div>
+						</li>
+					<!--# endif #-->
+					<!--# ifbegin not val= all (!--# view Conf drawData job publish #--) #-->
+						<!--# ifbegin val= on (!--# view Conf drawData job nuser_disp #--) #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--sun"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">会員限定の求人は、詳細ページを閲覧する際にログインが必要になります。</div>
+								</div>
+							</div>
+						</li>
+						<!--# endif #-->
+					<!--# endif #-->
+					</ul>
+
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+			<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user disp_nuser #--) off #-->
+			<div class="cmslPanel">
+				<div class="cmslPanel__title">
+					新着の求職者情報
+					<div class="cmslPanel__title__option">
+						<a href="index.php?app_controller=search&type=resume&run=true" class="ptoBtn"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="cmslPanel__body">
+					<!--# async code embedSearch type=resume&run=true&publish=on&publish_PAL[]=match+comp&sort=regist&sort_PAL=desc&embedID=resume_simple #-->
+				</div>
+			</div><!--cmslPanel-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# code getRow interview owner = (!--# code loginid #--) #--) 0 #-->
+			<div class="cmslPanel">
+				<div class="cmslPanel__title">
+					インタビューを掲載して求職者にアピール
+				</div>
+				<div class="cmslPanel__body cmslPanel__body--p20">
+					<p style="margin:0 0 1em;">
+						用意された質問に答えるだけで、求職者向けのページに御社のインタビューを掲載できます。
+					</p>
+					<div class="wsp_resultNav">
+						<div>
+							<ul class="wsp_breadcrumnbList">
+
+								<li class="wsp_breadcrumnbList__item">
+									<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+								</li>
+								<li class="wsp_breadcrumnbList__item">
+									<a href="./index.php?app_controller=search&type=interview&run=true">インタビュー</a>
+								</li>
+							</ul>
+						</div>
+						<div class="wsp_resultNav__tool">
+							<div class="wsp_formELE">
+								<a href="./index.php?app_controller=register&type=interview" class="wsp_formELE__btn wsp_formELE__btn--blue">作成する</a>
+							</div>
+						</div><!--wsp_resultTool-->
+					</div><!--wsp_resultNav-->
+				</div>
+			</div><!--cmslPanel-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# view payJob drawOnPaySetting #--) TRUE #-->
+				<!--# ifbegin val= (!--# code getData charges_conf ADMIN disp #--) on #-->
+					<div class="cmslPanel">
+						<div class="cmslPanel__title">
+							料金請求
+							<div class="cmslPanel__title__option">
+								<a href="index.php?app_controller=search&type=pay_job&run=true" class="ptoBtn"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="cmslPanel__body cmslPanel__body--p20">
+
+							<div class="responsiveTable">
+								<div class="responsiveTable__">
+									<table class="dataTable dataTable--border">
+									<thead>
+										<tr>
+											<th style="width:20%;">課金内容</th>
+											<th style="width:20%;">今月</th>
+											<th style="width:20%;">先月</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!--# ifbegin match (!--# view Conf drawData job type_check #--) mid #-->
+											<tr>
+												<th>利用期間<br>(中途)</th>
+												<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = mid regist >= (!--# code now this_month #--) #--> 円</td>
+												<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = mid regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+											</tr>
+										<!--# endif #-->
+										<!--# ifbegin match (!--# view Conf drawData job type_check #--) fresh #-->
+											<tr>
+												<th>利用期間<br>(新卒)</th>
+												<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = fresh regist >= (!--# code now this_month #--) #--> 円</td>
+												<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = fresh regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+											</tr>
+										<!--# endif #-->
+										<tr>
+											<th>おすすめ</th>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = attention regist >= (!--# code now this_month #--) #--> 円</td>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = attention regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+										</tr>
+										<tr>
+											<th>応募</th>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = apply regist >= (!--# code now this_month #--) #--> 円</td>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = apply regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+										</tr>
+										<tr>
+											<th>採用</th>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = employment regist >= (!--# code now this_month #--) #--> 円</td>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = employment regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+										</tr>
+										<tr>
+											<th>スカウト</th>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = scout regist >= (!--# code now this_month #--) #--> 円</td>
+											<td class="right"><!--# comma code getSum pay_job money owner = (!--# code loginid #--) label = scout regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</td>
+										</tr>
+										<tr>
+											<th>合計</th>
+											<td class="right att"><strong><!--# comma code getSum pay_job money owner = (!--# code loginid #--) regist >= (!--# code now this_month #--) #--> 円</strong></td>
+											<td class="right att"><strong><!--# comma code getSum pay_job money owner = (!--# code loginid #--) regist >= (!--# code now prev_month #--) regist < (!--# code now this_month #--) #--> 円</strong></td>
+										</tr>
+									</tbody>
+									</table>
+								</div>
+							</div><!--responsiveTable-->
+
+						</div><!--cmslPanel__body-->
+					</div><!--cmslPanel-->
+
+				<!--# endif #-->
+			<!--# endif #-->
+
+			<!--▼お知らせ一覧-->
+			<!--# view News drawHeadline news 5 #-->
+			
+			<!--# // ▼ご意見箱 #-->
+			<!--# include inquiryRequestForm #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

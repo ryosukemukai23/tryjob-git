@@ -1,0 +1,65 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">求人の管理</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						編集
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">編集内容の確認</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+			
+						<!--# variable form_begin #-->
+
+						<div class="wsp_cmnMessage">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									内容に問題がなければ「保存する」ボタンを押してください。入力をやりなおす場合は「戻る」ボタンを押します。
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div>
+
+						<!--▼確認フォーム-->
+						<!--# include midCheckForm #-->
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--between">
+									<input type="submit" name="back" value="戻る" class="wsp_formELE__back">
+									<input type="submit" value="保存する" class="wsp_formELE__next">
+								</div>
+							</dd>
+						</dl>
+
+						<!--# form hidden html #-->
+
+						<!--# variable form_end #-->
+			
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

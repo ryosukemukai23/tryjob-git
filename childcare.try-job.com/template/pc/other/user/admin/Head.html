@@ -1,0 +1,175 @@
+	<div class="ctrlPanel ctrlPanel--open">
+
+		<div class="ctrlPanel__header">
+			<div class="ctrlPanel__header__menu">
+				<a  class="ctrlPanel__header__menu__btn ctrlPanelPC" id="ctrlPanelSwitch"><i class="fa fa-bars" aria-hidden="true"></i></a>
+				<a  class="ctrlPanel__header__menu__btn ctrlPanelSP" id="ctrlPanelSwitch2"><i class="fa fa-bars" aria-hidden="true"></i></a>
+			</div><!--ctrlPanel__header__menu END-->
+		</div><!--ctrlPanel__header-->
+
+		<div class="ctrlPanel__container">
+
+			<div class="cpcBrand">
+				<div class="cpcBrand__name"><a href="./"><i class="fa fa-cube" aria-hidden="true"></i><span><!--# ecode getSiteProfile site_title #--></span></a></div>
+			</div><!--cpcBrand-->
+			
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item"><a href="./"><i class="fa fa-home" aria-hidden="true"></i><b>ダッシュボード</b></a></li>
+				</ul>
+			</div>
+
+			<div class="cpcTitle">RECRUITER</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item">
+						<a class="cpcNav__item__toggle"><i class="fa fa-user-circle-o" aria-hidden="true"></i><b>求人企業</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+						<ul class="cpcNav__">
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=cUser&run=true"><b>求人企業の管理</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=mid&run=true">中途採用求人</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=fresh&run=true"><b>新卒採用求人</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=interview&run=true"><b>インタビュー</b></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="cpcTitle">USER</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item">
+						<a class="cpcNav__item__toggle"><i class="fa fa-user-circle" aria-hidden="true"></i><b>求職者</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+						<ul class="cpcNav__">
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=nUser&run=true"><b>求職者の管理</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=resume&run=true"><b>履歴書</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=entry&run=true"><b>応募</b></a></li>
+							<!--# ifbegin mod_on nobody #-->
+							<!--# ifbegin val= (!--# code getData system ADMIN nobody #--) 1 #-->
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=nobody&run=true"><b>非会員</b></a></li>
+							<!--# endif #-->
+							<!--# endif #-->
+						</ul>
+				</li>
+				</ul>
+			</div>
+
+			<div class="cpcTitle">DATA</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=message&run=true"><i class="fa fa-comments-o" aria-hidden="true"></i><b>メッセージの管理</b></a></li>
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=pay_job&run=true"><i class="fa fa-inbox" aria-hidden="true"></i><b>申し込み・契約</b></a></li>
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=bill&run=true"><i class="fa fa-jpy" aria-hidden="true"></i><b>請求</b></a></li>
+				<!--# ifbegin not val= (!--# view Conf drawData charges gift #--)  #-->
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=gift&run=true"><i class="fa fa-gift" aria-hidden="true"></i><b>お祝い金申請</b></a></li>
+							<!--# endif #-->
+						</ul>
+					</div>
+
+			<div class="cpcTitle">OPERATION</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=inquiry&run=true"><i class="fa fa-inbox" aria-hidden="true"></i><b>お問い合わせ</b></a></li>
+					<!--# ifbegin mod_on list #-->
+					<li class="cpcNav__item">
+						<a class="cpcNav__item__toggle"><i class="fa fa-envelope-o " aria-hidden="true"></i><b>DMの管理</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+						<ul class="cpcNav__">
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=mailSend&run=true"><b>DMの配信</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=mailTemplate&run=true"><b>テンプレート</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=list&run=true"><b>配信リスト</b></a></li>
+						</ul>
+					</li>
+					<!--# endif #-->
+				</ul>
+			</div>
+
+			<div class="cpcTitle">CONTENTS</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=news&run=true"><i class="fa fa-newspaper-o" aria-hidden="true"></i><b>ニュースの管理</b></a></li>
+					<li class="cpcNav__item"><a href="index.php?app_controller=search&type=page&run=true"><i class="fa fa-files-o" aria-hidden="true"></i><b>ページの管理</b></a></li>
+					<li class="cpcNav__item">
+						<a class="cpcNav__item__toggle"><i class="fa fa-file-o" aria-hidden="true"></i><b>記事の管理</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+						<ul class="cpcNav__">
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=article&run=true"><b>記事の管理</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=article_category&run=true"><b>記事カテゴリーの管理</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=article_conf&id=ADMIN"><b>記事の設定</b></a></li>
+						</ul>
+				</li>
+				</ul>
+			</div>
+
+			<div class="cpcTitle">SYSTEM</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item">
+						<a class="cpcNav__item__toggle"><i class="fa fa-database" aria-hidden="true"></i><b>各種設定</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+						<ul class="cpcNav__">
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=system&id=ADMIN"><b>システムの設定</b></a></li>
+							<!--# ifbegin mod_on disp_conf #-->
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=disp_conf&id=ADMIN"><b>表示の設定</b></a></li>
+							<!--# endif #-->
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=user_conf&id=ADMIN"><b>ユーザーの設定</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=job_conf&id=ADMIN"><b>求人情報の設定</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=indeed_feed&id=ADMIN"><b>Indeed XMLフィード</b></a></li>
+						<!--# ifbegin mod_on googlejob #-->
+							<!--# include googlejobMenu #-->
+						<!--# endif #-->
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=interview_conf&id=ADMIN"><b>インタビューの設定</b></a></li>
+							<li class="cpcNav__item">
+								<a class="cpcNav__item__toggle"><b>課金の設定とプラン</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+								<ul class="cpcNav__">
+									<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=charges_conf&id=ADMIN"><b>課金の設定</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=mid_term&run=true"><b>契約プラン(中途)</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=fresh_term&run=true"><b>契約プラン(新卒)</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=at_term&run=true&pal=mid"><b>おすすめ掲載(中途)</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=at_term&run=true&pal=fresh"><b>おすすめ掲載(新卒)</b></a></li>
+
+								</ul>
+							</li>
+							<li class="cpcNav__item">
+								<a class="cpcNav__item__toggle"><b>マスタデータ</b><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+								<ul class="cpcNav__">
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=adds&run=true"><b>地域</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=items_form&run=true"><b>勤務形態</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=items_type&run=true"><b>職種</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=job_addition&run=true"><b>求人の特徴</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=entry_progress&run=true"><b>応募の進捗</b></a></li>
+									<li class="cpcNav__item"><a href="index.php?app_controller=search&type=items_elements&run=true"><b>企業の取扱属性</b></a></li>
+								</ul>
+							</li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=other&key=automail_list"><b>自動送信メール</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=sitemap_conf&id=ADMIN" class="item">サイトマップの設定</a></li>
+
+						<!--# ifbegin mod_on smtp #-->
+							<li class="cpcNav__item"><a href="(!--# code link edit smtp_conf ADMIN #--)"><b>SMTPの設定</b></a></li>
+						<!--# endif #-->
+							<!--# ifbegin mod_on maintenance #-->
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=maintenance&run=true"><b>メンテナンス予定の管理</b></a></li>
+							<!--# endif #-->
+							<li class="cpcNav__item"><a href="index.php?app_controller=edit&type=admin"><b>パスワードの設定</b></a></li>
+							<li class="cpcNav__item"><a href="index.php?app_controller=search&type=accountLockConfig&run=true"><b>ロック設定</b></a></li>
+						</ul>
+				</li>
+			</ul>
+		</div>
+
+			<div class="cpcTitle">SEE YOU</div>
+			<div class="cpcNav">
+				<ul class="cpcNav__">
+					<li class="cpcNav__item"><a href="login.php?logout=true"><i class="fa fa-sign-out" aria-hidden="true"></i><b>ログアウト</b></a></li>
+				</ul>
+			</div>
+
+		</div><!--ctrlPanel__container END-->
+		
+		<div class="ctrlPanel__containerFilter"></div>
+		
+	</div><!--ctrlPanel END-->
+
+<div class="cmslWrapper" data-wrapper-height>
+
+
+<div id="wrapper" class="admin">
+<div id="container">
+
+<!--# mod maintenance drawNoticeMessage #-->

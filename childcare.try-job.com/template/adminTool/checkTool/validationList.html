@@ -1,0 +1,43 @@
+<?php include_once $this->templatePath . 'common/head.html'; ?>
+<?php include_once $this->templatePath . 'common/headMenu.html'; ?>
+
+<?php foreach( $iModel->validationList as $tableName => $validations ){ ?>
+
+	<table>
+		<caption>◆<?php echo $tableName ?>テーブルに関連するエラーメッセージ</caption>
+		<?php if( !empty($validations) ){ ?>
+		<tr>
+			<th width="30%">ラベル</th>
+			<th width="5%">有無</th>
+			<th>メッセージ</th>
+		</tr>
+		<?php } ?>
+	<?php foreach( $validations as $label => $message ){ ?>
+
+				<tr>
+					<td class="<?php echo $label ?>"><?php echo $label ?></td>
+
+                <?php if( $message === false || is_null($message) ){ ?>
+					<td class="notfound"><div>無</div></td>
+                <?php }else{ ?>
+					<td class="success"><div>有</div></td>
+                <?php } ?>
+
+                <?php if( is_string($message) ){ ?>
+					<td class="success"><div><?php echo $message; ?></div></td>
+                <?php }else if( $message === true ){ ?>
+					<td class="empty"><div data-summary="メッセージは存在しますが、HTMLの為表示できません。">----</div></td>
+                <?php }else{ ?>
+					<td class="notfound"><div data-summary="メッセージが設定されていません"></div></td>
+                <?php } ?>
+				</tr>
+	<?php } ?>
+
+	</table>
+	<br />
+
+<?php } ?>
+
+
+<?php include_once $this->templatePath . 'common/footMenu.html'; ?>
+<?php include_once $this->templatePath . 'common/foot.html'; ?>

@@ -1,0 +1,737 @@
+<script type="text/javascript">
+	$(function () {
+		toggleforeignDisp();
+		$("input[name='foreign_flg']").on("change", toggleforeignDisp).trigger("change");
+	});
+</script>
+
+<!--# code saveRedirectPage #-->
+<script type="text/javascript">
+	$(function () {
+		if ($.cookie("mid")) {
+			var itemsData = $.cookie("mid").split(",");
+			var id = '<!--# value id #-->';
+			$index = $.inArray(id, itemsData);
+			if ($index >= 0) {
+				itemsData.splice($index, 1);	// 順番入れ替えの為、削除
+			}
+			itemsData.unshift(id);
+			if (itemsData.length > 100) { // 100件超不可。(最大372:(4096 - length('mid=;')+3) / 11(J0000XXX%2C))
+				itemsData.pop();
+			}
+			$.cookie("mid", itemsData, { expires: 365 });
+		} else {
+			$.cookie("mid", "<!--# value id #-->", { expires: 365 });
+		}
+	< !--# ifbegin not val = (!--# view Conf drawData job pv #--) no & AND & !val= (!--# get app_controller #--) preview #-- >
+	var aid = "<!--# value id #-->";
+	var script = document.createElement("script");
+	script.src = "./api.php?c=adApi&m=clickCount&get_p=true&aid=" + aid + "&c_type=mid" + '&user_api_token=' + $USER_API_TOKEN;
+	document.body.appendChild(script);
+	< !--# endif #-- >
+});
+</script>
+
+<!--# syscode setTitle (!--# alias cUser owner id name #--)の求人情報 (!--# alias items_type category id name #--) [(!--# alias items_form work_style id name #--)] - (!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setKeywords (!--# alias items_type category id name #--),(!--# alias items_form work_style id name #--),(!--# alias cUser owner id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# value name #--)、(!--# code Continuation (!--# escp value work_detail #--) 60 #--) #-->
+<!--# include head #-->
+<main class="p-specifics">
+
+	<div class="is-kv"></div>
+	<div class="breadcrumb-box">
+		<nav class="is-inner_content">
+			<ol class="breadcrumb">
+				<li><a href="https://childcare.try-job.com/index.php">TOP</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a href="industry.html">業種トップ</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a href="search.html">検索結果</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li>業種詳細</li>
+			</ol>
+		</nav>
+	</div>
+
+	<div class="is-inner_content">
+		<div class="p-specifics__header">
+			<div class="slider-container">
+				<div class="slider">
+					<div class="slide active">
+						<!--# object image image1 size 220 165 #-->
+						<p class="slide-caption"><!--# value image1_comment #--></p>
+					</div>
+					<div class="slide">
+						<!--# object image image2 size 220 165 #-->
+						<p class="slide-caption"><!--# value image2_comment #--></p>
+					</div>
+					<div class="slide">
+						<!--# object image image3 size 220 165 #-->
+						<p class="slide-caption"><!--# value image2_comment #--></p>
+					</div>
+				</div>
+				<button class="slider-arrow prev-arrow"><img class="prev-arrow-img"
+						src="./common/images/specifics/slider_arw_prev.svg" alt=""></button>
+				<button class="slider-arrow next-arrow"><img class="next-arrow-img"
+						src="./common/images/specifics/slider_arw_next.svg" alt=""></button>
+			</div>
+
+			<div class="p-specifics__inner-txt">
+				<p class="job-update">最終更新：<!--# value regist #--> ～ <!--# value limits #--></p>
+				<h2><span><!--# alias items_type category id name #-->-</span><!--# value name #--></h2>
+				<p><!--# alias items_type category id name #-->/<!--# alias items_form work_style id name #--></p>
+				<div class="buttons">
+					<button class="btn-favorite"
+						onclick="location.href='login.php?redirect_path=index.php%3Fapp_controller=other%26key=history'">
+						<i><img src=" ./common/images/common/icon_star.svg" alt="" /></i>キープする
+					</button>
+					<button class="btn-apply"
+						onclick="location.href='index.php?app_controller=register&type=nobody&mid_id=<!--# value id #-->'">応募する</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="is-inner_content flex">
+		<div class="is-inner_content_left">
+			<div class="p-specifics__main">
+				<div class="p-specifics__main--header">
+					<h2><span><!--# alias items_type category id name #--></span><!--# value name #--></h2>
+					<p><!--# value job_pr #-->
+					</p>
+					<ul class="icon" style="gap: 1.5rem;">
+						<!--# view Job drawJobAdditionIcon #-->
+					</ul>
+				</div>
+				<div class="p-specifics__main--main">
+					<h3>募集内容</h3>
+					<table class="recruitment-table">
+						<tr>
+							<th><span>募集職種</span></th>
+							<td><!--# alias items_type category id name #--></td>
+						</tr>
+						<tr>
+							<th><span>仕事内容</span></th>
+							<td>
+								<!--# value work_detail #-->
+							</td>
+						</tr>
+						<!-- <tr>
+							<th><span>診療科目・<br>サービス形態</span></th>
+							<td>
+								<span class="tag">一般内科</span>
+								<span class="tag">消化器内科</span>
+								<span class="tag">循環器内科</span>
+								<span class="tag">呼吸器内科</span>
+							</td>
+						</tr> -->
+						<tr>
+							<th><span>給与</span></th>
+							<td><!--# value salary_label #--></td>
+						</tr>
+						<tr>
+							<th><span>待遇</span></th>
+							<td>
+								<!--# value treatment #-->
+							</td>
+						</tr>
+						<!-- <tr>
+							<th><span class="ta-left">教育体制・<br>研修（動的には無理）</span>
+							</th>
+							<td>
+								<span class="tag">研修制度あり</span>
+								<ul>
+									<li>・テキストダミーテキストダミーテキストダミーテキストダミーテキストダミー</li>
+									<li>・テキストダミーテキストダミーテキストダミーテキストダミーテキストダミー</li>
+								</ul>
+							</td>
+						</tr> -->
+						<tr>
+							<th><span>勤務時間</span></th>
+							<td>
+								<!--# value work_time #-->
+							</td>
+						</tr>
+						<tr>
+							<th><span>休日・休暇</span></th>
+							<td>
+								<!--# value holiday #-->
+							</td>
+						</tr>
+						<tr>
+							<th><span>応募資格</span></th>
+							<td>
+								<!--# value apply_license #-->
+							</td>
+						</tr>
+						<!-- <tr>
+							<th><span>歓迎要件(動的には無理)</span></th>
+							<td>
+								<ul class="margin-top-0">
+									<li>・テキストダミーテキストダミーテキストダミーテキストダミーテキストダミー</li>
+									<li>・テキストダミーテキストダミーテキストダミーテキストダミーテキストダミー</li>
+								</ul>
+							</td>
+						</tr> -->
+						<tr>
+							<th><span>応募方法詳細</span></th>
+							<td>
+								<!--# value apply_detail #-->
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="p-specifics__main--photos">
+					<h3>写真</h3>
+					<div class="flex">
+						<!--# object image image1 size #-->
+						<!--# object image image2 size #-->
+						<!--# object image image3 size #-->
+					</div>
+				</div>
+				<div class="p-specifics__main--info">
+					<h3>事業所情報</h3>
+					<table class="recruitment-table">
+						<tr>
+							<th><span>法人・施設名</span></th>
+							<td><a
+									href="index.php?app_controller=info&type=cUser&id=(!--# value owner #--)"><!--# alias cUser owner id name #--></a>
+							</td>
+						</tr>
+						<!-- <tr>
+							<th><span>募集職種(動的無理)</span></th>
+							<td>
+								医師（正職員）<br>
+								看護師/准看護師（正職員）<br>
+								医療事務/受付（正職員）<br>
+								医療ソーシャルワーカー（正職員）<br>
+								医師（正職員） (ジョブメドレーエージェント求人)
+							</td>
+						</tr> -->
+						<tr class="access">
+							<th><span>勤務地</span></th>
+							<td>
+								<p>
+									<!--# ifbegin = foreign_flg TRUE #-->
+									<!--# value foreign_address #-->
+									<!--# else #-->
+									<!--# value work_place_label #-->
+									<!--# endif #-->
+								</p>
+								<p>最寄駅:<!--# value transport #--></p>
+								<div class="iframe-wrapper">
+									<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+									<script type="text/javascript">
+										$(function () { loadMap('map', (!--# value lat  0 #--), (!--# value lon  0 #--), true, "check") });
+									</script>
+									<div id="map"
+										style="margin-top:10px; width:450px; height:250px; border:1px solid #ccc;">
+									</div>
+								</div>
+								<!-- <a href="">Googleマップで見る</a> -->
+							</td>
+						</tr>
+						<!-- <tr>
+							<th><span class="ta-left">施設・（動的無理）<br>
+									サービス形態・<br>
+									診療科目</span>
+							</th>
+							<td>
+								<span class="tag">研修制度あり</span>
+								<p>診療所</p>
+							</td>
+						</tr> -->
+						<!-- <tr>
+							<th><span>開院時間・（動的無理）</span></th>
+							<td>
+								<p>24時間365日往診対応可能</p>
+							</td>
+						</tr> -->
+						<!-- <tr>
+							<th><span>設備/機材・（動的無理）</span></th>
+							<td>
+								<p>設備ダミー、機材ダミー</p>
+							</td>
+						</tr> -->
+						<tr>
+							<th><span>採用担当者名</span>
+							</th>
+							<td>
+								<!--# value charger_name  (!--# alias cUser owner id charge_name #--) #-->
+							</td>
+						</tr>
+						<tr>
+							<th><span>備考</span>
+							</th>
+							<td>
+								<!--# value remarks #-->
+							</td>
+						</tr>
+						<!-- <tr>
+							<th><span>社宅・寮・（動的無理）</span></th>
+							<td>
+								<p>なし</p>
+							</td>
+
+						</tr> -->
+						<!-- <tr>
+							<th><span>託児所・（動的無理）</span></th>
+							<td>
+								<p>なし</p>
+							</td>
+						</tr> -->
+					</table>
+				</div>
+				<div class="buttons">
+					<button class="btn-favorite"
+						onclick="location.href='login.php?redirect_path=index.php%3Fapp_controller=other%26key=history'">
+						<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+					</button>
+					<button class="btn-apply"
+						onclick="location.href='index.php?app_controller=register&type=nobody&mid_id=<!--# value id #-->'">応募する</button>
+				</div>
+			</div>
+			<div class="p-specifics__qa">
+				<h3>Q応募に関するよくある質問</h3>
+				<div class="p-specifics__qa--txt">
+					<h4>会員登録をするとほかの医院・事業所からも自分の氏名などを閲覧できてしまうのでしょうか？</h4>
+					<p>氏名と電話番号は、応募した医院・事業所以外からは閲覧できません。また、スカウト機能を「受け取らない」に設定していれば、それ以外のプロフィールも医院・事業所から閲覧できませんので、ご就業中の方も安心してご利用いただくことができます。詳しくは
+						プライバシーポリシーをご確認ください。</p>
+					<h4>応募を悩んでいる時は応募しないほうがいいですか？</h4>
+					<p>事業所の雰囲気を知れるよい機会ですので興味を持った求人があればぜひ応募してみてください。</p>
+					<h4>求人内容について質問をすることはできますか？</h4>
+					<p>応募後、トライジョブのメッセージ機能より、事業所に直接ご質問ください。求人内容についての質問は、トライジョブからはお答えできかねます。</p>
+					<p>トライジョブの使い方で不明な点がある場合<br>
+						はお問い合わせください</p>
+				</div>
+
+
+			</div>
+			<div class="contact-box">
+				<p>トライジョブの使い方で不明な点がある場合はお問い合わせください</p>
+				<a href="index.php?app_controller=register&type=inquiry">お問い合わせ</a>
+			</div>
+			<div class="bnr-box">
+				<a href=""><img src="./common/images/specifics/bnr01.png" alt=""></a>
+				<a href=""><img src="./common/images/specifics/bnr02.png" alt=""></a>
+			</div>
+			<!-- <div class="p-specifics__offers">
+				<h2>近くの似ている求人</h2>
+				<div class="is-offers_row">
+					<div class="is-offers_item">
+						<img src="./common/images/industry/img01.png" alt="医療施設内観" />
+						<div class="is-offers_item_content">
+							<p>勤務形態/職種</p>
+							<h3>求人タイトル求人タイトル求人タイトル医療求人</h3>
+							<div class="is-offers_item_details">
+								<dl>
+									<dt>給与</dt>
+									<dd>正職員 月給 000,000円〜000,000円</dd>
+								</dl>
+								<dl>
+									<dt>仕事内容</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>応募要件</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>住所</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+							</div>
+							<ul>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+							</ul>
+							<div class="buttons">
+								<button class="btn-favorite">
+									<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+								</button>
+								<button class="btn-apply">求人を見る</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="is-offers_item">
+						<img src="./common/images/industry/img01.png" alt="医療施設内観" />
+						<div class="is-offers_item_content">
+							<p>勤務形態/職種</p>
+							<h3>求人タイトル求人タイトル求人タイトル医療求人</h3>
+							<div class="is-offers_item_details">
+								<dl>
+									<dt>給与</dt>
+									<dd>正職員 月給 000,000円〜000,000円</dd>
+								</dl>
+								<dl>
+									<dt>仕事内容</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>応募要件</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>住所</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+							</div>
+							<ul>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+							</ul>
+							<div class="buttons">
+								<button class="btn-favorite">
+									<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+								</button>
+								<button class="btn-apply">求人を見る</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="is-offers_row">
+					<div class="is-offers_item">
+						<img src="./common/images/industry/img01.png" alt="医療施設内観" />
+						<div class="is-offers_item_content">
+							<p>勤務形態/職種</p>
+							<h3>求人タイトル求人タイトル求人タイトル医療求人</h3>
+							<div class="is-offers_item_details">
+								<dl>
+									<dt>給与</dt>
+									<dd>正職員 月給 000,000円〜000,000円</dd>
+								</dl>
+								<dl>
+									<dt>仕事内容</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>応募要件</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>住所</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+							</div>
+							<ul>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+							</ul>
+							<div class="buttons">
+								<button class="btn-favorite">
+									<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+								</button>
+								<button class="btn-apply">求人を見る</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="is-offers_item">
+						<img src="./common/images/industry/img01.png" alt="医療施設内観" />
+						<div class="is-offers_item_content">
+							<p>勤務形態/職種</p>
+							<h3>求人タイトル求人タイトル求人タイトル医療求人</h3>
+							<div class="is-offers_item_details">
+								<dl>
+									<dt>給与</dt>
+									<dd>正職員 月給 000,000円〜000,000円</dd>
+								</dl>
+								<dl>
+									<dt>仕事内容</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>応募要件</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+								<dl>
+									<dt>住所</dt>
+									<dd>テキストテキストテキストテキストテキスト</dd>
+								</dl>
+							</div>
+							<ul>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+								<li>カテゴリー</li>
+							</ul>
+							<div class="buttons">
+								<button class="btn-favorite">
+									<i><img src="./common/images/common/icon_star.svg" alt="" /></i>キープする
+								</button>
+								<button class="btn-apply">求人を見る</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+
+			<!-- <div class="p-specifics__search">
+				<h2>都道府県から再検索する</h2>
+				<p>
+					<a
+						href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+						東京都
+						<span>(0)</span>
+					</a>
+				</p>
+				<ul>
+					<li>
+						<a
+							href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+							神奈川県
+							<span>(0)</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+							埼玉県
+							<span>(0)</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF12&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+							千葉県
+							<span>(0)</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF08&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+							茨城県
+							<span>(0)</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF09&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+							栃木県
+							<span>(0)</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF10&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp">
+							群馬県
+							<span>(0)</span>
+						</a>
+					</li>
+				</ul>
+
+				<form name="search" id="search" method="get" action="index.php">
+					<input type="hidden" name="app_controller" value="search" />
+					<input type="hidden" name="type" value="(!--# mod viewMode getSelectedType #--)" />
+					<input type="hidden" name="run" value="true" />
+
+					<div class="flex">
+						<input type="text" name="free" placeholder="例）整形外科常勤 都内など" maxlength="256">
+						<button class="search_button" type="submit">
+							<i><img src="./assets/images/common/icon_search_w.svg" alt=""></i>
+							<span>検索する</span>
+						</button>
+					</div>
+				</form>
+
+			</div> -->
+			<div class="is-contacts">
+				<div class="is-contacts-box">
+					<img src="./common/images/common/dammy_img.png" alt="" />
+					<h3>お仕事をお探しの方へ</h3>
+					<p>
+						会員登録をするとあなたに合った転職情報をお知らせできます。1週間で00,000名がスカウトを受け取りました!!
+					</p>
+					<a href="https://childcare.try-job.com/index.php?app_controller=other&key=CheckValidityForm&type=nUser"
+						class="btn red">無料で会員登録</a>
+					<a href="#" class="link">会員登録でできること</a>
+				</div>
+
+				<div class="is-contacts-box">
+					<img src="./common/images/common/dammy_img.png" alt="" />
+					<h3>お悩みはありませんか</h3>
+					<p>ジョブメドレーの使い方で不明な点がある場合はお問い合わせください</p>
+					<a href="https://childcare.try-job.com/index.php?app_controller=register&type=inquiry"
+						class="btn white">お問い合わせ</a>
+					<p class="time">9:00-18:00（土日祝除く）</p>
+				</div>
+
+				<div class="is-contacts-box">
+					<div class="contact-icon">
+						<img src="./common/images/common/dammy_img.png" alt="" />
+					</div>
+					<h3>もっと気軽に楽しく</h3>
+					<p>転職活動を始めるか悩んでいる時は、友だち追加しておくと希望に近い求人をLINEで受け取れます</p>
+					<div class="qr-box">
+						<img src="./common/images/common/dammy_img.png" alt="QRコード" />
+						<p>QRコード<br />からアクセス</p>
+					</div>
+					<a href="#" class="btn green">友だち追加する</a>
+				</div>
+			</div>
+			<div class="is-column">
+				<style>
+					.is-column {
+						margin-bottom: 4.8rem;
+					}
+
+					@media screen and (max-width: 768px) {
+						.is-column {
+							margin-bottom: 0;
+						}
+
+					}
+				</style>
+				<h2>求人コラム新着記事</h2>
+				<ul class="media-column">
+					<li>
+
+						<ul class="flex">
+							<!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3 #--><!--embed-articleListHorizntal END--><!--embed-articleListHorizntal END-->
+						</ul><!--view-article__embed END-->
+					</li>
+				</ul>
+				<a href="(!--# code link searchResult article #--)" class="o-btn is-wh is-arw">もっと見る<i
+						class="o-btn__icon"></i></a>
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<!-- <div class="side-bar is-article">
+				<h2>東京の求人</h2>
+				<a href="" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<img src="./common/images/common/dammy_img.png" alt="仕事探しのヒント" />
+						</div>
+						<div class="side-bar_text">
+							<p>2024/00/00</p>
+							<h3>求人特集タイトル求人特集タイトル</h3>
+						</div>
+					</div>
+					<div class="side-bar_category">
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+					</div>
+				</a>
+
+				<a href="" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<img src="./common/images/common/dammy_img.png" alt="面接対策" />
+						</div>
+						<div class="side-bar_text">
+							<p>2024/00/00</p>
+							<h3>求人特集タイトル求人特集タイトル</h3>
+						</div>
+					</div>
+					<div class="side-bar_category">
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+					</div>
+				</a>
+
+				<a href="" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<img src="./common/images/common/dammy_img.png" alt="キャリアアドバイス" />
+						</div>
+						<div class="side-bar_text">
+							<p>2024/00/00</p>
+							<h3>求人特集タイトル求人特集タイトル</h3>
+						</div>
+					</div>
+					<div class="side-bar_category">
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+					</div>
+				</a>
+
+				<a href="#" class="o-btn is-wh is-arw">一覧を見る<i class="o-btn__icon"></i></a>
+			</div> -->
+			<div class="side-bar is-article">
+				<h3>同じ企業・法人の求人</h3>
+				<!--# code embedSearch type=mid&run=true&id=(!--# value id #--)&id_PAL[]=unmatch+comp&owner=(!--# value owner #--)&owner_PAL[]=match+comp&embedID=other_detail_items&class=cuser_job #-->
+				<a href="index.php?app_controller=search&type=mid&run=true&owner=(!--# value owner #--)&owner_PAL[]=match+comp"
+					class="o-btn is-wh is-arw">一覧を見る<i class="o-btn__icon"></i></a>
+			</div>
+			<!-- <div class="side-bar is-article">
+				<h2>場所が近い医師求人</h2>
+				<a href="" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<img src="./common/images/common/dammy_img.png" alt="仕事探しのヒント" />
+						</div>
+						<div class="side-bar_text">
+							<p>2024/00/00</p>
+							<h3>求人特集タイトル求人特集タイトル</h3>
+						</div>
+					</div>
+					<div class="side-bar_category">
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+					</div>
+				</a>
+
+				<a href="" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<img src="./common/images/common/dammy_img.png" alt="面接対策" />
+						</div>
+						<div class="side-bar_text">
+							<p>2024/00/00</p>
+							<h3>求人特集タイトル求人特集タイトル</h3>
+						</div>
+					</div>
+					<div class="side-bar_category">
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+					</div>
+				</a>
+
+				<a href="" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<img src="./common/images/common/dammy_img.png" alt="キャリアアドバイス" />
+						</div>
+						<div class="side-bar_text">
+							<p>2024/00/00</p>
+							<h3>求人特集タイトル求人特集タイトル</h3>
+						</div>
+					</div>
+					<div class="side-bar_category">
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+						<span>カテゴリー</span>
+					</div>
+				</a>
+
+				<a href="#" class="o-btn is-wh is-arw">一覧を見る<i class="o-btn__icon"></i></a>
+			</div> -->
+			<div class="is-right_boxes">
+				<div class="is-right_box">
+					<h2>勤続支援金について</h2>
+				</div>
+				<div class="is-right_box">
+					<h2>キャンペーン情報等のバナー</h2>
+				</div>
+			</div>
+
+			<!-- <div class="is-relevant">
+				<h2>関連する求人</h2>
+				<a href="" class="flex">タイトルダミー<img src="./common/images/common/icon_arw.svg" alt=""></a>
+				<a href="" class="flex">タイトルダミー<img src="./common/images/common/icon_arw.svg" alt=""></a>
+				<a href="" class="flex">タイトルダミー<img src="./common/images/common/icon_arw.svg" alt=""></a>
+				<a href="" class="flex">タイトルダミー<img src="./common/images/common/icon_arw.svg" alt=""></a>
+			</div> -->
+
+		</div>
+	</div>
+</main>
+<!--# include foot #-->

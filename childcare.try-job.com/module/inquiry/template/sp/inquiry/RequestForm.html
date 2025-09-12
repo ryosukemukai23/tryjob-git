@@ -1,0 +1,47 @@
+<div class="cmslPanel">
+	<div class="cmslPanel__title">
+		ご意見箱
+	</div>
+	<div class="cmslPanel__body cmslPanel__body--p20">
+
+		<dl class="wsp_formSet">
+			<dd class="wsp_formSet__desc">
+				<span class="wsp_formELE">
+					<!--# form textarea request 23 5  placeholder="ご意見、ご要望、ご感想などお聞かせください。" #-->
+				</span>
+			</dd>
+			</dl>
+
+		<dl class="wsp_formSet">
+			<dd class="wsp_formSet__desc">
+				<div class="wsp_formELE wsp_formELE--center">
+					<input type="submit" value="送信する" class="wsp_formELE__next" onclick="sendInquiry(this);">
+	</div>
+			</dd>
+		</dl>
+
+	</div><!--cmslPanel__body-->
+</div><!--cmslPanel-->
+
+<script type="text/javascript">
+	function sendInquiry(e) {
+		$(e).val("送信中です...").attr("disabled", "disabled");
+
+		request = $('textarea[name="request"]').val();
+		jQuery.ajax({
+			url : 'api.php',
+			type : 'POST',
+			dataType : "json",
+			data : modifyApiParam("c=inquiryApi&m=request&request=" + request)
+		}).done(function(res) {
+			if(res.result == "ok"){
+				alert("送信しました");
+			}else if(res.result == "ng"){
+				alert(res.errorMessage);
+			}
+			location.href = "./";
+		}).fail(function(xml, status, e) {
+			alert("送信に失敗しました");
+		});
+	}
+</script>

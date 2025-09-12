@@ -1,0 +1,84 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">求人の管理</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						削除
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">求人情報の削除</div>
+						<div class="wsp_cmnForm__sub">この情報を削除しますか？</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+
+						<!--# variable form_begin #-->
+
+						<div class="wsp_cmnMessage wsp_cmnMessage--red">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									削除した情報は復元できません。よくご確認のうえ削除してください。
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div>
+
+						<!--▼確認フォーム-->
+						<!--# include midCheckForm #-->
+
+						<!--# ifbegin val= (!--# view Entry hasEntry (!--# value id #--) #--) TRUE #-->
+						<div class="wsp_cmnMessage wsp_cmnMessage--red" style="margin:20px 0;">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									この求人情報には、すでにいくつかの関連付けされている応募履歴やメッセージ等が存在しています。<br>
+									<br>
+									削除した場合、それらの関連する情報から求人情報へアクセスできなくなることを理解した上で削除してください。
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div>
+						<!--# endif #-->
+
+						<div class="wsp_cmnMessage wsp_cmnMessage--red" style="margin:20px 0;">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									削除した情報は復元できません。よくご確認のうえ削除してください。
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div>
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--between">
+									<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)" class="wsp_formELE__back">キャンセル</a>
+									<input type="submit" value="削除する" class="wsp_formELE__next">
+								</div>
+							</dd>
+						</dl>
+
+						<!--# variable form_end #-->
+			
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

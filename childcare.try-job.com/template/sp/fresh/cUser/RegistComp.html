@@ -1,0 +1,72 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">求人の管理(新卒)</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						新規登録
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">登録完了</div>
+						<div class="wsp_cmnForm__sub">求人情報の登録が完了しました</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+			
+						<div class="wsp_cmnMessage">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text">
+									<a href="./index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">登録した求人情報を確認する</a>
+								</div>
+								<!--# ifbegin val= (!--# view Job drawAdminActivateCheck regist #--) 1 #-->
+								<div class="wsp_cmnMessage__text">
+									管理者の確認が済み次第掲載となります。
+								</div>
+								<!--# endif #-->
+							</div><!--wsp_cmnMessage__-->
+						</div>
+
+					<!--# ifbegin not val= (!--# view Job drawAdminActivateCheck regist #--) 1 #-->
+						<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on #-->
+						<div class="wsp_cmnMessage">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text wsp_cmnMessage__text--center">おすすめ求人に掲載すると、より多くのアクセスを獲得できます。</div>
+								<div class="wsp_cmnMessage__body">
+							
+									<div class="wsp_formELE wsp_formELE--center">
+										<a href="./index.php?app_controller=register&type=pay_job&label=attention&target_id=(!--# value id #--)" class="wsp_formELE__btn wsp_formELE__btn--blue wsp_formELE__btn--active">
+											掲載を申し込む
+										</a>
+									</div><!--wsp_formELE-->
+							
+								</div><!--wsp_cmnMessage__body-->
+							</div><!--wsp_cmnMessage__-->
+						</div>
+						<!--# endif #-->
+					<!--# endif #-->
+
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

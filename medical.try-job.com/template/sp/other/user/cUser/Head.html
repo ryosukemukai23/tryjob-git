@@ -1,0 +1,33 @@
+
+<script type="text/javascript">
+	$(function () {
+		//クリックイベント
+		$('#menuToggleSwitch').on("click", function () {
+			$('.wsp_offsetMenu').toggleClass('wsp_offsetMenu--open');
+		});
+		//クリックイベント
+		$('#menuToggleSwitch2').on("click", function () {
+			$('.wsp_offsetMenu').removeClass('wsp_offsetMenu--open');
+		});
+	});
+</script>
+
+<div id="wrapper" class="wsp_l-wrapper">
+	<div id="container" class="wsp_l-container">
+
+		<header class="wsp_l-header">
+			<div class="wsp_l-header__">
+				<div class="wsp_l-header__body">
+		
+					<div class="wsp_globalHeader">
+						<h1 class="wsp_globalHeader__logo"><a href="./"><!--# object image  src (!--# ecode getSiteProfile logo_sp #--) #--></a></h1>
+						<a id="menuToggleSwitch" class="wsp_globalHeader__bars" href="javascript:void(0);">
+							<span><i class="fa fa-bars" aria-hidden="true"></i></span>
+						</a>
+					</div><!--wsp_globalHeader-->
+		
+				</div><!--wsp_l-header__body-->
+			</div><!--wsp_l-header__-->
+		</header>
+
+<!--# mod maintenance drawNoticeMessage #-->

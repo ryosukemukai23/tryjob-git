@@ -1,0 +1,180 @@
+▼ 14時04分33秒 のエラーメッセージ
+
+----------
+
+error : 対象となるレコードがありません。[array(0)]
+on    : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/extends/Exception/ConceptBase.php 182
+trace : 
+[error point]
+↑
+ConceptBase::CreateExceptionObject( 'RecordNotFoundException' , '対象となるレコードがありません。[array(0)]' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/extends/Exception/ConceptBase.php 31
+↑
+ConceptBase::OrThrow( 'RecordNotFound' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/base/SystemBase.php 1952
+↑
+SystemBase::setPageRecord( SQLDatabase , '' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/info/model.php 64
+↑
+AppInfoModel::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/custom/mvc/mid/info/model.php 56
+↑
+AppmidInfoModel::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/base/controller.php 32
+↑
+AppBaseController::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/info/controller.php 44
+↑
+AppInfoController::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/custom/mvc/mid/info/controller.php 46
+↑
+AppmidInfoController::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/mvc.php 32
+↑
+MVC::Call( 'info' , 'mid' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/index.php 13
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 122.161.50.161
+User Agent                 ... Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Request URI                ... /index.php?app_controller=info&type=mid&id=J0026987%27
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+
+----------
+
+GET     ... a:3:{s:14:"app_controller";s:4:"info";s:4:"type";s:3:"mid";s:2:"id";s:9:"J0026987'";}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 14時04分33秒 のエラーメッセージ
+
+----------
+
+error : 引数 $iTableName は無効です [mid']
+on    : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/mvc.php 27
+trace : 
+[error point]
+↑
+MVC::Call( 'info' , 'mid'' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/index.php 13
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 122.161.50.161
+User Agent                 ... Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Request URI                ... /index.php?app_controller=info&type=mid%27&id=J0026987
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+
+----------
+
+GET     ... a:3:{s:14:"app_controller";s:4:"info";s:4:"type";s:4:"mid'";s:2:"id";s:8:"J0026987";}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 11時51分52秒 のエラーメッセージ
+
+----------
+
+error : 引数 $iTableName は無効です [mid']
+on    : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/mvc.php 27
+trace : 
+[error point]
+↑
+MVC::Call( 'info' , 'mid'' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/index.php 13
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 46.250.249.189
+User Agent                 ... Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Request URI                ... /index.php?app_controller=info&type=mid%27&id=J0017748
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+
+----------
+
+GET     ... a:3:{s:14:"app_controller";s:4:"info";s:4:"type";s:4:"mid'";s:2:"id";s:8:"J0017748";}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+
+▼ 11時51分52秒 のエラーメッセージ
+
+----------
+
+error : 対象となるレコードがありません。[array(0)]
+on    : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/extends/Exception/ConceptBase.php 182
+trace : 
+[error point]
+↑
+ConceptBase::CreateExceptionObject( 'RecordNotFoundException' , '対象となるレコードがありません。[array(0)]' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/extends/Exception/ConceptBase.php 31
+↑
+ConceptBase::OrThrow( 'RecordNotFound' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/base/SystemBase.php 1952
+↑
+SystemBase::setPageRecord( SQLDatabase , '' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/info/model.php 64
+↑
+AppInfoModel::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/custom/mvc/mid/info/model.php 56
+↑
+AppmidInfoModel::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/base/controller.php 32
+↑
+AppBaseController::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/info/controller.php 44
+↑
+AppInfoController::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/custom/mvc/mid/info/controller.php 46
+↑
+AppmidInfoController::__construct(  )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/include/mvc/mvc.php 32
+↑
+MVC::Call( 'info' , 'mid' )
+		 ... on : /home/xs252061/try-job.com/public_html/childcare.try-job.com/index.php 13
+
+----------
+
+▼リクエスト内容
+
+----------
+
+User IP                    ... 46.250.249.189
+User Agent                 ... Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Request URI                ... /index.php?app_controller=info&type=mid&id=J0017748%27
+Working Directory(init)    ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+Working Directory(current) ... /home/xs252061/try-job.com/public_html/childcare.try-job.com
+
+----------
+
+GET     ... a:3:{s:14:"app_controller";s:4:"info";s:4:"type";s:3:"mid";s:2:"id";s:9:"J0017748'";}
+POST    ... a:0:{}
+SESSION ... a:1:{s:3:"jc2";s:3:"mid";}
+COOKIE  ... a:0:{}
+
+-----------------------------------------------------
+

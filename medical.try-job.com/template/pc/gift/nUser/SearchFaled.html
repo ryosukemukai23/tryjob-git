@@ -1,0 +1,192 @@
+<!--# include head #-->
+<style>
+	.search_page {
+		display: none;
+	}
+
+	.message a {
+		color: #999;
+		text-decoration: underline;
+		font-size: 1.4rem;
+		line-height: 180%;
+		font-weight: 500;
+
+	}
+
+	.head {
+		background: #fff;
+		padding: .8rem 1.6rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.head a {
+		color: #DF6370;
+		background: #FAEBEB;
+		border-radius: 64px;
+		padding: .2rem 1.2rem;
+		font-size: 1.4rem;
+		line-height: 180%;
+		font-weight: 500;
+	}
+
+	.contents_box {
+		background: #fff;
+		padding: 1.6rem;
+		margin-bottom: 3.2rem;
+	}
+
+	.contents_box:last-child {
+		margin-bottom: 4.8rem;
+	}
+
+	.text-wrap p {
+		color: #666;
+		font-size: 1.6rem;
+		line-height: 180%;
+	}
+
+	.img-wrap {
+		width: 44%;
+	}
+
+	.text-wrap {
+		width: calc(56% - 1.6rem);
+	}
+
+	.is-offers_item ul li a {
+		color: #df6371;
+		font-size: 12px;
+	}
+
+	.text-wrap h3 a span,
+	.text-wrap h3 a {
+		color: #df6370;
+		font-size: 2rem;
+		font-weight: bold;
+		line-height: 150%;
+		margin-top: 0.8rem;
+
+	}
+
+	@media screen and (max-width: 768px) {
+		.is-offers__item .flex {
+			flex-direction: column;
+		}
+
+		.img-wrap {
+			width: 100%;
+		}
+
+		.text-wrap {
+			width: 100%;
+		}
+
+		.contents_box {
+			margin-bottom: 1.6rem;
+		}
+
+		.contents_box:last-child {
+			margin-bottom: 0rem;
+		}
+	}
+</style>
+<main class="p-mypage">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>マイページ</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+	            <nav class="is-inner_content">
+	                <ol class="breadcrumb">
+	                    <li><a href="index.html">TOP</a></li>
+	                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+	                    <li>業種トップ</li>
+	                </ol>
+	            </nav>
+	        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<div class="contents_box system_news">
+				<h2>システムメッセージ</h2>
+				<div class="body">
+					<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+					<p class="message"><a
+							href="index.php?app_controller=search&type=message&run=true&pal=rec">未読のメッセージはありません</a>
+					</p>
+					<!--# else #-->
+					<p class="message"><a
+							href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp"
+							class="att">未読のメッセージが<!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #-->件あります</a>
+					</p>
+					<!--# endif #-->
+				</div>
+			</div><!--contents_box END-->
+			<div class="head">
+				<h2>気になる求人</h2>
+				<a
+					href="https://medical.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">もっと見る</a>
+			</div>
+			<div class="contents_box embed_job clip">
+
+				<!--# async code embedSearch type=clip&run=true&user_id=(!--# code loginid #--)&user_id_PAL[]=match+comp&pal=(!--# mod viewMode getSelectedType #--)&embedID=clip_simple #-->
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf history #--) TRUE #-->
+			<div class="head">
+				<h2>最近見た求人</h2>
+				<a href="index.php?app_controller=other&key=history">もっと見る</a>
+			</div>
+			<div class="contents_box embed_job history">
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=side_history_items&num=3 #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
+			<!--▼特集ページリンク-->
+			<!--# mod special drawLink4SP #-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf ranking #--) TRUE #-->
+		</div>
+
+		<div class="is-inner_content_right">
+			<nav class="sidebar-nav">
+				<ul>
+					<li class="active"><a
+							href="https://medical.try-job.com/index.php?app_controller=search&type=gift&run=true">マイページ</a>
+					</li>
+					<li><a
+							href="https://medical.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+					</li>
+					<li><a
+							href="https://medical.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+					</li>
+					<!-- <li><a href="interview.html">面接・選考</a></li> -->
+					<li><a
+							href="https://medical.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+					</li>
+					<li><a
+							href="https://medical.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+					</li>
+					<li><a
+							href="https://medical.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+					</li>
+					<!-- <li><a href="#">勤続支援金の申請</a></li>
+												<li><a href="inform.html">違反行為の報告</a></li>
+												<li><a href="#">新着求人メール</a></li>
+												<li><a href="#">企業・法人のブロック</a></li>
+												<li><a href="#">設定</a></li> -->
+				</ul>
+			</nav>
+			<div class="sidebar-overlay"></div>
+		</div>
+	</div>
+</main>
+<!--# include foot #-->

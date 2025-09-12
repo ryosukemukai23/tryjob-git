@@ -1,0 +1,139 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true&pal=(!--# get pal #--)">受信したメッセージ</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						履歴
+					</li>
+				</ul>
+			</div>
+
+			<div class="threadDetail">
+
+				<!--# setTimeFormat Y/m/d #-->
+
+				<div class="TD__part">
+					<div class="TD__part__head" onclick="$('#message_<!--# value id #-->').toggle();">
+						<div class="TD__part__head__">
+							<div class="TD__part__head__mark"><span><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span></div>
+							<div class="TD__part__head__time"><span><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></span></div>
+							<div class="TD__part__head__name">
+								<span>
+									<!--# alias nobody owner id name #-->
+								</span>
+							</div><!--TD__part__head__name-->
+							<div class="TD__part__head__sub"><!--# value sub  件名なし #--></div>
+						</div>
+					</div><!--TD__part__head-->
+				
+					<div class="messageBody" id="message_(!--# value id #--)" style="display:block;">
+					
+						<div class="TD__part__body">
+							<div class="TD__part__body__message">
+
+							<!--# ifbegin = mailtype entry &AND& ! = file  #-->
+								<div style="margin:0 0 10px;">
+									<i class="fa fa-file-o" aria-hidden="true"></i>&nbsp;
+									<!--# convertString (!--# valueAlias (!--# code findData entry items_type / message_id = (!--# value id #--) #--) (!--# code findData entry items_id / message_id = (!--# value id #--) #--) id category #--) to items_type #-->
+									(<!--# convertString (!--# valueAlias (!--# code findData entry items_type / message_id = (!--# value id #--) #--) (!--# code findData entry items_id / message_id = (!--# value id #--) #--) id work_style #--) to items_form #-->)
+									への応募
+								</div>
+								
+								<div style="margin:0 0 10px;text-align:right;">
+									関連：<a href="index.php?app_controller=info&type=entry&id=(!--# code findData entry id / message_id = (!--# value id #--) #--)">応募情報を見る</a>
+								</div>
+						
+							<!--# elseif = mailtype scout &AND& ! = file  #-->
+								<div style="margin:0 0 10px;text-align:right;">
+									関連：<a href="<!--# value file #-->">スカウト案件情報を見る</a>
+								</div>
+							<!--# elseif = mailtype inquiry &AND& ! = file  #-->
+								<div style="margin:0 0 10px;text-align:right;">
+									関連：<a href="<!--# value file #-->">問い合わせ案件情報を見る</a>
+								</div>
+							<!--# endif #-->
+
+								<!--# value message  本文なし #-->
+
+							</div><!--TD__part__body__message-->
+						</div><!--TD__part__body-->
+			
+					</div><!--message_(id)-->
+				
+				</div><!--TD__part-->
+
+			</div><!--threadDetail-->
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">連絡先</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+
+	                <!--# ifbegin val= (!--# view payJob drawIsAvailable mid (!--# code loginid #--) #--) TRUE |OR| val= (!--# view payJob drawIsAvailable fresh (!--# code loginid #--) #--) TRUE #-->
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">メールアドレス</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><a href="mailto:<!--# alias nobody owner id mail #-->"><!--# alias nobody owner id mail #--></a></p>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">電話番号</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# alias nobody owner id tel #--></p>
+							</dd>
+						</dl>
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">携帯電話番号</span>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<p><!--# alias nobody owner id mobile_tel #--></p>
+							</dd>
+						</dl>
+					<!--# else #-->
+						<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text wsp_cmnMessage__text--center">
+									これは非会員からのメッセージです。<br>
+									連絡先を見るには有料契約が必要です。
+								</div>
+								<div class="wsp_cmnMessage__body">
+								
+									<div class="wsp_formELE wsp_formELE--center">
+										<a href="index.php?app_controller=register&type=pay_job&label=mid" class="wsp_formELE__btn wsp_formELE__btn--blue wsp_formELE__btn--active">有料プランの契約画面へ</a>
+									</div><!--wsp_formELE-->
+								
+								</div>
+							</div><!--wsp_cmnMessage__-->
+						</div><!--wsp_cmnMessage-->
+					<!--# endif #-->
+			
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

@@ -1,0 +1,36 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+	<!--# syscode searchResult result #-->
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+<!--# ifbegin val= (!--# get max #--) label #-->
+<li class="linkListPanel__item"><a>契約済のサービスが見つかりません。</a></li>
+<!--# else #-->
+<li class="linkListPanel__item"><a>おすすめ掲載は利用していません。</a></li>
+<!--# endif #-->
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+<li class="linkListPanel__item">
+	<a href="index.php?app_controller=info&type=pay_job&id=<!--# value id #-->">
+		<!--# valueReplace label mid/fresh/attention 求人サービス-中途採用/求人サービス-新卒採用/(!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #--) #--> <!--# valueReplace target_type mid/fresh -中途-/-新卒- #-->
+		<br>
+		<!--# ifbegin = limits 0 #-->
+		従量課金プランで利用中
+		<!--# else #-->
+		<!--# setTimeFormat U #-->
+			<!--# ifbegin > limits (!--# code now U #--) #-->
+				利用期限 ： <!--# setTimeFormat Y/m/d #--><!--# value limits #--> まで
+			<!--# else #-->
+				<span class="att">期限切れ ： <!--# setTimeFormat Y/m/d #--><!--# value limits #--> まで</span>
+			<!--# endif #-->
+		<!--# endif #-->
+	</a>
+</li>
+<!--# readend #-->

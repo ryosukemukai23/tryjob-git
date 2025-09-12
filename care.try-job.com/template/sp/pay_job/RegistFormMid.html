@@ -1,0 +1,59 @@
+<script type="text/javascript">
+function apply_select(e){
+	$(".mid").toggle();
+}
+$(function(){
+	if($("input[name=charges]:checked").val()=="job") $(".mid").hide();
+});
+</script>
+
+<!--# ifbegin val= (!--# code getData charges_conf ADMIN plan_select #--) on #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">課金方法</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio charges ul_term  ul_term/job 利用期間/求人毎 onchange="apply_select(this)" #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate charges #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			利用期間の場合利用期間内であればいくら応募、採用されても追加で料金が発生する事はありません。<br />
+			求人毎の場合は応募や採用の際に課金となります。
+		</span>
+	</dd>
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">利用期間(単位:月)</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel wsp_stylishLabel--1">
+			<!--# code tableRadioForm target_id mid_term name id     sort_rank sort asc disp = true #-->
+		</span>
+		<span class="wsp_formSet__desc__error">
+			<!--# syscode validate target_id mid_term #-->
+		</span>
+	<!--# ifbegin val= (!--# code getData charges_conf ADMIN plan_select #--) on #-->
+		<span class="wsp_formSet__desc__hint">課金方法で求人毎を選択された場合は選択する必要はありません。</span>
+	<!--# endif #-->
+
+<!--# form hidden target_type mid_term #-->
+<!--# form hidden label #-->
+
+<!--# ifbegin ! val= (!--# code getData charges_conf ADMIN plan_select #--) on #-->
+	<!--# form hidden charges ul_term #-->
+<!--# endif #-->
+
+	</dd>
+</dl>

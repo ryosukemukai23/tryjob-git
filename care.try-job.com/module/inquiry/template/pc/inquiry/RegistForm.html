@@ -1,0 +1,54 @@
+<div class="p-faq__form">
+	<h2>お問合せフォーム</h2>
+	<table style="width: 100%;">
+		<tr class="p-faq__form-item">
+			<th>氏名<span class="requisite p-faq__form-required">必須</span></th>
+			<td class="(!--# syscode is_validate name #--)">
+				<div class="is-input_inner">
+					<input type="text" id="name" name="name" class="p-faq__form-input">
+					<p class="p-faq__form-example">例：田中太郎</p>
+				</div>
+				<!--# syscode validate name #-->
+			</td>
+		</tr>
+		<tr class="p-faq__form-item">
+			<th>電話番号<span class="requisite p-faq__form-required">必須</span></th>
+			<td class="(!--# syscode is_validate tel #--)">
+				<div class="is-input_inner">
+					<input type="text" id="tel" name="tel" class="p-faq__form-input">
+					<p class="p-faq__form-example">例：03-1234-5678</p>
+				</div>
+				<!--# syscode validate tel #-->
+			</td>
+		</tr>
+		<tr class="p-faq__form-item">
+			<th>メールアドレス<span class="requisite p-faq__form-required">必須</span></th>
+			<td class="(!--# syscode is_validate mail #--)">
+				<div class="is-input_inner">
+					<input type="email" id="email" name="mail" class="p-faq__form-input">
+					<p class="p-faq__form-example">例：sample@example.com</p>
+				</div>
+				<!--# syscode validate mail #-->
+			</td>
+		</tr>
+		<tr class="p-faq__form-item">
+			<th>件名<span class="requisite p-faq__form-required">必須</span></th>
+			<td class="(!--# syscode is_validate sub #--)">
+				<div class="is-input_inner">
+					<input type="text" id="subject" name="sub" class="p-faq__form-input">
+				</div>
+				<!--# syscode validate sub #-->
+			</td>
+		</tr>
+		<tr class="p-faq__form-item">
+			<th>お問い合わせ内容<span class="requisite p-faq__form-required">必須</span></th>
+			<td class="(!--# syscode is_validate note #--)">
+				<textarea id="content" name="note" class="p-faq__form-textarea" rows="10"></textarea>
+				<!--# syscode validate note #-->
+			</td>
+		</tr>
+	</table>
+	<div class="p-faq__form-submit">
+		<button type="submit" class="p-faq__form-button">確認画面へ</button>
+	</div>
+</div>

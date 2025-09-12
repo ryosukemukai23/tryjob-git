@@ -1,0 +1,29 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<div class="message-item">
+	<div class="col col-from">
+		<!--# code Continuation (!--# alias cUser destination id name 退会ユーザー #--) 15 #-->
+	</div>
+	<div class="col col-type">
+		<span class="mailtype"><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span>
+	</div>
+	<div class="col col-subject">
+		<a href="index.php?app_controller=info&type=message&id=(!--# value id #--)&pal=send" class="message-link">
+			<!--# ifbegin = read_flg 0 #-->
+			<strong><!--# value sub 件名なし #--></strong>
+			<!--# else #-->
+			<!--# value sub 件名なし #-->
+			<!--# endif #-->
+		</a>
+		<br />
+		<!--# code Continuation (!--# escp value message false 本文なし #--) 35 #-->
+	</div>
+	<div class="col col-date"><!--# value regist #--></div>
+	<div class="col col-count"><!--# code getRow message thread_id = (!--# value thread_id #--) #--> 通</div>
+	<div class="col col-delete">
+		<ul class="operation">
+			<li class="delete"><a href="javascript:void(0);"
+					onclick="deleteMessage('eyJjVXNlciI6IkNkYTAwMzcxIiwiblVzZXIiOiJOMTMzMzBiNyJ9')" title="削除">削除</a>
+			</li>
+		</ul>
+	</div>
+</div>

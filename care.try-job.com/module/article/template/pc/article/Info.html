@@ -1,0 +1,156 @@
+<!--# syscode drawParts setResultNum 20 #-->
+<!--# syscode drawParts setPagejumpNum 5 #-->
+<!--# syscode drawParts info #-->
+<!--# syscode setTitle (!--# value name #--) | (!--# ecode getSiteProfile site_title #--) #-->
+<!--# syscode setDescription (!--# value description false #--) #-->
+<!--# include head #-->
+<!--# memo write  to categoryIDs #-->
+<div class="view-article__header__category">
+	<ul class="view-articleCategoryList">
+		<!--# code listing type=article_relationship&listingID=categoryList&run=true&original_id=(!--# value id #--)&relationship_type=category #-->
+	</ul>
+	<!--# readhead categoryList #-->
+	<!--# memo write (!--# valueAlias article_category (!--# value relationship_id #--) id name #--) to category #-->
+	<!--# ifbegin ! val_in (!--# memo read category #--) // #-->
+	<!--# memo write (!--# memo read categoryIDs #--)&category[]=(!--# value relationship_id #--) to categoryIDs #-->
+	<li class="view-articleCategoryList__item"><a
+			href="(!--# code link searchResult article category=(!--# value relationship_id #--) #--)">(!--#
+			memo read category #--)</a></li>
+	<!--# endif #-->
+	<!--# readend #-->
+</div>
+<main class="p-column_specifics">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>求人特集コラム（仮称）</h1>
+		</div>
+	</div>
+	<div class="breadcrumb-box">
+		<nav class="is-inner_content">
+			<ol class="breadcrumb">
+				<li><a href="./">TOP</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a
+						href="https://care.try-job.com/index.php?app_controller=Search&type=article&run=true">求人特集コラム一覧</a>
+				</li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><!--# value name #--></li>
+			</ol>
+		</nav>
+	</div>
+	<div class="is-inner_content flex">
+		<div class="is-inner_content_left">
+			<div class="is-column_specifics">
+				<p class="date">公開：<!--# value open #-->&nbsp;&nbsp;更新：<!--# value edit #--></p>
+				<h2><!--# value name #--></h2>
+				<p><!--# value description #--></p>
+				<!--# syscode drawParts result #-->
+				<a href="https://care.try-job.com/index.php?app_controller=Search&type=article&run=true"
+					class="o-btn is-wh is-arw">一覧を見る<i class="o-btn__icon"></i></a>
+			</div>
+			<div class="is-shere">
+				<h3>この記事をシェアする</h3>
+				<ul>
+					<li><a href="#"><img src="./common/images/news_specifics/icon_x.svg" alt="facebook" /></a></li>
+					<li><a href="#"><img src="./common/images/news_specifics/icon_facebook.svg" alt="twitter" /></a>
+					</li>
+					<li><a href="#"><img src="./common/images/news_specifics/icon_line.svg" alt="line" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<div class="side-bar is-article">
+				<h2>新着コラム</h2>
+				<!--# code listing type=article&run=true&listingID=newArticle&row=5 #-->
+				<!--# readhead newArticle #-->
+				<a href="(!--# code link info article (!--# value id #--) #--)" class="side-bar_contents">
+					<div class="side-bar_item">
+						<div class="side-bar_image">
+							<!--# view article drawImage 300 300 common/img/system/noimage_1_1.png #-->
+						</div>
+						<div class="side-bar_text">
+							<h3><!--# value name #--></h3>
+							<!--# value description #-->
+						</div>
+					</div>
+				</a>
+				<!--# readend #-->
+				<a href="https://care.try-job.com/index.php?app_controller=Search&type=article&run=true"
+					class="o-btn is-wh is-arw">一覧を見る<i class="o-btn__icon"></i></a>
+			</div>
+			<div class="side-bar is-article">
+				<h2>同じカテゴリーのコラム</h2>
+				<!--# code listing type=article&run=true&id=(!--# value id #--)&id_PAL[]=match+not&(!--# memo read categoryIDs #--)&category_CHECKBOX=&category_PAL[]=match+in&listingID=frameListArticle&row=5 #-->
+			</div>
+			<div class="side-bar is-article last" style="margin-bottom: 4.8rem;">
+				<h2>カテゴリー一覧</h2>
+				<ul style="grid-template-columns: repeat(3, 1fr); gap: .8rem !important; display: grid;">
+					<!--# code listing type=article_category&listingID=cList&run=true #-->
+					<!--# readhead cList #-->
+					<li>
+						<a class="category"
+							href="(!--# code link searchResult article #--)&category=(!--# value id #--)&category_PAL[]=match+comp">
+							<span><!--# value name #--></span>
+						</a>
+					</li>
+					<!--# readend #-->
+
+					<style>
+						.category {
+							color: #d98e32;
+							display: inline-block;
+							font-size: 1rem;
+							line-height: 180%;
+							border-width: 1px;
+							border-style: solid;
+							border-color: #d98e32;
+							border-image: initial;
+							border-radius: 5px;
+							padding: 0.2rem 0.8rem;
+							text-align: center;
+							width: 100%;
+						}
+
+						.category:hover {
+							color: #fff !important;
+							background: #d98e32;
+							border-color: #fff;
+						}
+					</style>
+				</ul><!--view-categoryList-->
+
+			</div>
+		</div>
+	</div>
+	</div>
+</main>
+<!--l-pagebody-->
+<!--# include foot #-->
+
+<!--# readhead frameListArticle #-->
+<a href="(!--# code link info article (!--# value id #--) #--)" class="side-bar_contents">
+	<div class="side-bar_item">
+		<div class="side-bar_image">
+			<!--# view article drawImage common/img/system/noimage_16_9.png #-->
+		</div>
+		<div class="side-bar_text">
+			<h3><!--# value name #--></h3>
+			<!--# value description #-->
+		</div>
+	</div>
+</a>
+<!--# readend #-->
+
+<style>
+	.view-articleCardThumb__thumb {
+		width: 80px;
+	}
+
+	.view-articleCardThumb {
+		border: none;
+	}
+
+	.view-articleCardThumb__ {
+		display: flex;
+	}
+</style>

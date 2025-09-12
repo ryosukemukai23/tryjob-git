@@ -1,0 +1,52 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						登録情報の編集
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">編集完了</div>
+						<div class="wsp_cmnForm__sub">登録情報の編集が完了しました</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+
+					<!--# ifbegin val= (!--# code getRow mid owner = (!--# code loginid #--) #--) 0 #-->
+						<div class="wsp_cmnMessage">
+							<div class="wsp_cmnMessage__">
+								<div class="wsp_cmnMessage__text wsp_cmnMessage__text--center">求人情報が登録されていません</div>
+								<div class="wsp_cmnMessage__body">
+							
+									<div class="wsp_formELE wsp_formELE--center">
+										<a href="index.php?app_controller=register&type=mid" class="wsp_formELE__btn wsp_formELE__btn--blue wsp_formELE__btn--active">求人情報を登録する</a>
+									</div><!--wsp_formELE-->
+							
+								</div><!--wsp_cmnMessage__body-->
+							</div><!--wsp_cmnMessage__-->
+						</div>
+					<!--# endif #-->
+
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

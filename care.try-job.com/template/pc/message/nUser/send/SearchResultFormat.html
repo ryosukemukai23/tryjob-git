@@ -1,0 +1,283 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<style>
+	.tab-content {
+		background: #fff;
+		border-radius: 0.5rem;
+		box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.08);
+		padding: 1.6rem;
+	}
+
+	/* メッセージリストのコンテナ */
+	.message-list {
+		width: 100%;
+	}
+
+	/* ヘッダー行 */
+	.message-header {
+		display: flex;
+		align-items: center;
+		font-size: 1.6rem;
+		line-height: 150%;
+		border-bottom: 0.125rem solid #dd6e21;
+		padding: 1.6rem .8rem 0;
+		border-radius: 0.375rem 0.375rem 0 0;
+		color: #dd6e21;
+	}
+
+	.message-header .col {
+		font-weight: 500;
+	}
+
+	/* メッセージアイテム */
+	.message-item {
+		display: flex;
+		align-items: center;
+		border-bottom: 0.0625rem solid #dd6e21;
+		padding: 1.6rem .8rem 0;
+		transition: background-color 0.2s;
+		font-weight: normal;
+		font-size: 1.6rem;
+		line-height: 150%;
+	}
+
+	.message-item:hover {
+		background-color: #f9f9f9;
+	}
+
+	.message-item:last-child {
+		border-bottom: none;
+	}
+
+	/* カラム設定 */
+	.col {
+		font-weight: normal;
+	}
+
+	.col-from {
+		flex: 0 0 18%;
+
+	}
+
+	.col-type {
+		flex: 0 0 10%;
+	}
+
+	.col-subject {
+		flex: 1;
+		line-height: 1.6;
+	}
+
+	.col-date {
+		flex: 0 0 15%;
+	}
+
+	.col-count {
+		flex: 0 0 10%;
+	}
+
+	.col-delete {
+		flex: 0 0 4rem;
+	}
+
+	/* 操作リンク */
+	.operation {
+		list-style: none;
+		white-space: nowrap;
+	}
+
+	.operation li {
+		display: inline-block;
+	}
+
+	.operation a {
+		font-weight: normal;
+		font-size: 1.4rem;
+		line-height: 150%;
+		transition: all 0.2s;
+		display: block;
+		min-width: 3rem;
+	}
+
+	.operation a:hover {
+		color: #fff;
+		background-color: #dd6e21;
+	}
+
+	/* メッセージリンクスタイル */
+	.message-link {
+		color: #3575d3;
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		margin-bottom: 0.25rem;
+	}
+
+	.message-link:hover {
+		text-decoration: underline;
+	}
+
+	.is-inner_content_right {
+		margin-bottom: 4.8rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.message-header {
+			display: none;
+			/* ヘッダーは非表示に */
+		}
+
+		.message-item {
+			flex-direction: column;
+			align-items: flex-start;
+			border-top: 1px solid #faebeb;
+			border-bottom: 1px solid #faebeb;
+			border-radius: 4px;
+			padding: 1.2rem;
+			margin-bottom: 1rem;
+		}
+
+		.message-item .col {
+			flex: none;
+			width: 100%;
+			padding: 0.3rem 0;
+			font-size: 1.4rem;
+		}
+
+		.col-from::before {
+			content: "From: ";
+			font-weight: 500;
+			color: #dd6e21;
+		}
+
+		.col-type::before {
+			content: "種類: ";
+			font-weight: 500;
+			color: #dd6e21;
+		}
+
+		.col-subject::before {
+			content: "件名 / 本文: ";
+			font-weight: 500;
+			color: #dd6e21;
+			display: block;
+			margin-bottom: 0.2rem;
+		}
+
+		.col-date::before {
+			content: "日時: ";
+			font-weight: 500;
+			color: #dd6e21;
+		}
+
+		.col-count::before {
+			content: "送受信: ";
+			font-weight: 500;
+			color: #dd6e21;
+		}
+
+		.col-delete a::before {
+			content: "操作: ";
+			font-weight: 500;
+			color: #dd6e21;
+		}
+
+		.message-link {
+			display: block;
+			margin-top: 0.5rem;
+		}
+
+		.operation {
+			margin-top: 0.5rem;
+		}
+
+		.message-item:hover {
+			background-color: unset;
+		}
+
+		.message-item:last-child {
+			border-bottom: 1px solid #faf1eb;
+		}
+
+		.is-inner_content_right {
+			margin-bottom: 0 !important;
+		}
+	}
+</style>
+<main class="p-message">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>メッセージ</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+	            <nav class="is-inner_content">
+	                <ol class="breadcrumb">
+	                    <li><a href="index.html">TOP</a></li>
+	                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+	                    <li>業種トップ</li>
+	                </ol>
+	            </nav>
+	        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<div class="tab-container">
+				<!--# include side_bar4message #-->
+			</div>
+			<div class="tab-content">
+				<div class="message-list">
+					<!-- ヘッダー行 -->
+					<div class="message-header">
+						<div class="col col-from">To</div>
+						<div class="col col-type">種類</div>
+						<div class="col col-subject">件名 / 本文</div>
+						<div class="col col-date">日時</div>
+						<div class="col col-count">送受信</div>
+						<div class="col col-delete">削除</div>
+					</div>
+					<!--# syscode searchResult result #-->
+				</div>
+				<a href="index.php?app_controller=search&type=message&run=true&pal=rec"
+					class="o-btn is-wh is-arw">受信メッセージ一覧<i class="o-btn__icon"></i></a>
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<nav class="sidebar-nav">
+				<ul>
+					<li><a href="mypage.html">マイページ</a></li>
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+					</li>
+					<li class="active"><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+					</li>
+					<!-- <li><a href="interview.html">面接・選考</a></li> -->
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+					</li>
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+					</li>
+					<li><a
+							href="https://care.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+					</li>
+					<!-- <li><a href="#">勤続支援金の申請</a></li>
+									<li><a href="inform.html">違反行為の報告</a></li>
+									<li><a href="#">新着求人メール</a></li>
+									<li><a href="#">企業・法人のブロック</a></li>
+									<li><a href="#">設定</a></li> -->
+				</ul>
+			</nav>
+			<div class="sidebar-overlay"></div>
+		</div>
+
+	</div>
+</main>
+
+<!--# include foot #-->

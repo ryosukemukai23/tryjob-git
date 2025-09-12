@@ -1,0 +1,64 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						求人の管理(新卒)
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList">
+					<li><a onclick="$('#searchFormToggle').toggle();return false;"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;絞り込み</a></li>
+					<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+				</ul>
+				<ul class="wsp_switchList wsp_switchList--blue">
+					<li class="wsp_switchList__active"><a href="./index.php?app_controller=register&type=(!--# get type #--)">求人情報を登録する</a></li>
+				</ul>
+			</div><!--wsp_resultNav-->
+
+			<!--# include freshSearchForm #-->
+
+		<!--# ifbegin ! get= searchQuery true #-->
+			<div class="wsp_resultNav">
+				<ul class="wsp_resultMenu">
+					<li class="wsp_resultMenu__item (!--# code is_set (!--# get view #--)  wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true">すべて<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all    fresh #--></span></a></li>
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm1 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&attention[]=1&attention_PAL[]=match+or&view=vm1">おすすめ<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all on 4 attention fresh #--></span></a></li>
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm2 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=on&publish_now=on&view=vm2">公開設定<span class="wsp_resultMenu__item__count"><!--# calc (!--# view Job drawCount all on 4  fresh on #--) - (!--# view Job drawCount all on 4 limitOver fresh on #--) #--></span></a></li>
+				<!--# ifbegin not val= (!--# view Job drawCount all on 1  fresh #--) 0 #-->
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm3 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp&view=vm3">管理者確認待ち<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all on 1  fresh #--></span></a></li>
+				<!--# endif #-->
+				<!--# ifbegin not val= (!--# view Job drawCount all off 1  fresh #--) 0 #-->
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm4 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=off&publish_PAL[]=match+comp&activate=1&activate_PAL[]=match+comp&view=vm4">下書き<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all off 1  fresh #--></span></a></li>
+				<!--# endif #-->
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm5 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&apply_pos=TRUE&apply_pos_PAL[]=match+comp&view=vm5">応募上限<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all on 4 noneApply fresh #--></span></a></li>
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm6 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=on&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&limit[]=off&view=vm6">掲載期限切れ<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all on 4 limitOver fresh #--></span></a></li>
+					<li class="wsp_resultMenu__item (!--# code ifelse (!--# get view #--) vm7 wsp_resultMenu__item--active #--)"><a href="index.php?app_controller=search&type=fresh&run=true&publish=off&publish_PAL[]=match+comp&activate=4&activate_PAL[]=match+comp&view=vm7">非公開<span class="wsp_resultMenu__item__count"><!--# view Job drawCount all off 4  fresh #--></span></a></li>
+				</ul>
+			</div>
+		<!--# endif #-->
+
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						その条件に一致する情報はありませんでした。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div><!--wsp_cmnMessage-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

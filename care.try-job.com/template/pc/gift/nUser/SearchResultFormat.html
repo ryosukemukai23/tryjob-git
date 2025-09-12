@@ -1,0 +1,105 @@
+<!--# include head #-->
+<main class="p-mypage">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>マイページ</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+	            <nav class="is-inner_content">
+	                <ol class="breadcrumb">
+	                    <li><a href="index.html">TOP</a></li>
+	                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+	                    <li>業種トップ</li>
+	                </ol>
+	            </nav>
+	        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<div class="tab-content">
+				<div class="message-list">
+					<!-- ヘッダー行 -->
+					<div class="message-header">
+						<div class="col col-from">From</div>
+						<div class="col col-type">種類</div>
+						<div class="col col-subject">件名 / 本文</div>
+						<div class="col col-date">日時</div>
+						<div class="col col-count">送受信</div>
+						<div class="col col-delete">削除</div>
+					</div>
+					<!--# syscode searchResult result #-->
+				</div>
+				<a href="./index.php?app_controller=search&type=message&run=true&pal=send"
+					class="o-btn is-wh is-arw">送信メッセージ一覧<i class="o-btn__icon"></i></a>
+			</div>
+			<div class="contents_box embed_job clip">
+				<h2><a
+						href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)">検討中リスト<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a>
+				</h2>
+				<!--# async code embedSearch type=clip&run=true&user_id=(!--# code loginid #--)&user_id_PAL[]=match+comp&pal=(!--# mod viewMode getSelectedType #--)&embedID=clip_simple #-->
+			</div><!--contents_box END-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf history #--) TRUE #-->
+			<div class="contents_box embed_job history">
+				<h2><a
+						href="index.php?app_controller=other&key=history">最近見た求人<!--# valueValueReplace (!--# mod viewMode getSelectedType #--) fresh/mid (新卒)/ #--></a>
+				</h2>
+				<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&sort=regist&sort_PAL=desc&history=on&embedID=side_history_items #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin mod_on special &AND& val= (!--# mod disp_conf checkConf special #--) TRUE #-->
+			<!--▼特集ページリンク-->
+			<!--# mod special drawLink4SP #-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf ranking #--) TRUE #-->
+			<div class="contents_box embed_job rank">
+				<h2>アクセスランキング</h2>
+				<!--# async view Count drawRankData (!--# mod viewMode getSelectedType #--) 10 #-->
+			</div><!--contents_box END-->
+			<!--# endif #-->
+
+			<!--# ifbegin val= (!--# mod disp_conf checkConf pagelink #--) TRUE #-->
+			<!--▼ページリンク-->
+			<!--# async view Page drawLink #-->
+			<!--# endif #-->
+
+		</div>
+	</div><!--contents END-->
+	</div>
+	<div class="is-inner_content_right">
+		<nav class="sidebar-nav">
+			<ul>
+				<li><a href="mypage.html">マイページ</a></li>
+				<li><a href="https://care.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+				</li>
+				<li class="active"><a
+						href="https://care.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+				</li>
+				<!-- <li><a href="interview.html">面接・選考</a></li> -->
+				<li><a
+						href="https://care.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+				</li>
+				<li><a
+						href="https://care.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+				</li>
+				<li><a
+						href="https://care.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+				</li>
+				<!-- <li><a href="#">勤続支援金の申請</a></li>
+												<li><a href="inform.html">違反行為の報告</a></li>
+												<li><a href="#">新着求人メール</a></li>
+												<li><a href="#">企業・法人のブロック</a></li>
+												<li><a href="#">設定</a></li> -->
+			</ul>
+		</nav>
+		<div class="sidebar-overlay"></div>
+	</div>
+	</div>
+</main>
+<!--# include foot #-->

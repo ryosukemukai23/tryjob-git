@@ -1,0 +1,121 @@
+<!--# setTimeFormat H:i #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">営業日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<script type="text/javascript">
+		$(function(){
+			var dotw="<!--# post dotw_text #-->";
+			$(".dotw").hide();
+			if(dotw){
+				var dotw_list=dotw.split("/");
+				for(var i=0;i<dotw_list.length;i++){
+					$("."+dotw_list[i]).show();
+				}
+			}
+		});
+		</script>
+		<div id="dotw_common_set">
+			<p><!--# arrayValueReplace (!--# post dotw_text #--) / mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 未設定 #--></p>
+			<span style="display:none;">
+				<!--# form checkbox dotw   mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 #-->
+			</span>
+		</div>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw mon">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">月曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_mon_am #-->&nbsp;-&nbsp;<!--# value end_mon_am #--><br>
+			【午後】<!--# value start_mon_pm #-->&nbsp;-&nbsp;<!--# value end_mon_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw tue">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">火曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_tue_am #-->&nbsp;-&nbsp;<!--# value end_tue_am #--><br>
+			【午後】<!--# value start_tue_pm #-->&nbsp;-&nbsp;<!--# value end_tue_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw wed">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">水曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_wed_am #-->&nbsp;-&nbsp;<!--# value end_wed_am #--><br>
+			【午後】<!--# value start_wed_pm #-->&nbsp;-&nbsp;<!--# value end_wed_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw thr">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">木曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_thr_am #-->&nbsp;-&nbsp;<!--# value end_thr_am #--><br>
+			【午後】<!--# value start_thr_pm #-->&nbsp;-&nbsp;<!--# value end_thr_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw fri">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">金曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_fri_am #-->&nbsp;-&nbsp;<!--# value end_fri_am #--><br>
+			【午後】<!--# value start_fri_pm #-->&nbsp;-&nbsp;<!--# value end_fri_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw sat">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">土曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_sat_am #-->&nbsp;-&nbsp;<!--# value end_sat_am #--><br>
+			【午後】<!--# value start_sat_pm #-->&nbsp;-&nbsp;<!--# value end_sat_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet dotw sun">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">日曜日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p>
+			【午前】<!--# value start_sun_am #-->&nbsp;-&nbsp;<!--# value end_sun_am #--><br>
+			【午後】<!--# value start_sun_pm #-->&nbsp;-&nbsp;<!--# value end_sun_pm #-->
+		</p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">取り扱い内容</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# arrayAlias items_elements manage_type id name / 未設定 #--></p>
+	</dd>
+</dl>
+

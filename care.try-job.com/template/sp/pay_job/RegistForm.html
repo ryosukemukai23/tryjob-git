@@ -1,0 +1,24 @@
+<script type="text/javascript">
+function plan_select(e){
+	location.href="index.php?app_controller=register&type=pay_job&label="+e.value;
+}
+</script>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サービス種類</span>
+		<div class="wsp_formSet__title__tool">
+			<span class="wsp_formSetRequired">※必須</span>
+		</div>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_formELE">
+		<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+			<!--# form option label  /mid/fresh 選択して下さい/求人サービス-中途採用/求人サービス-新卒採用 onchange="plan_select(this);" #-->
+		<!--# else #-->
+			<!--# form option label  /(!--# view Conf drawData job type_check #--) 選択して下さい/求人サービス onchange="plan_select(this);" #-->
+		<!--# endif #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">※　サービスの種類を選択してください</span>
+	</dd>
+</dl>

@@ -1,0 +1,58 @@
+<div class="is-offers__item">
+	<div class="flex">
+		<div class="img-wrap">
+			<!--# object image image1 size 133 100 not <img src="common/img/noimage.gif" #-->
+		</div>
+		<div class="text-wrap">
+			<h3><span class="cate"><!--# alias items_type category id name #-->-</span><a
+					href="index.php?app_controller=info&type=<!--# get pal #-->&id=<!--# value id #-->"><!--# value name #--></a>
+				<!--# setTimeFormat U #-->
+				<!--# ifbegin > attention_time (!--# code now u #--) #-->
+				<span class="pickup">おすすめ</span>
+				<!--# endif #-->
+			</h3>
+			<p><!--# code Continuation (!--# escp value job_pr false #--) 150 ... #--></p>
+		</div>
+	</div>
+	<div class="is-offers__content">
+		<div class="is-offers__details">
+			<dl>
+				<dt>職種</dt>
+				<dd><!--# alias items_type category id name #--></dd>
+			</dl>
+			<dl>
+				<dt>勤務形態</dt>
+				<dd><!--# alias items_form work_style id name #--></dd>
+			</dl>
+			<dl>
+				<dt>勤務地</dt>
+				<dd>
+					<!--# ifbegin = foreign_flg 1 #-->
+					<!--# value foreign_address #-->
+					<!--# else #-->
+					<!--# value work_place_label #-->
+					<!--# endif #-->
+				</dd>
+			</dl>
+			<dl>
+				<dt>仕事内容</dt>
+				<dd><!--# value job_content #--></dd>
+			</dl>
+		</div>
+		<ul>
+			<!--# view Job drawJobAdditionIcon #-->
+		</ul>
+		<div class="buttons">
+			<button class="btn-favorite">
+				<!--# mod Clip drawButton (!--# get pal #--) (!--# value id #--) #-->
+			</button>
+			<button class="btn-apply"
+				onclick="window.location.href='index.php?app_controller=info&type=<!--# get pal #-->&id=<!--# value id #-->'">求人を見る</button>
+		</div>
+		<button class="oneclick-apply"
+			onclick="location.href='index.php?app_controller=register&type=entry&mid_id=(!--# value id #--)'">1クリックで今すぐ応募</button>
+		<!--# ifbegin val= (!--# view Entry canEntry (!--# value id #--) #--) APPLIED #-->
+		<p class="att">こちらの求人には既に応募しています。</p>
+		<!--# endif #-->
+	</div>
+</div>

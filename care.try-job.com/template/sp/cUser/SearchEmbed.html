@@ -1,0 +1,34 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 5 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+
+<!--# syscode searchResult result #-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+<p class="notFound">その条件に一致する企業はありませんでした。</p>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+<article>
+	<a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">
+		<p class="img"><!--# object image image size 133 100 not <img\ src="common/img/noimage.gif"\ /> #--></p>
+		<div class="text">
+			<h3 class="title"><!--# value name #--></h3>
+		<!--# ifbegin = foreign_flg TRUE #-->
+			<p class="sub"><!--# value foreign_address #--></p>
+		<!--# else #-->
+			<p class="sub"><!--# alias adds adds id name #--> <!--# alias add_sub add_sub id name #--></p>
+		<!--# endif #-->
+		</div>
+	</a>
+</article>
+<!--# readend #-->

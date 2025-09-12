@@ -1,0 +1,124 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">応募情報</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						詳細
+					</li>
+				</ul>
+			</div>
+			
+			<div class="cmslPanel">
+				<div class="cmslPanel__title">応募情報</div>
+				<div class="cmslPanel__body cmslPanel__body--p20">
+
+					<table class="commonTable" style="margin:0 0 10px;">
+						<tr>
+							<th style="width:30%;">応募日時</th>
+							<td><p><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></p></td>
+						</tr>
+						<tr>
+							<th>応募先</th>
+							<td>
+								<p>
+									<a href="index.php?app_controller=info&type=<!--# value items_type #-->&id=<!--# value items_id #-->">
+										<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #--> (<!--# value items_id #-->)
+									</a>
+									<br>
+									<br>
+									<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id category #--) to items_type #-->
+									(<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id work_style #--) to items_form #-->)
+									<br>
+									<br>
+								<!--# ifbegin ! val= (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id foreign_flg #--) #-->
+									勤務地：<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id work_place_adds #--) to adds #-->
+									<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id work_place_add_sub #--) to add_sub #--><br>
+								<!--# else #-->
+										勤務地：海外<br>
+								<!--# endif #-->
+		
+									給与：(!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id salary_type #--)
+									<!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id salary #-->
+									<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id salary_type #--) to /時給/日給/月給/年俸 /円/円/万円/万円 #-->～
+								</p>
+							</td>
+						</tr>
+						<!--# ifbegin match (!--# value entry_user #--) NB #-->
+						<tr>
+							<th>応募者</th>
+							<td>
+								<p><!--# alias nobody entry_user id name #--></p>
+							</td>
+						</tr>
+						<tr>
+							<th>履歴書</th>
+							<td>
+								<p><a href="index.php?app_controller=info&type=nobody&id=<!--# value entry_user #-->">履歴書を見る</a></p>
+							</td>
+						</tr>
+						<!--# else #-->
+						<tr>
+							<th>応募者</th>
+							<td>
+								<p><a href="index.php?app_controller=info&type=nUser&id=<!--# value entry_user #-->"><!--# alias nUser entry_user id name 退会ユーザー #--></a></p>
+							</td>
+						</tr>
+						<tr>
+							<th>履歴書</th>
+							<td>
+								<p><a href="(!--# alias message message_id id file #--)" title="履歴書を見る">履歴書を見る</a></p>
+							</td>
+						</tr>
+						<!--# endif #-->
+						<tr>
+							<th>メッセージ</th>
+							<td>
+								<p>
+									<!--# valueValueReplace (!--# alias message message_id id read_flg #--) TRUE/FALSE 既読/未読 #--><br>
+									<a href="index.php?app_controller=info&type=message&id=(!--# value message_id #--)&pal=rec" title="メッセージ履歴を見る">メッセージを見る</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<th>進捗</th>
+							<td>
+								<p><!--# alias entry_progress status id name #--></p>
+								<div style="margin:10px 0 0;">
+									<span class="wsp_formELE">
+										<!--# code tableSelectForm status entry_progress name id (!--# value status #--)  id="status_(!--# value id #--)"\ onchange="return\ entryStatusChange(this,'(!--# value id #--)');" #-->
+									</span>
+								</div>
+								<script type="text/javascript">
+								$("#status_(!--# value id #--)").val('(!--# value status #--)');
+								</script>
+							</td>
+						</tr>
+					</table>
+		
+					<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+						<div class="wsp_cmnMessage__">
+							<div class="wsp_cmnMessage__text">やりとりの状況に応じて進捗欄を変更すると、会員に進捗が通知されます。<br>進捗を「採用」に設定後は、他のステータスに変更できなくなります。</div>
+						</div>
+					</div>
+			
+				</div><!--cmslPanel-->
+			</div><!--cmslPanel__body-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

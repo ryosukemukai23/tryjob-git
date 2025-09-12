@@ -1,0 +1,111 @@
+<!--# readhead success #-->
+
+<!--# syscode searchResult setResultNum 100 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+			<script type="text/javascript">
+				$(function(){
+					$(".TD__part__head").last().click();
+				})
+			</script>
+
+			<div class="wsp_resultNav">
+				<div>
+					メッセージ履歴
+				</div>
+				<ul class="wsp_switchList">
+					<li><a onclick="$('.messageBody').show();return false;"><i class="fa fa-angle-double-down" aria-hidden="true"></i>&nbsp;すべて展開</a></li>
+				</ul>
+			</div><!--wsp_resultNav-->
+
+			<div class="threadDetail">
+
+				<!--# syscode searchResult result #-->
+
+			</div><!--threadDetail-->
+
+<!--# syscode searchResult info #-->
+<!--# syscode searchResult pageChange #-->
+
+
+<!--# readend #-->
+
+<!--# readhead failed #-->
+
+				<div class="wsp_cmnMessage">
+					<div class="wsp_cmnMessage__">
+						<div class="wsp_cmnMessage__text">メッセージが見つかりません</div>
+					</div>
+				</div>
+
+<!--# readend #-->
+
+<!--# readhead list #-->
+
+<!--# setTimeFormat Y/m/d #-->
+
+				<div class="TD__part">
+					<div class="TD__part__head" onclick="$('#message_<!--# value id #-->').toggle();">
+						<div class="TD__part__head__">
+							<div class="TD__part__head__mark"><span><!--# valueReplace mailtype inquiry/scout/entry/reply 問い合わせ/スカウト/応募/返信 #--></span></div>
+							<div class="TD__part__head__time"><span><!--# setTimeFormat Y年m月d日\ H:i #--><!--# value regist #--></span></div>
+							<div class="TD__part__head__name">
+								<span>
+								<!--# ifbegin = owner (!--# code loginid #--) #-->
+									自分
+								<!--# else #-->
+									<!--# ifbegin val= (!--# value owner_type #--) cUser #-->
+										<!--# alias cUser owner id name 退会ユーザー  #-->
+									<!--# else #-->
+										<!--# ifbegin val= (!--# view Entry haveUserEntry (!--# value destination #--) (!--# value owner #--) #--) TRUE #-->
+											<!--# alias nUser owner id name 退会ユーザー  #-->
+										<!--# else #-->
+											<!--# alias nUser owner id nick_name 退会ユーザー  #-->
+										<!--# endif #-->
+									<!--# endif #-->
+								<!--# endif #-->
+								</span>
+							</div><!--TD__part__head__name-->
+							<div class="TD__part__head__sub"><!--# value sub  件名なし #--></div>
+						</div>
+					</div><!--TD__part__head-->
+				
+					<div class="messageBody" id="message_(!--# value id #--)" style="display:none;">
+					
+						<div class="TD__part__body">
+							<div class="TD__part__body__message">
+
+							<!--# ifbegin = mailtype entry &AND& ! = file  #-->
+								<div style="margin:0 0 10px;">
+									<i class="fa fa-file-o" aria-hidden="true"></i>&nbsp;
+									<!--# convertString (!--# valueAlias (!--# code findData entry items_type / message_id = (!--# value id #--) #--) (!--# code findData entry items_id / message_id = (!--# value id #--) #--) id category #--) to items_type #-->
+									(<!--# convertString (!--# valueAlias (!--# code findData entry items_type / message_id = (!--# value id #--) #--) (!--# code findData entry items_id / message_id = (!--# value id #--) #--) id work_style #--) to items_form #-->)
+									への応募
+								</div>
+								
+								<div style="margin:0 0 10px;text-align:right;">
+									関連：<a href="index.php?app_controller=info&type=entry&id=(!--# code findData entry id / message_id = (!--# value id #--) #--)">応募情報を見る</a>
+								</div>
+						
+							<!--# elseif = mailtype scout &AND& ! = file  #-->
+								<div style="margin:0 0 10px;text-align:right;">
+									関連：<a href="<!--# value file #-->">スカウト案件情報を見る</a>
+								</div>
+							<!--# elseif = mailtype inquiry &AND& ! = file  #-->
+								<div style="margin:0 0 10px;text-align:right;">
+									関連：<a href="<!--# value file #-->">問い合わせ案件情報を見る</a>
+								</div>
+							<!--# endif #-->
+
+								<!--# value message  本文なし #-->
+
+								<!--# ifbegin boolean declination_scout #--><div style="margin:20px 0 0;">※このスカウトは求職者によって辞退されました。</div><!--# endif #-->
+
+							</div><!--TD__part__body__message-->
+						</div><!--TD__part__body-->
+			
+					</div><!--message_(id)-->
+				
+				</div><!--TD__part-->
+
+<!--# readend #-->

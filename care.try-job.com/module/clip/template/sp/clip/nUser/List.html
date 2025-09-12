@@ -1,0 +1,137 @@
+<!--# setTimeFormat Y/m/d #-->
+
+<!--# ifbegin > attention_time (!--# code now u #--) #-->
+<!--# // ピックアップ求人 #-->
+			<div class="jobInfoCard jobInfoCard--pickup">
+				<a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)" class="jobInfoCard__more"></a>
+				<div class="jobInfoCard__head">
+					<div class="jobInfoCard__head__data">
+						<span class="jobInfoCard__head__data__workstyle"><!--# alias items_form work_style id name #--></span>
+					<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# view Job drawJobType (!--# value id #--) (!--# value id #--) #--) (!--# value id #--) #--) #-->
+						<div class="jobInfoCard__gift">
+							<div class="jobInfoCard__gift__">
+								<span class="jobInfoCard__gift__label">お祝い金</span>
+								<span class="jobInfoCard__gift__price"><!--# comma alias items_form work_style id gift #-->円</span>
+							</div>
+						</div>
+					<!--# endif #-->
+						<span class="jobInfoCard__head__data__pickup">おすすめ</span>
+						<span class="jobInfoCard__head__data__edit">更新日:<!--# value edit #--></span>
+					</div>
+					<h3 class="jobInfoCard__head__title">
+						<a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 38 #--></a>
+					</h3>
+				</div><!--jobInfoCard__head-->
+				<div class="jobInfoCard__body">
+					<div class="jobInfoCard__body__pr">
+						<div class="jobInfoCard__body__pr__thumb"><!--# object image image1 size 600 450 not <img\ src="common/img/noimage.gif"> #--></div>
+						<div class="jobInfoCard__body__pr__text"><!--# code Continuation (!--# value job_pr false #--) 128 #--></div>
+					</div>
+					<div class="jobInfoCard__body__data">
+						<table>
+							<tr>
+								<th>職業</th>
+								<td><!--# alias items_type category id name #--></td>
+							</tr>
+							<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+							<tr>
+								<th>勤務形態</th>
+								<td><!--# alias items_form work_style id name #--></td>
+							</tr>
+							<!--# else #-->
+							<tr>
+								<th>募集年度</th>
+								<td><!--# value target_graduation #--></td>
+							</tr>
+							<!--# endif #-->
+							<tr>
+								<th>給与</th>
+								<td><!--# code Continuation (!--# escp value salary_label false #--) 38 #--></td>
+							</tr>
+							<tr>
+								<th>最寄り駅</th>
+								<td><!--# code Continuation (!--# escp value transport false #--) 38 #--></td>
+							</tr>
+						</table>
+					</div>
+				</div><!--jobInfoCard__body-->
+				<div class="jobInfoCard__foot">
+					<div class="userActionLinks">
+						<div class="userActionLinks__fav"><!--# mod Clip drawButton (!--# get pal #--) (!--# value id #--) #--></div>
+						<div class="userActionLinks__more"><a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)" class="userActionLinks__more__btn"><span><i class="fa fa-file-text-o" aria-hidden="true"></i>詳細を見る</span></a></div>
+					</div>
+				<!--# ifbegin val= (!--# view Entry canEntry (!--# value id #--) #--) APPLIED #-->
+					<div class="actionApplied">こちらの求人には既に応募しています。</div>
+				<!--# endif #-->
+				</div><!--jobInfoCard__foot-->
+
+			</div><!--jobInfoCard-->
+<!--# else #-->
+<!--# // ピックアップ求人ではない #-->
+			<div class="jobInfoCard">
+				<a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)" class="jobInfoCard__more"></a>
+				<div class="jobInfoCard__head">
+					<div class="jobInfoCard__head__data">
+						<span class="jobInfoCard__head__data__workstyle"><!--# alias items_form work_style id name #--></span>
+					<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# view Job drawJobType (!--# value id #--) (!--# value id #--) #--) (!--# value id #--) #--) #-->
+						<div class="jobInfoCard__gift">
+							<div class="jobInfoCard__gift__">
+								<span class="jobInfoCard__gift__label">お祝い金</span>
+								<span class="jobInfoCard__gift__price"><!--# comma alias items_form work_style id gift #-->円</span>
+							</div>
+						</div>
+					<!--# endif #-->
+						<span class="jobInfoCard__head__data__edit">更新日:<!--# value edit #--></span>
+					</div>
+					<h3 class="jobInfoCard__head__title">
+						<a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)"><!--# code Continuation (!--# escp value name false #--) 38 #--></a>
+					</h3>
+				</div><!--jobInfoCard__head-->
+				<div class="jobInfoCard__body">
+					<div class="jobInfoCard__body__pr">
+						<div class="jobInfoCard__body__pr__thumb"><!--# object image image1 size 600 450 not <img\ src="common/img/noimage.gif"> #--></div>
+						<div class="jobInfoCard__body__pr__text"><!--# code Continuation (!--# value job_pr false #--) 128 #--></div>
+					</div>
+					<div class="jobInfoCard__body__data">
+						<table>
+							<tr>
+								<th>職業</th>
+								<td><!--# alias items_type category id name #--></td>
+							</tr>
+							<!--# ifbegin val= (!--# mod viewMode getSelectedType #--) mid #-->
+							<tr>
+								<th>勤務形態</th>
+								<td><!--# alias items_form work_style id name #--></td>
+							</tr>
+							<!--# else #-->
+							<tr>
+								<th>募集年度</th>
+								<td><!--# value target_graduation #--></td>
+							</tr>
+							<!--# endif #-->
+							<tr>
+								<th>給与</th>
+								<td><!--# code Continuation (!--# escp value salary_label false #--) 38 #--></td>
+							</tr>
+							<tr>
+								<th>最寄り駅</th>
+								<td><!--# code Continuation (!--# escp value transport false #--) 38 #--></td>
+							</tr>
+						</table>
+					</div>
+				</div><!--jobInfoCard__body-->
+				<div class="jobInfoCard__foot">
+					<div class="userActionLinks">
+						<div class="userActionLinks__fav"><!--# mod Clip drawButton (!--# get pal #--) (!--# value id #--) #--></div>
+						<div class="userActionLinks__more">
+							<a href="index.php?app_controller=info&type=(!--# get pal #--)&id=(!--# value id #--)" class="userActionLinks__more__btn"><span><i class="fa fa-file-text-o" aria-hidden="true"></i>詳細を見る</span></a>
+						</div>
+					</div>
+				<!--# ifbegin val= (!--# view Entry canEntry (!--# value id #--) #--) APPLIED #-->
+					<div class="actionApplied">こちらの求人には既に応募しています。</div>
+				<!--# endif #-->
+				</div><!--jobInfoCard__foot-->
+
+			</div><!--jobInfoCard-->
+<!--# endif #-->
+

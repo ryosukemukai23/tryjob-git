@@ -1,0 +1,142 @@
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">営業日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel" id="dotw_common_set">
+			<!--# form checkbox dotw   mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 class="dotw_common_set" #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※ 営業日をチェックすると該当曜日の営業時間設定を追加で行うことができます。
+		</span>
+	</dd>
+</dl>
+<div id="business_hours">
+	<dl class="wsp_formSet">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">営業時間（共通）</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<script type="text/javascript" src="./common/js/cuserEdit.js"></script>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_common_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_common_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_common_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_common_pm H/i \ : #--><br>
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				<input type="button" value="全ての曜日に適用" onclick="bh_common_set();" class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--dgray">
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw mon">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">月曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_mon_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_mon_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_mon_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_mon_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw tue">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">火曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_tue_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_tue_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_tue_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_tue_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw wed">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">水曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_wed_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_wed_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_wed_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_wed_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw thr">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">木曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_thr_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_thr_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_thr_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_thr_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw fri">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">金曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_fri_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_fri_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_fri_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_fri_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw sat">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">土曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_sat_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_sat_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_sat_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_sat_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw sun">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">日曜日</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_formELE wsp_formELE--auto">
+				午前&nbsp;<!--# form time start_sun_am H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_sun_am H/i \ : #-->
+			</span>
+			<span class="wsp_formELE wsp_formELE--auto">
+				午後&nbsp;<!--# form time start_sun_pm H/i \ : #-->&nbsp;-&nbsp;<!--# form time end_sun_pm H/i \ : #-->
+			</span>
+		</dd>
+	</dl>
+
+	<dl class="wsp_formSet dotw sun">
+		<dt class="wsp_formSet__title">
+			<span class="wsp_formSet__title__name">取り扱い内容</span>
+		</dt>
+		<dd class="wsp_formSet__desc">
+			<span class="wsp_stylishLabel wsp_stylishLabel--1">
+				<!--# code tableCheckForm manage_type items_elements name id #-->
+			</span>
+		</dd>
+	</dl>
+</div>

@@ -1,0 +1,138 @@
+
+<div class="wsp_cmnSearchBox" style="display:none;background:#FFF;" id="searchFormToggle">
+	<div class="wsp_cmnSearchBox__">
+		<div class="wsp_cmnSearchBox__body">
+
+			<form name="search_form" id="search_form" method="get" action="index.php">
+				<input name="app_controller" type="hidden" value="search" />
+				<input name="run" type="hidden" value="true" />
+				<input type="hidden" name="type" value="(!--# get type #--)" />
+				<script type="text/javascript">
+					$(function(){
+						if(getGetParam()["hope_condition%5B%5D"]==1) $.cookie("hope_condition_mid",location.href.split("?")[1], { expires: 365 });
+						$("input[name='foreign_flg']").on("change",toggleforeignDisp).trigger("change");
+					});
+				</script>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">希望勤務地</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+
+						<span class="wsp_stylishLabel">
+							<!--# form radio foreign_flg   /FALSE/TRUE 未指定/都道府県/入力する #-->
+							<input name="foreign_flg_PAL[]" type="hidden" value="match in" />
+						</span>
+
+						<div id="foreign">
+							<span class="wsp_formELE">
+								<!--# form text foreign_address 40 256 #-->
+							</span>
+						</div>
+						<input name="foreign_address_PAL[]" type="hidden" value="match like" />
+						<div id="japan">
+							<span class="wsp_formELE wsp_formELE--column">
+								<!--# view Area drawSelectboxAddress adds add_sub none #-->
+							</span>
+						</div>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">年齢</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_formELE wsp_formELE--auto">
+							<!--# code num_option _ageA 65  15 下限 #-->&nbsp;歳&nbsp;～&nbsp;<!--# code num_option _ageB 65  15 上限 #-->&nbsp;歳
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">性別</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# form checkbox sex   m/f 男/女 #-->
+							<input name="sex_PAL[]" type="hidden" value="match in" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">希望勤務形態</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# code tableCheckForm hope_work_style items_form name id     sort_rank sort asc #-->
+							<input name="hope_work_style_PAL[]" type="hidden" value="match or" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">希望職種</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel wsp_stylishLabel--1">
+							<!--# code tableCheckForm hope_job_category items_type name id     sort_rank sort asc #-->
+							<input name="hope_job_category_PAL[]" type="hidden" value="match or" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">希望給与</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_formELE wsp_formELE--auto">
+							<!--# form option hope_salary_type  /時給/日給/月給/年俸 未選択/時給/日給/月給/年俸 #-->
+							<input name="hope_salary_type_PAL[]" type="hidden" value="match comp" />
+							<!--# form text _hope_salary 10 255 #--> 円
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">現住所</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_formELE wsp_formELE--auto">
+							<!--# code tableSelectForm adds_id adds name id  選択して下さい #-->
+							<input name="adds_id_PAL[]" type="hidden" value="match comp" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dt class="wsp_formSet__title">
+						<span class="wsp_formSet__title__name">配偶者</span>
+					</dt>
+					<dd class="wsp_formSet__desc">
+						<span class="wsp_stylishLabel">
+							<!--# form checkbox spouse   TRUE/FALSE あり/なし #-->
+							<input name="spouse_PAL[]" type="hidden" value="match in" />
+						</span>
+					</dd>
+				</dl>
+
+				<dl class="wsp_formSet wsp_formSet--horizontal">
+					<dd class="wsp_formSet__desc">
+						<div class="wsp_formELE wsp_formELE--center">
+							<input type="submit" value="検索する" class="wsp_formELE__next">
+						</div>
+					</dd>
+				</dl>
+
+			</form>
+
+		</div><!--wsp_cmnSearchBox__body-->
+	</div><!--wsp_cmnSearchBox-->
+</div><!--wsp_cmnSearchBox-->

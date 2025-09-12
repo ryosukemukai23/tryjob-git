@@ -1,0 +1,1754 @@
+<!--# memo write (!--# mod edittext drawMakeText mid_title #--) to SEARCH_TITLE #-->
+<!--# syscode setTitle (!--# memo read SEARCH_TITLE #--)｜(!--# code getData system ADMIN site_title #--) #-->
+<!--# syscode setDescription (!--# mod edittext drawMakeText mid_desc #--) #-->
+<style>
+  .p-industry__offers__bnrs {
+    margin-bottom: 4.8rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 0.8rem), 1fr));
+    gap: 1.6rem;
+    margin-top: 3.2rem;
+  }
+
+  .is-offers_item ul li a {
+    color: #dd6e21;
+    font-size: 12px;
+  }
+
+  .is-offers_item_content h3 a span,
+  .is-offers_item_content h3 a {
+    color: #dd6e21;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 150%;
+    margin-top: 0.8rem;
+  }
+
+  .is-column {
+    margin-bottom: 4.8rem;
+  }
+
+  .media-column .flex {
+    gap: 0.8rem;
+  }
+
+  .is-read {
+    padding: 2.4rem 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .p-industry__offers__bnrs {
+      margin-bottom: 2.4rem;
+    }
+
+    .grid {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+
+    .media-column .flex {
+      flex-direction: column;
+    }
+
+    .is-column {
+      margin-bottom: 2.4rem;
+    }
+
+    .is-read {
+      padding: 1.2rem 0 !important;
+    }
+  }
+</style>
+<!--# include head #-->
+<script src="https://childcare.try-job.com/template/pc/mid/js/accordion.js"></script>
+<script src="https://childcare.try-job.com/template/pc/mid/js/jobCategories.js"></script>
+<main class="p-search">
+  <div class="is-kv"></div>
+  <div class="breadcrumb-box">
+    <nav class="is-inner_content">
+      <ol class="breadcrumb">
+        <li><a href="index.html">TOP</a></li>
+        <i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+        <li>業種トップ</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="is-search__info">
+    <div class="is-inner_content">
+      <h2 class="anchor"><span class="bold"></span>求人・転職・就職・アルバイト募集情報</h2>
+      <form name="search_form" id="search_form" method="get" action="index.php">
+        <input name="app_controller" type="hidden" value="search" />
+        <input name="run" type="hidden" value="true" />
+        <input type="hidden" name="type" value="mid" />
+        <input type="hidden" name="cUser_alias" value="owner id match comp" />
+        <input type="hidden" name="num" value="" />
+        <input type="hidden" name="sort" value="regist" />
+        <input type="hidden" name="sort_PAL[]" value="desc" />
+        <input type="hidden" name="owner" value="" />
+        <input type="hidden" name="owner_PAL[]" value="match comp" />
+        <input name="select_sort" type="hidden" value="" />
+
+        <input name="select_limit" type="hidden" value="" />
+        <div class="is-search__tabs is-search__tabs--top">
+          <div class="step-navigation">
+            <div class="step active">都道府県</div>
+            <div class="step">市区町村</div>
+            <div class="step">雇用形態・給与</div>
+            <div class="step"><span>任意</span>沿線・駅名</div>
+            <div class="step"><span>任意</span>特徴</div>
+          </div>
+          <div class="is-search__tab__content first is-active">
+            <div class="is-search__content__inner">
+              <!-- 関東エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>関東</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="tokyo" name="work_place_adds" value="PF13" />
+                    <label for="tokyo">東京都</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="kanagawa" name="work_place_adds" value="PF14" />
+                    <label for="kanagawa">神奈川県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="saitama" name="work_place_adds" value="PF11" />
+                    <label for="saitama">埼玉県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="chiba" name="work_place_adds" value="PF12" />
+                    <label for="chiba">千葉県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="ibaraki" name="work_place_adds" value="PF08" />
+                    <label for="ibaraki">茨城県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="tochigi" name="work_place_adds" value="PF09" />
+                    <label for="tochigi">栃木県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="gunma" name="work_place_adds" value="PF10" />
+                    <label for="gunma">群馬県</label>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 関西エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>関西</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="osaka" name="work_place_adds" value="PF27" />
+                    <label for="osaka">大阪府</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="hyogo" name="work_place_adds" value="PF28" />
+                    <label for="hyogo">兵庫県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="kyoto" name="work_place_adds" value="PF26" />
+                    <label for="kyoto">京都府</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="shiga" name="work_place_adds" value="PF25" />
+                    <label for="shiga">滋賀県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="nara" name="work_place_adds" value="PF29" />
+                    <label for="nara">奈良県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="wakayama" name="work_place_adds" value="PF30" />
+                    <label for="wakayama">和歌山県</label>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 東海エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>東海</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="aichi" name="work_place_adds" value="PF23" />
+                    <label for="aichi">愛知県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="shizuoka" name="work_place_adds" value="PF22" />
+                    <label for="shizuoka">静岡県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="gifu" name="work_place_adds" value="PF21" />
+                    <label for="gifu">岐阜県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="mie" name="work_place_adds" value="PF24" />
+                    <label for="mie">三重県</label>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 北海道・東北エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>北海道・東北</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="hokkaido" name="work_place_adds" value="PF01" />
+                    <label for="hokkaido">北海道</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="aomori" name="work_place_adds" value="PF02" />
+                    <label for="aomori">青森県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="iwate" name="work_place_adds" value="PF03" />
+                    <label for="iwate">岩手県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="miyagi" name="work_place_adds" value="PF04" />
+                    <label for="miyagi">宮城県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="akita" name="work_place_adds" value="PF05" />
+                    <label for="akita">秋田県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="yamagata" name="work_place_adds" value="PF06" />
+                    <label for="yamagata">山形県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="fukushima" name="work_place_adds" value="PF07" />
+                    <label for="fukushima">福島県</label>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 甲信越・北陸エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>甲信越・北陸</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="yamanashi" name="work_place_adds" value="PF19" />
+                    <label for="yamanashi">山梨県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="nagano" name="work_place_adds" value="PF20" />
+                    <label for="nagano">長野県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="niigata" name="work_place_adds" value="PF15" />
+                    <label for="niigata">新潟県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="toyama" name="work_place_adds" value="PF16" />
+                    <label for="toyama">富山県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="ishikawa" name="work_place_adds" value="PF17" />
+                    <label for="ishikawa">石川県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="fukui" name="work_place_adds" value="PF18" />
+                    <label for="fukui">福井県</label>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 中国・四国エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>中国・四国</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="tottori" name="work_place_adds" value="PF31" />
+                    <label for="tottori">鳥取県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="shimane" name="work_place_adds" value="PF32" />
+                    <label for="shimane">島根県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="okayama" name="work_place_adds" value="PF33" />
+                    <label for="okayama">岡山県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="hiroshima" name="work_place_adds" value="PF34" />
+                    <label for="hiroshima">広島県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="yamaguchi" name="work_place_adds" value="PF35" />
+                    <label for="yamaguchi">山口県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="tokushima" name="work_place_adds" value="PF36" />
+                    <label for="tokushima">徳島県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="kagawa" name="work_place_adds" value="PF37" />
+                    <label for="kagawa">香川県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="ehime" name="work_place_adds" value="PF38" />
+                    <label for="ehime">愛媛県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="kochi" name="work_place_adds" value="PF39" />
+                    <label for="kochi">高知県</label>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 九州・沖縄エリア -->
+              <div class="is-search__region__wrapper">
+                <h3>九州・沖縄</h3>
+                <ul>
+                  <li>
+                    <input type="radio" id="fukuoka" name="work_place_adds" value="PF40" />
+                    <label for="fukuoka">福岡県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="saga" name="work_place_adds" value="PF41" />
+                    <label for="saga">佐賀県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="nagasaki" name="work_place_adds" value="PF42" />
+                    <label for="nagasaki">長崎県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="kumamoto" name="work_place_adds" value="PF43" />
+                    <label for="kumamoto">熊本県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="oita" name="work_place_adds" value="PF44" />
+                    <label for="oita">大分県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="miyazaki" name="work_place_adds" value="PF45" />
+                    <label for="miyazaki">宮崎県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="kagoshima" name="work_place_adds" value="PF46" />
+                    <label for="kagoshima">鹿児島県</label>
+                  </li>
+                  <li>
+                    <input type="radio" id="okinawa" name="work_place_adds" value="PF47" />
+                    <label for="okinawa">沖縄県</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="buttons" style="width: 100%">
+                <button
+                  type="submit"
+                  class="is-search__btn disabled"
+                  style="width: calc(100% - (18rem + 2.4rem))"
+                  disabled
+                >
+                  <p>
+                    <i style="vertical-align: super; margin-right: 0.4rem"
+                      ><img src="./common/images/common/icon_search_w.svg" alt="" /></i
+                    >選択した条件で検索する
+                  </p>
+                </button>
+                <button type="submit" class="is-search__btn--next disabled" style="width: 18rem" disabled>
+                  <p>次へ進む</p>
+                </button>
+              </div>
+            </div>
+
+            <input name="work_place_adds_PAL[]" type="hidden" value="match comp" />
+            <input name="work_place_add_sub_PAL[]" type="hidden" value="match comp" />
+          </div>
+
+          <div class="is-search__tab__content second">
+            <div class="is-search__content__inner">
+              <div class="is-search__sub__wrapper">
+                <div class="is-search__region__sub">
+                  <h3 class="is-sub_title">地域を選択</h3>
+                  <ul id="sub-list"></ul>
+                  <!-- サブ地域のラジオボタンがここに入る -->
+                </div>
+              </div>
+              <div class="buttons" style="width: 100%">
+                <button
+                  type="submit"
+                  class="is-search__btn disabled"
+                  style="width: calc(100% - (18rem + 2.4rem))"
+                  disabled
+                >
+                  <p>
+                    <i style="vertical-align: super; margin-right: 0.4rem"
+                      ><img src="./common/images/common/icon_search_w.svg" alt="" /></i
+                    >選択した条件で検索する
+                  </p>
+                </button>
+                <button type="submit" class="is-search__btn--next disabled" style="width: 18rem" disabled>
+                  <p>次へ進む</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="is-search__tab__content third">
+            <h3 class="is-search_title">雇用形態</h3>
+            <td colspan="3">
+              <div class="is-search__type">
+                <ul>
+                  <li>
+                    <input type="checkbox" name="work_style[]" value="IF001" />
+                    <label for="regular"
+                      >正社員<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                    ></label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="work_style[]" value="IF002" />
+                    <label for="contract"
+                      >契約社員<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                    ></label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="work_style[]" value="IF003" />
+                    <label for="part-time"
+                      >パート・アルバイト<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                    ></label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="work_style[]" value="IF004" />
+                    <label for="commission"
+                      >業務委託<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                    ></label>
+                  </li>
+                </ul>
+                <input type="hidden" name="work_style_CHECKBOX" value="" />
+              </div>
+              <input name="work_style_PAL[]" type="hidden" value="match in" />
+            </td>
+            <h3 class="is-search_title">給与</h3>
+            <div class="is-search__salary">
+              <ul>
+                <li>
+                  <label>支払形態</label>
+                  <select name="salary_type" onchange="changeSalaryOptionDisp(this)">
+                    <option value="">指定なし</option>
+                    <option value="時給">時給</option>
+                    <option value="日給">日給</option>
+                    <option value="月給">月給</option>
+                    <option value="年俸">年俸</option>
+                  </select>
+                </li>
+                <li id="salary_amount_container">
+                  <!-- 時給のオプション -->
+                  <span id="salary_hour_disp" style="display: none">
+                    <label></label>
+                    <select name="s_salary" id="salary_hour" disabled="disabled">
+                      <option value="">指定なし</option>
+                      <option value="800">800円</option>
+                      <option value="1000">1000円</option>
+                      <option value="1200">1200円</option>
+                      <option value="1400">1400円</option>
+                      <option value="1600">1600円</option>
+                      <option value="1800">1800円</option>
+                      <option value="2000">2000円</option>
+                    </select>
+                    以上
+                  </span>
+
+                  <!-- 日給のオプション -->
+                  <span id="salary_day_disp" style="display: none">
+                    <label></label>
+                    <select name="s_salary" id="salary_day" disabled="disabled">
+                      <option value="">指定なし</option>
+                      <option value="6000">6000円</option>
+                      <option value="7500">7500円</option>
+                      <option value="9000">9000円</option>
+                      <option value="10000">10000円</option>
+                      <option value="12500">12500円</option>
+                      <option value="15000">15000円</option>
+                    </select>
+                    以上
+                  </span>
+
+                  <!-- 月給のオプション -->
+                  <span id="salary_month_disp" style="display: none">
+                    <label></label>
+                    <select name="s_salary" id="salary_month" disabled="disabled">
+                      <option value="">指定なし</option>
+                      <option value="15">15万円</option>
+                      <option value="20">20万円</option>
+                      <option value="25">25万円</option>
+                      <option value="30">30万円</option>
+                      <option value="35">35万円</option>
+                      <option value="40">40万円</option>
+                    </select>
+                    以上
+                  </span>
+
+                  <!-- 年俸のオプション -->
+                  <span id="salary_year_disp" style="display: none">
+                    <label></label>
+                    <select name="s_salary" id="salary_year" disabled="disabled">
+                      <option value="">指定なし</option>
+                      <option value="240">240万円</option>
+                      <option value="300">300万円</option>
+                      <option value="360">360万円</option>
+                      <option value="420">420万円</option>
+                      <option value="480">480万円</option>
+                      <option value="540">540万円</option>
+                      <option value="600">600万円</option>
+                    </select>
+                    以上
+                  </span>
+                </li>
+              </ul>
+              <input name="salary_type_PAL[]" type="hidden" value="match comp" />
+            </div>
+            <div class="buttons" style="width: 100%">
+              <button
+                type="submit"
+                class="is-search__btn disabled"
+                style="width: calc(100% - (18rem + 2.4rem))"
+                disabled
+              >
+                <p>
+                  <i style="vertical-align: super; margin-right: 0.4rem"
+                    ><img src="./common/images/common/icon_search_w.svg" alt="" /></i
+                  >選択した条件で検索する
+                </p>
+              </button>
+              <button type="submit" class="is-search__btn--next disabled" style="width: 18rem" disabled>
+                <p>次へ進む</p>
+              </button>
+            </div>
+          </div>
+
+          <div class="is-search__tab__content fourth">
+            <div class="is-search__sub__wrapper">
+              <h3 class="is-search_title"></h3>
+              <div class="flex">
+                <p>沿線を選択</p>
+                <select name="traffic_line">
+                  <!-- 路線がここに追加される -->
+                </select>
+              </div>
+              <h3 class="is-search_title">沿線の駅名を追加</h3>
+              <ul id="traffic_station">
+                <!-- 駅がここに追加される -->
+              </ul>
+              <input type="hidden" name="traffic_line_PAL[]" value="match comp" />
+              <input type="hidden" name="traffic_station_PAL[]" value="match comp" />
+
+              <div class="buttons" style="width: 100%">
+                <button
+                  type="submit"
+                  class="is-search__btn disabled"
+                  style="width: calc(100% - (18rem + 2.4rem))"
+                  disabled
+                >
+                  <p>
+                    <i style="vertical-align: super; margin-right: 0.4rem"
+                      ><img src="./common/images/common/icon_search_w.svg" alt="" /></i
+                    >選択した条件で検索する
+                  </p>
+                </button>
+                <button type="submit" class="is-search__btn--next disabled" style="width: 18rem" disabled>
+                  <p>次へ進む</p>
+                </button>
+              </div>
+            </div>
+            <input type="hidden" name="category_CHECKBOX" value="" />
+            <input name="category_PAL[]" type="hidden" value="match in" />
+          </div>
+
+          <div class="is-search__tab__content fifth">
+            <div class="is-search__type">
+              <h3 class="is-search_title">人気の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA010" />
+                  <label for="regular"
+                    >社会保険完備<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA011" />
+                  <label for="contract"
+                    >交通費支給<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA012" />
+                  <label for="part-time"
+                    >ボーナス・賞与あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA001" />
+                  <label for="commission"
+                    >認証・認可保育所<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA044" />
+                  <label for="commission"
+                    >未経験可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA032" />
+                  <label for="commission"
+                    >週休2日<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA033" />
+                  <label for="commission"
+                    >年間休日120日以上<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA045" />
+                  <label for="commission"
+                    >年齢不問<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA025" />
+                  <label for="commission"
+                    >残業ほぼなし<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA061" />
+                  <label for="commission"
+                    >車通勤可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA008" />
+                  <label for="commission"
+                    >新規オープン<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA013" />
+                  <label for="commission"
+                    >退職金あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA014" />
+                  <label for="commission"
+                    >住宅手当<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA065" />
+                  <label for="commission"
+                    >放課後等デイサービス<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA046" />
+                  <label for="commission"
+                    >新卒可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">サービス形態の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA001" />
+                  <label for="regular"
+                    >認証・認可保育所<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA002" />
+                  <label for="regular"
+                    >幼児教室<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA003" />
+                  <label for="regular"
+                    >学童保育・放課後児童クラブ<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA004" />
+                  <label for="regular"
+                    >認可外保育所<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA005" />
+                  <label for="regular"
+                    >認定こども園<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA006" />
+                  <label for="regular"
+                    >社会福祉法人<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA007" />
+                  <label for="regular"
+                    >小規模保育園<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">仕事内容の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA008" />
+                  <label for="regular"
+                    >新規オープン<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA009" />
+                  <label for="regular"
+                    >オープン3年以内<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">給与・待遇・福利厚生の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA010" />
+                  <label for="regular"
+                    >社会保険完備<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA011" />
+                  <label for="regular"
+                    >交通費支給<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA012" />
+                  <label for="regular"
+                    >ボーナス・賞与あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA013" />
+                  <label for="regular"
+                    >退職金あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA014" />
+                  <label for="regular"
+                    >住宅手当<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA015" />
+                  <label for="regular"
+                    >制服貸与<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA016" />
+                  <label for="regular"
+                    >給食費補助<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA017" />
+                  <label for="regular"
+                    >復職支援<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA018" />
+                  <label for="regular"
+                    >社割あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA019" />
+                  <label for="regular"
+                    >日・祝日給与UP<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA020" />
+                  <label for="regular"
+                    >ハラスメント相談窓口あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA021" />
+                  <label for="regular"
+                    >引越し手当<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA022" />
+                  <label for="regular"
+                    >寮あり・社宅あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA023" />
+                  <label for="regular"
+                    >扶養控除内考慮<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA024" />
+                  <label for="regular"
+                    >託児所・保育支援あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">勤務時間の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA025" />
+                  <label for="regular"
+                    >残業ほぼなし<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA026" />
+                  <label for="regular"
+                    >残業月20時間以内<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA027" />
+                  <label for="regular"
+                    >時差出勤導入<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA028" />
+                  <label for="regular"
+                    >午後のみ勤務<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA029" />
+                  <label for="regular"
+                    >スキマ時間勤務<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA030" />
+                  <label for="regular"
+                    >午前のみ勤務<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA031" />
+                  <label for="regular"
+                    >時短勤務相談可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">休日の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA032" />
+                  <label for="regular"
+                    >週休2日<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA033" />
+                  <label for="regular"
+                    >年間休日120日以上<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA034" />
+                  <label for="regular"
+                    >月1シフト提出<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA035" />
+                  <label for="regular"
+                    >毎週 ~隔週シフト提出<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA036" />
+                  <label for="regular"
+                    >土日祝時休み<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA037" />
+                  <label for="regular"
+                    >家庭都合休OK<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA038" />
+                  <label for="regular"
+                    >週2日からOK<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA039" />
+                  <label for="regular"
+                    >週1日からOK<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA040" />
+                  <label for="regular"
+                    >週休3日<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA041" />
+                  <label for="regular"
+                    >有給消化率ほぼ100%<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA042" />
+                  <label for="regular"
+                    >育児支援あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA043" />
+                  <label for="regular"
+                    >長期休暇あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">応募要件の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA044" />
+                  <label for="regular"
+                    >未経験可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA045" />
+                  <label for="regular"
+                    >年齢不問<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA046" />
+                  <label for="regular"
+                    >新卒可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA047" />
+                  <label for="regular"
+                    >LGBTQ+フレンドリー<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA048" />
+                  <label for="regular"
+                    >主夫・主婦OK　自転車運転免許<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA049" />
+                  <label for="regular"
+                    >学歴不問<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA050" />
+                  <label for="regular"
+                    >小学校教諭<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA051" />
+                  <label for="regular"
+                    >自動車運転免許<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA052" />
+                  <label for="regular"
+                    >WEB面接可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA053" />
+                  <label for="regular"
+                    >60代活躍<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA054" />
+                  <label for="regular"
+                    >50代活躍<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA055" />
+                  <label for="regular"
+                    >40代活躍<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA056" />
+                  <label for="regular"
+                    >ネイルOK<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA057" />
+                  <label for="regular"
+                    >正職員登用あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA058" />
+                  <label for="regular"
+                    >即日勤務OK<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA059" />
+                  <label for="regular"
+                    >園長候補<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA060" />
+                  <label for="regular"
+                    >ブランク可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">アクセスの特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA061" />
+                  <label for="regular"
+                    >車通勤可<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA062" />
+                  <label for="regular"
+                    >駅近（5分以内）<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+              <h3 class="is-search_title">教育体制・研修の特徴</h3>
+              <ul>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA063" />
+                  <label for="regular"
+                    >研修制度あり<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+                <li>
+                  <input type="checkbox" name="addition[]" value="JA064" />
+                  <label for="regular"
+                    >資格取得支援<i><img src="./common/images/common/icon_arw.svg" alt="" /></i
+                  ></label>
+                </li>
+              </ul>
+            </div>
+            <div class="buttons" style="width: 100%">
+              <button type="submit" class="is-search__btn disabled" disabled>
+                <p>
+                  <i style="vertical-align: super; margin-right: 0.4rem"
+                    ><img src="./common/images/common/icon_search_w.svg" alt="" /></i
+                  >選択した条件で検索する
+                </p>
+              </button>
+            </div>
+
+            <input name="category_PAL[]" type="hidden" value="match in" />
+            <input name="addition_PAL[]" type="hidden" value="match or" />
+          </div>
+          <div class="is-search__search">
+            <div class="is-search__search__form">
+              <input
+                type="text"
+                name="free"
+                value=""
+                size="40"
+                maxlength="256"
+                placeholder="例：市区町村 診療科目 特徴など"
+                class="is-search__search__input"
+              />
+              <button type="submit" class="primary">
+                <i><img src="./common/images/common/icon_search_w.svg" alt="" /></i>検索する
+              </button>
+              <button
+                type="button"
+                class="secondary"
+                onclick="location.href='index.php?app_controller=other&key=MapSearch'"
+              >
+                <i><img src="./common/images/common/icon_search_2.svg" alt="" /></i>自宅周辺から探す
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <div class="is-inner_content is-inner_content--search flex">
+    <div class="is-inner_content_left">
+      <ul class="p-industry__offers__bnrs">
+        <a href="">
+          <li><img src="./common/images/common/bn_c01.png" alt="" /></li>
+        </a>
+        <a href="">
+          <li><img src="./common/images/common/bn_c02.png" alt="" /></li>
+        </a>
+      </ul>
+      <h2 class="searched_title">(!--# memo read SEARCH_TITLE #--)</h2>
+      <style>
+        .searched_title {
+          border-left: 4px solid #dd6e21;
+          margin-bottom: 2.4rem;
+          padding-left: 1rem;
+          margin-top: 0;
+        }
+      </style>
+      <p style="font-size: 16px">その条件に一致する求人情報はありませんでした。</p>
+      <div class="is-facility">
+        <h2>施設形態から医師の求人を探す</h2>
+        <ul>
+          <li>
+            <a href="#">
+              <span>タイトルダミータイトルダミー</span>
+              <span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>タイトルダミータイトルダミー</span>
+              <span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>タイトルダミータイトルダミー</span>
+              <span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>タイトルダミータイトルダミー</span>
+              <span></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="p-industry__offers__trend">
+        <h2>医師の就職・転職の傾向</h2>
+        <article>
+          <h3>タイトルダミータイトルダミー</h3>
+          <p>
+            テキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダ...
+          </p>
+        </article>
+        <article>
+          <h3>タイトルダミータイトルダミー</h3>
+          <div>
+            <p>
+              テキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミー
+            </p>
+            <figure>
+              <img src="./common/images/industry/img02.png" alt="画像の説明" />
+            </figure>
+          </div>
+        </article>
+      </div>
+      <div class="is-contacts">
+        <div class="is-contacts-box">
+          <img src="./common/images/common/dammy_img.png" alt="" />
+          <h3>お仕事をお探しの方へ</h3>
+          <p>会員登録をするとあなたに合った転職情報をお知らせできます。1週間で00,000名がスカウトを受け取りました!!</p>
+          <a
+            href="https://childcare.try-job.com/index.php?app_controller=other&amp;key=CheckValidityForm&amp;type=nUser"
+            class="btn red"
+            >無料で会員登録</a
+          >
+          <a href="#" class="link">会員登録でできること</a>
+        </div>
+
+        <div class="is-contacts-box">
+          <img src="./common/images/common/dammy_img.png" alt="" />
+          <h3>お悩みはありませんか</h3>
+          <p>ジョブメドレーの使い方で不明な点がある場合はお問い合わせください</p>
+          <a
+            href="https://childcare.try-job.com/index.php?app_controller=register&amp;type=inquiry"
+            class="btn white"
+            >お問い合わせ</a
+          >
+          <p class="time">9:00-18:00（土日祝除く）</p>
+        </div>
+
+        <div class="is-contacts-box">
+          <div class="contact-icon">
+            <img src="./common/images/common/dammy_img.png" alt="" />
+          </div>
+          <h3>もっと気軽に楽しく</h3>
+          <p>転職活動を始めるか悩んでいる時は、友だち追加しておくと希望に近い求人をLINEで受け取れます</p>
+          <div class="qr-box">
+            <img src="./common/images/common/dammy_img.png" alt="QRコード" />
+            <p>QRコード<br />からアクセス</p>
+          </div>
+          <a href="#" class="btn green">友だち追加する</a>
+        </div>
+      </div>
+      <div class="is-column">
+        <h2>求人コラム新着記事</h2>
+        <ul class="media-column">
+          <li>
+            <ul class="flex">
+              <!--# async code embedSearch type=article&run=true&mode=top&embedID=article_simple&num=3 #--><!--embed-articleListHorizntal END--><!--embed-articleListHorizntal END-->
+            </ul>
+            <!--view-article__embed END-->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="is-inner_content_right">
+      <div class="is-right_boxes">
+        <div class="is-right_box">
+          <h2>勤続支援金について</h2>
+        </div>
+        <div class="is-right_box">
+          <h2>キャンペーン情報等のバナー</h2>
+        </div>
+      </div>
+      <div class="side-bar">
+        <h2>新着転職体験</h2>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>タイトルダミータイトルダミータイトルダミー</p>
+        </a>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>タイトルダミータイトルダミータイトルダミー</p>
+        </a>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>タイトルダミータイトルダミータイトルダミー</p>
+        </a>
+        <a href="#" class="o-btn is-wh is-arw">もっと見る<i class="o-btn__icon"></i></a>
+      </div>
+      <div class="side-bar">
+        <h2>成功するための仕事探し術</h2>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>ぴったりな仕事を探すには</p>
+        </a>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>応募の仕方</p>
+        </a>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>履歴書の書き方</p>
+        </a>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>メッセージの書き方</p>
+        </a>
+        <a class="side-bar_contents">
+          <img src="./common/images/common/dammy_img_circle.png" alt="" />
+          <p>初出勤までの準備</p>
+        </a>
+      </div>
+      <div class="is-sns__section">
+        <h2>トライジョブ公式SNS</h2>
+        <ul class="is-sns__list">
+          <li>
+            <a href="#" class="twitter-link"><img src="common/images/common/btn_x.png" alt="Twitter" /></a>
+          </li>
+        </ul>
+        <div class="is-sns__facebook">
+          <div
+            class="fb-page fb_iframe_widget"
+            data-href="https://www.facebook.com/facebook"
+            data-tabs="timeline"
+            data-width="500"
+            data-height="130"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="false"
+            fb-xfbml-state="rendered"
+            fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=248&amp;height=130&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=500"
+          >
+            <span style="vertical-align: bottom; width: 248px; height: 130px"
+              ><iframe
+                name="fbc36feb8ed6911d1"
+                width="500px"
+                height="130px"
+                data-testid="fb:page Facebook Social Plugin"
+                title="fb:page Facebook Social Plugin"
+                frameborder="0"
+                allowtransparency="true"
+                allowfullscreen="true"
+                scrolling="no"
+                allow="encrypted-media"
+                src="https://www.facebook.com/v12.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Dfa80ca76b101924a5%26domain%3Dnetter1.xsrv.jp%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fnetter1.xsrv.jp%252Ffbf8ee554903b78ef%26relation%3Dparent.parent&amp;container_width=248&amp;height=130&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=500"
+                style="border: none; visibility: visible; width: 248px; height: 130px"
+                class=""
+              ></iframe
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="is-inner_content">
+    <div class="is-read" style="padding-top: 0">
+      <div class="is-read_content">
+        <h3 class="accordion-header">
+          注目職種を人気エリアから探す
+          <span class="accordion-icon"></span>
+        </h3>
+        <div class="accordion-content">
+          <ul>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>看護師/准看護師</dt>
+                <dd>
+                  <p>
+                    <a
+                      href="index.php?app_controller=search&type=mid&run=true&areaID=AREA02&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                      >関東</a
+                    >
+                  </p>
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF13&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >東京都</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF14&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >神奈川県</a
+                  >
+                  <a
+                    href="index.php?app_controller=search&type=mid&run=true&work_place_adds=PF11&work_place_adds_PAL[]=match+comp&foreign_flg=FALSE&foreign_flg_PAL[]=match+comp"
+                    >埼玉県</a
+                  >
+                </dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="is-read" style="padding-bottom: 0">
+      <div class="is-read_content is-num">
+        <h3 class="is-childcare accordion-header">
+          保育<span>
+            <div class="accordion-icon"></div>
+          </span>
+        </h3>
+        <div class="accordion-content">
+          <p>看護師/准看護師・薬剤師・看護助手・臨床検査技師　他13職種</p>
+          <ul>
+            <li class="IT001">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT001&category_PAL[]=match+o"
+                >保育士
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT002">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT002&category_PAL[]=match+o"
+                >幼稚園教諭
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT003">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT003&category_PAL[]=match+o"
+                >保育補助員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT004">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT004&category_PAL[]=match+o"
+                >看護師
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT005">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT005&category_PAL[]=match+or"
+                >地域限定保育士
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT006">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT006&category_PAL[]=match+or"
+                >児童指導員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT007">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT007&category_PAL[]=match+or"
+                >管理栄養士
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT008">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT008&category_PAL[]=match+or"
+                >園長・副園長・施設長
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT009">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT009&category_PAL[]=match+or"
+                >事務員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT010">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT010&category_PAL[]=match+or"
+                >里親支援専門相談員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT011">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT011&category_PAL[]=match+or"
+                >家庭支援専門相談員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT012">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT012&category_PAL[]=match+or"
+                >心理士
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT013">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT013&category_PAL[]=match+or"
+                >栄養士
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT014">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT014&category_PAL[]=match+or"
+                >調理員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT015">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT015&category_PAL[]=match+or"
+                >社会福祉士・精神保健福祉士
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT016">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT016&category_PAL[]=match+or"
+                >子育て支援員
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+            <li class="IT017">
+              <a href="index.php?app_controller=search&type=fresh&run=true&category=IT017&category_PAL[]=match+or"
+                >無資格
+                <!-- <span>(0)</span> -->
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--▼お知らせ-->
+    <!--# ifbegin val= (!--# mod disp_conf checkConf news #--) TRUE #-->
+    <!--# view News drawHeadline news 3 #-->
+    <!--# endif #-->
+    <!--▼サイドカラム-->
+  </div>
+</main>
+<script src="https://childcare.try-job.com/template/pc/mid/js/main.js"></script>
+<script type="module" src="https://childcare.try-job.com/template/pc/mid/js/region-selector.js" defer></script>
+<script type="module" src="https://childcare.try-job.com/template/pc/mid/js//station-selector.js" defer></script>
+<!--# include foot #-->

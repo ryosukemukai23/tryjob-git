@@ -1,0 +1,157 @@
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">企業名</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">所在地</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+	<!--# ifbegin = foreign_flg TRUE #-->
+		<p><!--# value foreign_address #--></p>
+		<p><span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span></p>
+	<!--# else #-->
+		<p>〒<!--# value zip1 #-->-<!--# value zip2 #--><br>
+		<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #--></p>
+		<p><span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc alias adds adds id name #--)(!--# urlenc alias add_sub add_sub id name #--)(!--# urlenc value add_sub2 #--)(!--# urlenc value add_sub3 #--)" target="_blank">地図を見る</a>）</span></p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">代表者名</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value owner_name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">担当者名</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value charge_name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">担当者役職</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value charge_rank #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">会社設立日</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value establish_date #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">従業員数</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+	<!--# ifbegin ! employee #-->
+		<p><!--# value employee #-->&nbsp;人</p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">平均年齢</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+	<!--# ifbegin ! = mean_age  #-->
+		<p><!--# value mean_age #-->&nbsp;歳</p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">事業内容</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value work_detail #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">電話番号</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value tel #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">FAX番号</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value fax #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">メールアドレス</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value mail #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブアドレス1</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value sub_mail #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブアドレス2</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value sub_mail2 #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">企業ホームページ</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+	<!--# ifbegin ! = url  #-->
+		<p><a href="(!--# value url #--)" target="_blank"><!--# code Continuation (!--# escp value url #--) 50 #--></a></p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">企業イメージ画像</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<div class="wsp_formSetThumb"><!--# object imageSize image 320 240 #--></div>
+	</dd>
+</dl>

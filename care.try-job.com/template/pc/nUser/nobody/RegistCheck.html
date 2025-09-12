@@ -1,0 +1,426 @@
+<!--# include head #-->
+<style>
+	.p-profile_confirm {
+		background:
+			#faf7f7;
+	}
+
+	.p-profile_confirm .is-kv {
+		background:
+			#ebbe17;
+		height: 220px;
+	}
+
+	.p-profile_confirm .is-kv h1 {
+		font-size: 3.2rem;
+		font-weight: bold;
+		margin-top: 133px;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile_confirm .is-kv h1 {
+			font-size: 2.4rem;
+			margin-top: 11rem;
+		}
+	}
+
+	.p-profile_confirm .reverse {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile_confirm .reverse {
+			flex-direction: column;
+		}
+	}
+
+	.p-profile_confirm .is-inner_content_right {
+		margin-left: 0rem;
+		margin-right: 2.4rem;
+	}
+
+	.p-profile_confirm .is-inner_content_left {
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+	}
+
+	.p-profile_confirmcontent {
+		background-color: #fff;
+		padding: 1.6rem;
+	}
+
+	.p-profile_confirmcontent .p-profile_confirmheader {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.p-profile_confirmcontent .p-profile_confirmheader h2 {
+		line-height: 240%;
+		margin-top: 0;
+	}
+
+	.p-profile_confirmcontent .p-profile_confirmheader .edit-button {
+		background-color: #fff;
+		border: 1px solid #d98e32;
+		border-radius: 4px;
+		color:
+			#d98e32;
+		cursor: pointer;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 180%;
+		max-width: 10rem;
+		padding: 0.4rem 1.6rem;
+		transition: all 0.3s ease;
+	}
+
+	.p-profile_confirmcontent .p-profile_confirmheader .edit-button:hover {
+		background-color:
+			#d98e32;
+		color: #fff;
+	}
+
+	.p-profile_confirmcontent table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	.p-profile_confirmcontent table tr {
+		align-items: center;
+		border-top: 1px solid #f0e6e6;
+		display: flex;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 150%;
+		padding: 1.6rem 0.8rem;
+		text-align: left;
+	}
+
+	.p-profile_confirmcontent table tr:last-child {
+		border-bottom: 1px solid #f0e6e6;
+	}
+
+	.p-profile_confirmcontent table tr:hover {
+		background:
+			#f5f5f5;
+	}
+
+	.p-profile_confirmcontent table tr th {
+		width: 24rem;
+	}
+
+	.p-profile_confirmcontent table tr th .private-tag {
+		background-color:
+			#faf7f7;
+		border: 1px solid #d98e32;
+		border-radius: 4px;
+		color:
+			#d98e32;
+		display: inline-block;
+		font-size: 1.2rem;
+		line-height: 100%;
+		margin-left: 0.8rem;
+		padding: 0.4rem;
+	}
+
+	.p-profile_confirmcontent table tr td {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		width: calc(100% - 24rem);
+	}
+
+	.p-profile_confirmcontent table tr td i {
+		margin-left: auto;
+		min-width: 16px !important;
+	}
+
+	.p-profile_confirmcontent table tr td i img {
+		vertical-align: middle;
+	}
+
+	.p-profile_confirmpolicy {
+		background: #fff;
+		margin-bottom: 4.8rem;
+		padding: 0.8rem 1.6rem;
+	}
+
+	.p-profile_confirmpolicy a {
+		display: block;
+		padding: 1rem;
+		position: relative;
+		/* これでアイコンの位置指定が正しく機能する /   text-decoration: none;   / デフォルトのリンク下線を削除 / }  .p-profile_confirm__policy a h2 {   align-items: center;   margin: 0;   position: relative;   / Add position relative /   text-align: center; }  .p-profile_confirm__policy a h2 i {   position: absolute;   / Position absolutely /   right: 0;   / Align to the right */
+	}
+
+	.p-profile_confirmpolicy a h2 i img {
+		vertical-align: middle;
+	}
+
+	.p-profile_confirmpolicy a:hover {
+		background:
+			#f5f5f5;
+	}
+
+	.p-profile_confirm .sidebar-toggle {
+		align-items: center;
+		background-color: rgba(255, 255, 255, 0.7);
+		border-radius: 10px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+		cursor: pointer;
+		display: none;
+		font-size: 1.6rem;
+		font-weight: 500;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+		padding: 1.2rem 1.6rem;
+		position: relative;
+		z-index: 99;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile_confirm .sidebar-toggle {
+			display: inline-flex;
+			position: fixed;
+			top: 30%;
+		}
+	}
+
+	.p-profile_confirm .sidebar-toggle .toggle-arrow {
+		transition: transform 0.3s ease;
+	}
+
+	.p-profile_confirm .sidebar-toggle .toggle-arrow.open {
+		transform: rotate(90deg);
+	}
+
+	.p-profile_confirm .sidebar-overlay {
+		background-color: rgba(0, 0, 0, 0.5);
+		bottom: 0;
+		display: none;
+		left: 0;
+		opacity: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		transition: opacity 0.3s ease;
+		z-index: 999;
+	}
+
+	.p-profile_confirm .sidebar-overlay.active {
+		display: block;
+		opacity: 1;
+	}
+
+	.p-profile_confirm .sidebar-nav {
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+		overflow: hidden;
+		padding: 1.6rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile_confirm .sidebar-nav {
+			border-radius: 0;
+			display: block;
+			height: 100%;
+			left: -100%;
+			max-width: 320px;
+			overflow-y: auto;
+			padding-top: 2rem;
+			position: fixed;
+			top: 0;
+			transition: left 0.3s ease;
+			width: 80%;
+			z-index: 1000;
+		}
+
+		.p-profile_confirm .sidebar-nav.open {
+			left: 0;
+			top: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile_confirm .sidebar-nav ul {
+			margin-top: 6rem;
+		}
+	}
+
+	.p-profile_confirm .sidebar-nav li {
+		font-size: 1.6rem;
+		font-weight: 500;
+		letter-spacing: 0.64px;
+		line-height: 180%;
+		margin-top: 1.2rem;
+	}
+
+	.p-profile_confirm .sidebar-nav li:first-child {
+		margin-top: 0;
+	}
+
+	.p-profile_confirm .sidebar-nav li.active {
+		background-color:
+			#faf7f7;
+		border-radius: 8px;
+	}
+
+	.p-profile_confirm .sidebar-nav li.active a {
+		color:
+			#d98e32;
+		font-weight: 500;
+	}
+
+	.p-profile_confirm .sidebar-nav li a {
+		color: #333;
+		display: block;
+		padding: 0.8rem 1rem;
+		text-decoration: none;
+		transition: background-color 0.2s;
+	}
+
+	.p-profile_confirm .sidebar-nav li a:hover {
+		background-color:
+			#f5f5f5;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile_confirm .p-profile_confirmcontent table tr {
+			flex-direction: column;
+		}
+
+		.p-profile_confirm .p-profile_confirmcontent table tr th,
+		.p-profile_confirm .p-profile_confirmcontent table tr td {
+			width: 100%;
+		}
+
+		.p-profile_confirm .p-profile_confirmcontent table tr th {
+			align-items: center;
+			display: flex;
+		}
+
+		.p-profile_confirm .p-profile_confirmcontent table tr th .private-tag {
+			font-size: 1.1rem;
+			margin-left: 0.6rem;
+		}
+
+		.p-profile_confirm .p-profile_confirmcontent table tr td {
+			justify-content: space-between;
+			padding-left: 1rem;
+		}
+
+		.p-profile_confirm .p-profile_confirm__content table tr td i {
+			margin-left: auto;
+		}
+	}
+
+	.check_table {
+		max-width: unset !important;
+	}
+
+	.is-inner_720 {
+		margin: 0 auto;
+		max-width: 72rem;
+		padding: 4.8em 0;
+	}
+
+	.flex {
+		gap: 1.2rem;
+		align-items: center;
+	}
+
+	@media screen and (max-width: 768px) {
+		.is-inner_720 {
+			padding: 2.4rem 2rem;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.check_table {
+			margin: 0 auto !important;
+		}
+
+	}
+</style>
+<main class="p-profile_confirm">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>求職者の登録</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+            <nav class="is-inner_content">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">TOP</a></li>
+                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+                    <li>業種トップ</li>
+                </ol>
+            </nav>
+        </div> -->
+	<div class="is-inner_720">
+		<div class="check_table">
+			<!--# variable form_begin #-->
+			<!--▼確認フォーム-->
+			<table>
+				<caption>求職者情報</caption>
+				<tr>
+					<th>氏名</th>
+					<td>
+						<!--# value name #-->
+					</td>
+				</tr>
+				<tr>
+					<th>氏名(フリガナ)</th>
+					<td>
+						<!--# value kana #-->
+					</td>
+				</tr>
+				<tr>
+					<th>ニックネーム</th>
+					<td>
+						<!--# value nick_name #-->
+					</td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td>
+						〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+						<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+					</td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td>
+						<!--# value mail #-->
+					</td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td>
+						<!--# value tel #-->
+					</td>
+				</tr>
+				<tr>
+					<th>携帯電話番号</th>
+					<td>
+						<!--# value mobile_tel #-->
+					</td>
+				</tr>
+				<tr>
+					<th>パスワード</th>
+					<td><!--# code drawPassChar (!--# value pass #--)  #--></td>
+				</tr>
+			</table>
+			<!--# include DMConfCheckForm_n #-->
+			<p class="button"><input type="submit" name="back" value="戻る" class="btn_back" /><input type="submit"
+					name="Submit" value="登録する" class="btn_regist" /></p>
+			<!--# form hidden html #-->
+			<!--# form hidden mid #-->
+			<!--# variable form_end #-->
+		</div><!--check_table END-->
+	</div>
+</main>
+<!--# include foot #-->

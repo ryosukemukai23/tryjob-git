@@ -1,0 +1,266 @@
+
+<!--# ifbegin val= (!--# view Conf drawData charges apply #--) on |OR| val= (!--# view Conf drawData charges employment #--) on #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">課金方式</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace term_type none/user_limit/apply/employment 未設定/月額課金を適用中/応募課金/採用課金 #--></p>
+	</dd>
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人タイトル</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務形態</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# alias items_form work_style id name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">募集職種</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# alias items_type category id name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務地</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+	<!--# ifbegin = foreign_flg TRUE #-->
+		<p><!--# value foreign_address #--></p>
+		<p><span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span></p>
+	<!--# else #-->
+		<p><!--# value work_place_label #--></p>
+		<p><span class="googlemap">（<a href="https://maps.google.co.jp/maps?q=(!--# urlenc alias adds work_place_adds id name #--)(!--# urlenc alias add_sub work_place_add_sub id name #--)(!--# urlenc value work_place_add_sub2 #--)(!--# urlenc value work_place_add_sub3 #--)&hl=ja&ie=UTF8" target="_blank">地図を見る</a>）</span></p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<!--# ifbegin ! val= (!--# ecode getSiteProfile gmap_key #--)  #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">地図</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<div id="map" style="width:100%; margin:0 0 8px; height:180px; border:1px solid #ccc;" ></div>
+		<p>緯度 ： <!--# value lat #--></p>
+		<p>経度 ： <!--# value lon #--></p>
+	</dd>
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">最寄駅</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value transport #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">給与</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value salary_label #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">仕事内容</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value work_detail #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">待遇</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value treatment #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">休日・休暇</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value holiday #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">勤務時間</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value work_time #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">PR</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value job_pr #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">備考</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value remarks #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人の特徴</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# arrayAlias job_addition addition id name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募資格</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value apply_license #--></p>
+	</dd>
+</dl>
+
+<!--# ifbegin val= (!--# view cUser isCharge (!--# get type #--) (!--# value owner  (!--# code loginid #--) #--) #--) TRUE #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募方法詳細</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value apply_detail #--></p>
+	</dd>
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">採用担当者名</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# value charger_name #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">メイン画像</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<div class="wsp_formSetThumb"><!--# object imageSize image1 320 240 #--></div>
+		<p><!--# value image1_comment  なし #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブ画像１</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<div class="wsp_formSetThumb"><!--# object imageSize image2 320 240 #--></div>
+		<p><!--# value image2_comment  なし #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サブ画像２</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<div class="wsp_formSetThumb"><!--# object imageSize image3 320 240 #--></div>
+		<p><!--# value image3_comment  なし #--></p>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募通知</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# arrayReplace notice_flg / /job/cUser 企業情報で登録したメールアドレスに通知/下記に入力したメールアドレスに通知/企業情報で登録したメールアドレスに通知 #--></p>
+	<!--# ifbegin = notice_flg job |OR| = notice_flg job/cUser #-->
+		<p><!--# value notice_mail  未設定 #--></p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">応募上限</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace use_max_apply FALSE/TRUE 制限なし/制限あり #--></p>
+	<!--# ifbegin boolean use_max_apply #-->
+		<p><!--# value max_apply #--> 人まで</p>
+	<!--# endif #-->
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人公開</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace publish on/off 公開/非公開 #--></p>
+	</dd>
+</dl>
+
+<!--# ifbegin val= select (!--# view Conf drawData job publish #--) #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">求人情報の公開範囲</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace limitation FALSE/TRUE 制限なし/会員限定 #--></p>
+	</dd>
+</dl>
+<!--# else #-->
+<dl class="wsp_formSet">
+	<!--# form hidden limitation FALSE #-->
+</dl>
+<!--# endif #-->
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">掲載期限</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<p><!--# valueReplace use_limit_time_apply FALSE/TRUE 制限なし/制限あり #--></p>
+		<!--# ifbegin boolean use_limit_time_apply #-->
+		<p><!--# value limits #-->&nbsp;まで</p>
+		<!--# endif #-->
+	</dd>
+</dl>

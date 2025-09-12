@@ -1,0 +1,238 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">利用状況</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						詳細
+					</li>
+				</ul>
+			</div>
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__body">
+
+					<ul class="wsp_notification wsp_notification--auto">
+						<!--# setTimeFormat Y/m/d\ H:i #-->
+						<li class="wsp_notification__item">
+							<div class="wsp_notificationCard">
+								<div class="wsp_notificationCard__thumb">
+									<span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--(!--# valueReplace label mid/fresh/attention/scout/apply/employment blue/green/orange/red/aqua/grass #--)">
+										<!--# code Continuation (!--# valueReplace label mid/fresh/attention/scout/apply/employment 中途採用/新卒採用/おすすめ掲載/スカウト/応募課金/採用課金 #--) 4 \  #-->
+									</span>
+								</div>
+								<div class="wsp_notificationCard__body">
+									<div class="wsp_notificationCard__body__message">
+										<b>
+									<!--# ifbegin = target_id  #-->
+										<!--# // target_idがない場合は、従量課金 #-->
+										<!--# valueReplace target_type mid_term/fresh_term 中途採用の従量課金契約/新卒採用の従量課金契約 #-->
+									<!--# else #-->
+										<!--# // target_idがある場合は、labelを元に課金の別を表示 #-->
+										<!--# switch (!--# value label #--) #-->
+											<!--# case attention #-->
+												<!--# valueReplace target_type mid/fresh 中途採用/新卒採用 #-->
+												(おすすめ掲載)(<!--# value target_id #-->)
+												<!--# break #-->
+											<!--# case apply #-->
+												応募課金
+												(<!--# value target_id #-->)
+												<!--# break #-->
+											<!--# case employment #-->
+												採用課金
+												(<!--# value target_id #-->)
+												<!--# break #-->
+											<!--# case mid #-->
+												中途採用
+												<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+												<!--# break #-->
+											<!--# case fresh #-->
+												新卒採用
+												<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+												<!--# break #-->
+											<!--# case scout #-->
+												スカウトメール送信
+												(To:<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id nick_name 退会者 #-->)
+												<!--# break #-->
+										<!--# endswitch #-->
+									<!--# endif #-->
+										</b>
+									</div>
+									<ul class="wsp_articlePointList">
+										<li class="wsp_articlePointList__item">
+											<div class="wsp_articlePointList__item__">
+												<span class="wsp_articlePointList__item__label"><i class="fa fa-jpy" aria-hidden="true"></i></span>
+												<span class="wsp_articlePointList__item__name"><!--# comma value money #--></span>
+											</div>
+										</li>
+									<!--# ifbegin > limits 0 #-->
+										<li class="wsp_articlePointList__item">
+											<div class="wsp_articlePointList__item__">
+												<span class="wsp_articlePointList__item__label"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>
+												<span class="wsp_articlePointList__item__name">
+													<!--# setTimeFormat Y/m/d #--><!--# value limits #-->&nbsp;まで有効
+												<!--# ifbegin val< (!--# setTimeFormat U #--)(!--# value limits #--) (!--# code now U #--) #-->
+													<span class="att">※終了</span>
+												<!--# endif #-->
+												</span>
+											</div>
+										</li>
+									<!--# endif #-->
+									</ul>
+									<div class="wsp_notificationCard__body__date">
+										申込日時：<!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #-->
+									</div>
+								</div><!--wsp_notificationCard__body-->
+							</div>
+						</li>
+					</ul>
+					
+				</div><!--cmslPanel__body-->
+
+				<div class="cmslPanel__body cmslPanel__body--p20">
+
+					<div class="commonForm">
+						<div class="commonForm__">
+
+						<!--# variable form_begin #-->
+							<table class="commonForm__tbl commonForm__tbl--check commonForm__tbl--responsive">
+								<tr>
+									<th style="width:200px;">サービス種別</th>
+									<td>
+										<p>
+									<!--# ifbegin = target_id  #-->
+										<!--# // target_idがない場合は、従量課金 #-->
+										<!--# valueReplace target_type mid_term/fresh_term 中途採用の従量課金契約/新卒採用の従量課金契約 #-->
+									<!--# else #-->
+										<!--# // target_idがある場合は、labelを元に課金の別を表示 #-->
+										<!--# switch (!--# value label #--) #-->
+											<!--# case attention #-->
+												<!--# valueReplace target_type mid/fresh 中途採用/新卒採用 #-->
+												(おすすめ掲載)
+												<!--# break #-->
+											<!--# case apply #-->
+												応募課金
+												<!--# break #-->
+											<!--# case employment #-->
+												採用課金
+												<!--# break #-->
+											<!--# case mid #-->
+												中途採用
+												<!--# break #-->
+											<!--# case fresh #-->
+												新卒採用
+												<!--# break #-->
+											<!--# case scout #-->
+												スカウトメール送信
+												<!--# break #-->
+										<!--# endswitch #-->
+									<!--# endif #-->
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th>申込日時</th>
+									<td>
+										<p>
+											<!--# setTimeFormat Y/m/d\ H:i #-->
+											<!--# value regist #-->
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th>請求予定日</th>
+									<td>
+										<p>
+											<!--# ifbegin ! = money 0 #-->
+												<!--# code timestamp (!--# view payJob drawBillDate (!--# value id #--) #--) Y/m/d #-->
+											<!--# else #-->
+												---
+											<!--# endif #-->
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th>関連情報</th>
+									<td>
+										<p>
+									<!--# ifbegin = target_id  #-->
+										--
+									<!--# else #-->
+										<!--# // target_idがある場合は、labelを元に課金の別を表示 #-->
+										<!--# switch (!--# value label #--) #-->
+											<!--# case attention #-->
+												<a href="index.php?app_controller=info&type=(!--# value target_type #--)&id=(!--# value target_id #--)">
+													<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+												</a>
+												<!--# break #-->
+											<!--# case apply #-->
+												<a href="index.php?app_controller=info&type=(!--# value target_type #--)&id=(!--# value target_id #--)">
+													<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+												</a>
+												<!--# break #-->
+											<!--# case employment #-->
+												<a href="index.php?app_controller=info&type=(!--# value target_type #--)&id=(!--# value target_id #--)">
+													<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name #-->
+												</a>
+												<!--# break #-->
+											<!--# case mid #-->
+												<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+												<!--# break #-->
+											<!--# case fresh #-->
+												<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id name 削除済み情報 #-->
+												<!--# break #-->
+											<!--# case scout #-->
+												<a href="index.php?app_controller=info&type=(!--# value target_type #--)&id=(!--# value target_id #--)">
+													<!--# valueAlias (!--# value target_type #--) (!--# value target_id #--) id nick_name 退会者 #-->
+												</a>さん
+												<!--# break #-->
+										<!--# endswitch #-->
+									<!--# endif #-->
+										</p>
+									</td>
+								</tr>
+								<!--# ifbegin > limits 0 #-->
+								<tr>
+									<th>有効期限</th>
+									<td>
+										<p>
+											<!--# setTimeFormat Y/m/d #-->
+											<!--# value limits #--> まで　
+											<!--# setTimeFormat U #-->
+											<!--# ifbegin val< (!--# value limits #--) (!--# code now U #--) #-->
+												<span style="color:red;">※ 有効期限が切れています。</span>
+											<!--# endif #-->
+										</p>
+									</td>
+								</tr>
+								<!--# endif #-->
+								<tr>
+									<th>利用料金</th>
+									<td><p><!--# comma value money #--> 円</p></td>
+								</tr>
+							</table>
+						<!--# variable form_end #-->
+
+						</div><!--commonForm__-->
+					</div><!--commonForm-->
+
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

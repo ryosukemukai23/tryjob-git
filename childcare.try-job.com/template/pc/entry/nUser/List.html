@@ -1,0 +1,38 @@
+<div class="accordion">
+	<div class="accordion-header">
+		<h3 class="accordion-title"><!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #-->
+			(<!--# value items_id #-->)</h3>
+		<button class="accordion-toggle">
+			<img src="./common/images/common/icon_down_p.svg" alt="" class="p-faq__content--icon">
+		</button>
+	</div>
+	<div class="accordion-content">
+		<div class="is-table_inner">
+			<table class="job-table">
+				<tr>
+					<th>応募日時</th>
+					<td><!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #--></td>
+				</tr>
+				<tr>
+					<th>応募職種</th>
+					<td><!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id name #--></td>
+				</tr>
+				<tr>
+					<th>求人企業</th>
+					<td><!--# alias cUser items_owner id name 退会ユーザー #--> (<!--# value items_owner #-->)</td>
+				</tr>
+				<tr>
+					<th>進捗</th>
+					<td><!--# alias entry_progress status id name #--></td>
+				</tr>
+			</table>
+			<div class="button-group">
+				<a href="index.php?app_controller=info&type=<!--# value items_type #-->&id=<!--# value items_id #-->"
+					class="view-job">この求人を見る</a>
+				<!-- <a href="(!--# alias message message_id id file #--)" class="view-resume">履歴書を見る</a>
+				<a href="index.php?app_controller=info&type=message&id=(!--# value message_id #--)&pal=send"
+					class="view-message">メッセージを見る</a> -->
+			</div>
+		</div>
+	</div>
+</div>

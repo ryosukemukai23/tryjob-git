@@ -1,0 +1,58 @@
+<!--# include head #-->
+<main class="p-news_specifics">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>お知らせ詳細</h1>
+		</div>
+	</div>
+	<div class="breadcrumb-box">
+		<nav class="is-inner_content">
+			<ol class="breadcrumb">
+				<li><a href="index.html">TOP</a></li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li><a
+						href="index.php?app_controller=search&type=news&run=true&category=(!--# value category #--)&category_PAL[]=match comp">お知らせ一覧</a>
+				</li>
+				<i><img src="./common/images/common/icon_arw_grey.svg" alt="" /></i>
+				<li>お知らせ詳細</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="is-inner_content flex">
+		<div class="is-inner_content_left">
+			<div class="p-news_specifics--content">
+				<h2><!--# value topic #--></h2>
+				<p><!--# code linkText (!--# escp value main #--) #--></p>
+				<a href="index.php?app_controller=search&type=news&run=true&category=(!--# value category #--)&category_PAL[]=match comp"
+					class="o-btn is-wh is-arw">一覧に戻る<i class="o-btn__icon"></i></a>
+			</div>
+			<div class="is-shere">
+				<h3>この記事をシェアする</h3>
+				<ul>
+					<li><a href="#"><img src="./common/images/news_specifics/icon_x.svg" alt="facebook" /></a></li>
+					<li><a href="#"><img src="./common/images/news_specifics/icon_facebook.svg" alt="twitter" /></a>
+					</li>
+					<li><a href="#"><img src="./common/images/news_specifics/icon_line.svg" alt="line" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<div class="side-bar is-article">
+				<!--# ifbegin val= (!--# mod disp_conf checkConf news #--) TRUE #-->
+				<!--# view News drawHeadline news 5 #-->
+				<!--# endif #-->
+			</div>
+		</div>
+	</div>
+</main>
+<!--# include foot #-->
+
+<style>
+	.is-news .is-inner_content {
+		padding: 0;
+	}
+
+	.is-news {
+		padding: 0;
+	}
+</style>

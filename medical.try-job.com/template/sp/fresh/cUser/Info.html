@@ -1,0 +1,490 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">求人の管理(新卒)</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						詳細
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList wsp_switchList--transparent">
+					<li>(!--# value id #--)</li>
+				</ul>
+				<ul class="wsp_switchList">
+				<!--# ifbegin ! = delete_flg TRUE #-->
+					<li><a href="index.php?app_controller=delete&type=(!--# get type #--)&id=(!--# value id #--)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;削除</a></li>
+				<!--# endif #-->
+					<li><a href="index.php?app_controller=register&type=(!--# get type #--)&cp=(!--# value id #--)"><i class="fa fa-files-o" aria-hidden="true"></i>&nbsp;複製</a></li>
+				<!--# ifbegin ! = delete_flg TRUE #-->
+					<li><a href="index.php?app_controller=edit&type=(!--# get type #--)&id=(!--# value id #--)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;編集</a></li>
+				<!--# endif #-->
+				</ul>
+			</div><!--wsp_resultNav-->
+
+			<!--# ifbegin = delete_flg TRUE #-->
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						こちらは既に削除済みの求人情報です。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div><!--wsp_cmnMessage-->
+			<!--# endif #-->
+
+			<!--# ifbegin not val_equal (!--# view Job checkApply #--) 1 #-->
+			<div class="wsp_cmnMessage wsp_cmnMessage--red">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						掲載期限が切れているか応募数が上限に達しています。<br>引き続き掲載をご希望の場合は条件を見直して下さい。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div>
+			<!--# endif #-->
+
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__body cmslPanel__body--p20">
+				
+					<ul class="wsp_itemList">
+						<li class="wsp_itemList__item">
+							<div class="wsp_embedItemCard">
+								<div class="wsp_embedItemCard__">
+									<div class="wsp_embedItemCard__body">
+									
+										<div class="wsp_embedItemPrev wsp_embedItemPrev--aiCenter">
+											<div class="wsp_embedItemPrev__thumb">
+											<!--# ifbegin nullcheck image1 #-->
+												<!--# object image image1 size 133 100 #-->
+											<!--# else #-->
+												<span class="wsp_embedItemPrev__thumb__icon wsp_embedItemPrev__thumb__icon--blue"><!--# code Continuation (!--# alias items_type category id name #--) 1 \  #--></span>
+											<!--# endif #-->
+											</div>
+											<div class="wsp_embedItemPrev__body">
+						
+												<div class="wsp_itemDataPrev">
+													<div class="wsp_itemDataPrev__category">
+														(!--# alias items_type category id name #--)
+													</div>
+													<div class="wsp_itemDataPrev__data">
+														<ul class="wsp_articlePointList">
+															<li class="wsp_articlePointList__item">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name">
+																	<!--# ifbegin = foreign_flg TRUE #-->
+																		<!--# value foreign_address #-->
+																	<!--# else #-->
+																		<!--# alias adds work_place_adds id name  #-->
+																		<!--# alias add_sub work_place_add_sub id name #-->
+																	<!--# endif #-->
+																	</span>
+																</div>
+															</li>
+														</ul>
+														<ul class="wsp_articlePointList">
+															<li class="wsp_articlePointList__item">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name"><!--# value target_graduation #-->年度卒</span>
+																</div>
+															</li>
+															<li class="wsp_articlePointList__item">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-jpy" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name"><!--# valueReplace salary_type /時給/日給/月給/年俸 /時給/日給/月給/年俸 #--><!--# value salary #--><!--# valueReplace salary_type /時給/日給/月給/年俸 /円/円/万円/万円 #-->～</span>
+																</div>
+															</li>
+														<!--# setTimeFormat U #-->
+														<!--# ifbegin > attention_time (!--# code now u #--) #-->
+															<li class="wsp_articlePointList__item wsp_articlePointList__item--pickup">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-star" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name">おすすめ</span>
+																</div>
+															</li>
+														<!--# endif #-->
+														</ul>
+														<!--# ifbegin val= (!--# view Conf drawData job publish #--) select &AND& boolean limitation #-->
+														<ul class="wsp_articlePointList">
+															<li class="wsp_articlePointList__item wsp_articlePointList__item--lock">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-lock" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name">会員限定</span>
+																</div>
+															</li>
+														</ul>
+														<!--# endif  #-->
+													</div><!--wsp_itemDataPrev__data-->
+												</div><!--wsp_itemDataPrev-->
+						
+											</div><!--wsp_embedItemPrev__body-->
+										</div><!--wsp_embedItemPrev-->
+						
+									</div><!--wsp_embedItemCard__body-->
+								</div><!--wsp_embedItemCard__-->
+							</div><!--wsp_embedItemCard-->
+						</li>
+					</ul>
+
+				</div><!--cmslPanel__body-->
+				<div class="cmslPanel__body  cmslPanel__body--p20">
+
+<!--# ifbegin get= view vm3 #-->
+<!--# // アクティブなタブがvm3 #-->
+
+					<div class="cmn-listTab">
+						<ul class="cmn-listTab__list">
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">基本情報</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">応募情報</a></li>
+							<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">プレビュー</a></li>
+						</ul>
+					</div>
+
+					<div class="wsp_cmnMessage">
+						<div class="wsp_cmnMessage__">
+							<div class="wsp_cmnMessage__text wsp_cmnMessage__text--center">
+								求人情報は以下のように表示されています。
+							</div>
+						</div><!--wsp_cmnMessage__-->
+					</div>
+
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+			<h2 class="job_h2">
+				<span class="cate">【<!--# alias items_type category id name #-->】</span><!--# value name #-->
+				<!--# setTimeFormat U #-->
+				<!--# ifbegin > attention_time (!--# code now u #--) #-->
+				<span class="pickup">おすすめ</span>
+				<!--# endif #-->
+			</h2>
+			<div class="main">
+				<!--# setTimeFormat Y/m/d #-->
+				<p class="date">掲載日：<!--# value regist #--> ～ <!--# value limits #--></p>
+				<!--# ifbegin val= on (!--# view Gift drawGiftFromJob (!--# get type #--) (!--# value id #--) #--) #-->
+				<span class="gift">お祝い金<span><!--# comma alias items_form work_style id gift #-->円</span></span>
+				<!--# endif #-->
+				<p class="description"><!--# value job_pr #--></p>
+		
+				<ul class="icon"><!--# view Job drawJobAdditionIcon #--></ul>
+				<div class="clearfix">
+					<p class="navi"><a href="javascript:;" id="flickbackbtn1" class="backbtn">&lt; PREV</a></p>
+					<p class="navi"><a href="javascript:;" id="flicknextbtn1" class="nextbtn">NEXT &gt;</a></p>
+					<div id="flickable1" class="flick">
+						<ul id="fl1">
+							<li class="photo_box p">
+								<p class="img"><!--# object image image1 size 200 150 #--></p>
+								<p class="text"><!--# value image1_comment #--></p>
+							</li>
+							<!--# ifbegin nullcheck image2 |OR| nullcheck image2_comment #-->
+							<li class="photo_box p">
+								<p class="img"><!--# object image image2 size 200 150 #--></p>
+								<p class="text"><!--# value image2_comment #--></p>
+							</li>
+							<!--# endif #-->
+							<!--# ifbegin nullcheck image3 |OR| nullcheck image3_comment #-->
+							<li class="photo_box p">
+								<p class="img"><!--# object image image3 size 200 150 #--></p>
+								<p class="text"><!--# value image3_comment #--></p>
+							</li>
+							<!--# endif #-->
+						</ul>
+					</div>
+					<div id="indicator1" class="indicator"><img src="./common/img/sp/indicater.png" width="13" height="5" alt="" /></div>
+				</div>
+		
+				<div class="info_list">
+					<ul>
+						<li>
+							<span>企業</span>
+							<p><!--# alias cUser owner id name #--></p>
+						</li>
+						<li>
+							<span>募集職種</span>
+							<p><!--# alias items_type category id name #--></p>
+						</li>
+						<li>
+							<span>仕事内容</span>
+							<p><!--# value work_detail #--></p>
+						</li>
+						<li>
+							<span>勤務形態</span>
+							<p><!--# alias items_form work_style id name #--></p>
+						</li>
+						<li>
+							<span>給与</span>
+							<p><!--# value salary_label #--></p>
+						</li>
+						<li>
+							<span>勤務地</span>
+							<p>
+								<!--# ifbegin = foreign_flg TRUE #-->
+									<!--# value foreign_address #--><span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span>
+								<!--# else #-->
+									<!--# value work_place_label #--><span class="googlemap">（<a href="https://maps.google.co.jp/maps?q=(!--# urlenc alias adds work_place_adds id name #--)(!--# urlenc alias add_sub work_place_add_sub id name #--)(!--# urlenc value work_place_add_sub2 #--)(!--# urlenc value work_place_add_sub3 #--)&hl=ja&ie=UTF8" target="_blank">地図を見る</a>）</span>
+								<!--# endif #-->
+							</p>
+						</li>
+						<li>
+							<span>最寄駅</span>
+							<p><!--# value transport #--></p>
+						</li>
+						<li>
+							<span>待遇</span>
+							<p><!--# value treatment #--></p>
+						</li>
+						<li>
+							<span>休日・休暇</span>
+							<p><!--# value holiday #--></p>
+						</li>
+						<li>
+							<span>勤務時間</span>
+							<p><!--# value work_time #--></p>
+						</li>
+						<li>
+							<span>備考</span>
+							<p><!--# value remarks #--></p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<span>応募資格</span>
+							<p><!--# value apply_license #--></p>
+						</li>
+						<li>
+							<span>応募方法詳細</span>
+							<!--# ifbegin val= (!--# view cUser isCharge (!--# get type #--) (!--# value owner #--) #--) TRUE #-->
+							<p><!--# value apply_detail #--></p>
+							<!--# else #-->
+							<p>WEB応募(24時間)</p>
+							<!--# endif #-->
+						</li>
+						<li>
+							<span>採用担当者</span>
+							<p><!--# value charger_name #--></p>
+						</li>
+					</ul>
+				</div><!--info_list END-->
+		
+			</div><!--main END-->
+
+<!--# elseif get= view vm2 #-->
+<!--# // アクティブなタブがvm2 #-->
+
+					<div class="cmn-listTab">
+						<ul class="cmn-listTab__list">
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">基本情報</a></li>
+							<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">応募情報</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">プレビュー</a></li>
+						</ul>
+					</div>
+
+					<!--# repeat entry_progress to entryProgressList search #-->
+
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+
+<!--# else #-->
+<!--# // アクティブなタブがそれら以外 #-->
+
+					<div class="cmn-listTab">
+						<ul class="cmn-listTab__list">
+							<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)">基本情報</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">応募情報</a></li>
+							<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">プレビュー</a></li>
+						</ul>
+					</div>
+
+					<table class="dataTable">
+						<tr>
+							<th>対象卒業年度</th>
+							<td><!--# value target_graduation #-->年度卒</td>
+						</tr>
+						<tr>
+							<th>ID</th>
+							<td>
+								(!--# value id #--)
+							</td>
+						</tr>
+					<!--# ifbegin val= (!--# view Conf drawData charges apply #--) on |OR| val= (!--# view Conf drawData charges employment #--) on #-->
+						<tr>
+							<th>課金方式</th>
+							<td>
+								<!--# valueReplace term_type none/user_limit/apply/employment 未設定/月額課金を適用中/応募課金/採用課金 #--><br />
+							</td>
+						</tr>
+					<!--# endif #-->
+						<tr>
+							<th>登録日</th>
+							<td>
+								<!--# setTimeFormat Y年m月d日 #--><!--# value regist #-->
+							</td>
+						</tr>
+						<tr>
+							<th>編集日</th>
+							<td>
+								<!--# value edit #-->
+							</td>
+						</tr>
+						<tr>
+							<th>公開状況</th>
+							<td>
+								<!--# valueReplace publish on/off 公開/<strong\ class="att">非公開<\/strong> #-->
+							</td>
+						</tr>
+						<tr>
+							<th>掲載許可</th>
+							<td>
+								<!--# valueReplace activate 1/4/8 未確認/許可/不許可 #-->
+							</td>
+						</tr>
+						<!--# ifbegin val= (!--# view Conf drawData job publish #--) select #-->
+						<tr>
+							<th>求人閲覧</th>
+							<td><!--# valueReplace limitation FALSE/TRUE 制限なし/会員限定 #--></td>
+						</tr>
+						<!--# endif #-->
+						<tr>
+							<th>掲載期限</th>
+							<td><!--# setTimeFormat Y年m月d日 #--><!--# value limits  制限なし #--></td>
+						</tr>
+						<!--# ifbegin val= (!--# view Conf drawData charges attention #--) on #-->
+						<tr>
+							<th>
+								おすすめ掲載
+								<!--# ifbegin = attention 0 #-->
+								<br>(未掲載)
+								<!--# endif #-->
+							</th>
+							<td>
+								<!--# ifbegin = attention 0 #-->
+								<div class="wsp_formELE">
+									<input type="button" value="掲載を申し込む" onclick="location.href='./?app_controller=register&type=pay_job&label=attention&target_id=(!--# value id #--)'" class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--blue">
+								</div>
+								<!--# else #-->
+								<!--# setTimeFormat Y年m月d日 #--><!--# value attention_time #-->まで掲載
+								<div class="wsp_formELE">
+									<input type="button" value="延長を申し込む" onclick="location.href='./?app_controller=register&type=pay_job&label=attention&target_id=(!--# value id #--)'" class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--blue">
+								</div>
+								<!--# endif #-->
+							</td>
+						</tr>
+						<!--# endif #-->
+						<tr>
+							<th>応募通知</th>
+							<td>
+							<!--# arrayReplace notice_flg / /job/cUser 企業情報で登録したメールアドレスに通知/下記に入力したメールアドレスに通知/企業情報で登録したメールアドレスに通知 #--><br />
+							<!--# ifbegin = notice_flg job |OR| = notice_flg job/cUser #-->
+								<!--# value notice_mail  未設定 #-->
+							<!--# endif #-->
+							</td>
+						</tr>
+						<tr>
+							<th>応募上限</th>
+							<td><!--# code ifelse (!--# value use_max_apply #--) TRUE (!--# code getRow entry items_id = (!--# value id #--) #--)/(!--# value max_apply #--) 制限なし #--></td>
+						</tr>
+						<!--# ifbegin val= (!--# view Conf drawData job pv #--) owner #-->
+						<tr>
+							<th>PV数</th>
+							<td><a href="index.php?app_controller=other&key=AccessCount&id=(!--# value id #--)&type=(!--# get type #--)">PV数</a></td>
+						</tr>
+						<!--# endif #-->
+						<!--# ifbegin val> (!--# view Entry drawWaitApplicantCnt (!--# value id #--) #--) 0 #-->
+						<tr>
+							<th>応募情報</th>
+							<td><a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# value id #--)&items_id_PAL[]=match+comp">応募情報を見る</a></td>
+						</tr>
+						<!--# else #-->
+						<tr>
+							<th>応募情報</th>
+							<td>まだ応募がありません</td>
+						</tr>
+						<!--# endif #-->
+					</table>
+
+					<script type="text/javascript" src="./common/js/jquery-qrcode-0.15.0.js"></script>
+					<script type="text/javascript">
+						$(function () {
+							$("#qrcode").qrcode({
+								render: 'image',
+								ecLevel: 'L',
+								size: 111,
+								background: '#FFF',
+								text: "<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&from=qr",
+							});
+							$("#qrcode").qrcode({
+								render: 'image',
+								ecLevel: 'L',
+								size: 74,
+								background: '#FFF',
+								text: "<!--# ecode getSiteProfile home #-->index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&from=qr",
+							});
+						});
+					</script>
+					<style type="text/css">
+						#qrcode img {
+							margin: 10px;
+							padding: 10px;
+							border: 1px solid #000;
+							float: left;
+							background: #FFF;
+						}
+					</style>
+	
+					<div class="qrcode">
+						<div id="qrcode" class="clearfix"></div>
+						<p class="description">
+						<strong>[<!--# alias items_type category id name #-->]<!--# value name #--><span class="id">（(!--# value id #--)）</span></strong> の求人情報を、
+						あなたが管理しているウェブサイトや、あなたの店舗が発行しているチラシ、
+						その他の紙媒体等にこちらのQRコードを掲載して頂くことで、当サイトの求人情報ページへ求職者をダイレクトに誘導することができ大変便利です。
+						</p>
+						<p class="description">
+						表示されているQRコードを右クリックして「名前を付けて画像を保存」を選択し、あなたのパソコンへQRコードを保存後、お持ちのプリンターなどで出力したり、ウェブサイトへアップロードするなどしてご活用下さい。
+						</p>
+					</div>
+				
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+<!--# endif #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->
+
+					<!--# readhead entryProgressList_head #-->
+					<ul class="linkListPanel linkListPanel--borderbottom">
+						<li class="linkListPanel__item">
+							<a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# value id #--)&items_id_PAL[]=match+comp">すべて<span class="cmsBadge cmsBadge--right cmsBadge--red"><!--# code getRow entry items_id = (!--# value id #--) #--></span></a>
+						</li>
+						<!--# memo write (!--# value id #--) to jobID #-->
+					<!--# readend #-->
+					<!--# readhead entryProgressList #-->
+						<li class="linkListPanel__item">
+							<a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# memo read jobID #--)&items_id_PAL[]=match+comp&status[]=(!--# value id #--)&status_PAL[]=match or">
+								-&nbsp;<!--# valueAlias entry_progress (!--# value id #--) id name #-->
+								<span class="cmsBadge cmsBadge--right cmsBadge--red"><!--# code getRow entry items_id = (!--# memo read jobID #--) status = (!--# value id #--) #--></span>
+							</a>
+						</li>
+					<!--# readend #-->
+					<!--# readhead entryProgressList_foot #-->
+					</ul>
+					<!--# readend #-->

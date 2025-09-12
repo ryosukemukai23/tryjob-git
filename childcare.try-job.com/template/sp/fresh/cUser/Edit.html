@@ -1,0 +1,80 @@
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=(!--# get type #--)&run=true">求人の管理(新卒)</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						編集
+					</li>
+				</ul>
+			</div>
+
+			<!--# syscode validate is_error #-->
+
+			<div class="wsp_cmnForm">
+				<div class="wsp_cmnForm__">
+					<div class="wsp_cmnForm__head">
+						<div class="wsp_cmnForm__title wsp_cmnForm__title--lv1">求人情報の編集</div>
+					</div>
+					<div class="wsp_cmnForm__body">
+			
+						<!--# variable form_begin #-->
+
+						<!--▼登録フォーム-->
+
+						<dl class="wsp_formSet">
+							<dt class="wsp_formSet__title">
+								<span class="wsp_formSet__title__name">対象卒業年度</span>
+								<div class="wsp_formSet__title__tool">
+									<span class="wsp_formSetRequired">※必須</span>
+								</div>
+							</dt>
+							<dd class="wsp_formSet__desc">
+								<span class="wsp_stylishLabel">
+									<!--# form check target_graduation   (!--# ecode getYearly prev #--)/(!--# ecode getYearly #--) (!--# ecode getYearly prev #--)年度卒/(!--# ecode getYearly #--)年度卒 #-->
+								</span>
+								<span class="wsp_formSet__desc__hint">
+									(!--# ecode getYearly prev #--)年度卒 ･･･ (!--# ecode getYearly #--)年3月に卒業する学生を対象とし、(!--# ecode getYearly #--)年3月末までの掲載となります。
+								</span>
+								<span class="wsp_formSet__desc__hint">
+									(!--# ecode getYearly #--)年度卒 ･･･ (!--# ecode getYearly next #--)年3月に卒業する学生を対象とし、(!--# ecode getYearly next #--)年3月末までの掲載となります。
+								</span>
+								<span class="wsp_formSet__desc__error">
+									<!--# syscode validate target_graduation #-->
+								</span>
+							</dd>
+						</dl>
+
+						<!--# include midRegistForm #-->
+
+						<dl class="wsp_formSet">
+							<dd class="wsp_formSet__desc">
+								<div class="wsp_formELE wsp_formELE--center">
+									<input type="submit" value="確認画面へ" class="wsp_formELE__next">
+								</div>
+							</dd>
+						</dl>
+
+						<!--# variable form_end #-->
+			
+					</div><!--wsp_cmnForm__body-->
+				</div><!--wsp_cmnForm__-->
+			</div><!--wsp_cmnForm-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

@@ -1,0 +1,29 @@
+<!--▼特徴から探す表示開始デザイン-->
+<!--# readhead head #-->
+<div class="is-read_content">
+	<h3 class="is-search">キーワードから探す</h3>
+	<ul>
+		<!--# readend #-->
+
+		<!--▼特徴から探す表示リストデザイン-->
+		<!--# readhead element limit=7 #-->
+		<!--# ifbegin val= (!--# val STATIC_URL_FLG #--) TRUE #-->
+		<li class="(!--# variable id #--)"><a
+				href="(!--# mod viewMode getSelectedType #--)-(!--# variable id #--)"><!--# variable name #-->
+			</a></li>
+		<!--# else #-->
+		<li><a
+				href="index.php?app_controller=search&type=(!--# mod viewMode getSelectedType #--)&run=true&addition=(!--# variable id #--)&addition_PAL[]=match+or"><!--# variable name #-->
+			</a></li>
+		<!--# endif #-->
+		<!--# readend #-->
+
+		<!--▼特徴から探す表示終了デザイン-->
+		<!--# readhead foot #-->
+	</ul>
+	<a href="#" class="o-btn is-wh is-arw">
+		キーワードをもっと見る
+		<i class="o-btn__icon"></i>
+	</a>
+</div>
+<!--# readend #-->

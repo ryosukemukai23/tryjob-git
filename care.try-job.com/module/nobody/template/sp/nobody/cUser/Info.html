@@ -1,0 +1,239 @@
+<!--# include head #-->
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						応募者の詳細
+					</li>
+				<!--# endif #-->
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList wsp_switchList--transparent">
+					<li>
+						作成日時：
+						(!--# value regist #--)
+					</li>
+				</ul>
+			</div><!--wsp_resultNav-->
+
+			<div class="wsp_cmnMessage wsp_cmnMessage--dgray">
+				<div class="wsp_cmnMessage__">
+					<div class="wsp_cmnMessage__text">
+						会員登録せずに応募した方の履歴書です。<br>
+						記載されているメールアドレスや電話番号を確認し、コンタクトを取ってください。
+					</div>
+				</div><!--wsp_cmnMessage__-->
+			</div><!--wsp_cmnMessage-->
+
+			<div class="cmslPanel">
+				<div class="cmslPanel__body">
+
+					<ul class="wsp_itemList">
+						<li class="wsp_itemList__item">
+							<div class="wsp_embedItemCard wsp_embedItemCard--small">
+								<div class="wsp_embedItemCard__">
+									<div class="wsp_embedItemCard__body">
+										<div class="wsp_embedItemPrev wsp_embedItemPrev--aiCenter">
+											<div class="wsp_embedItemPrev__thumb wsp_embedItemPrev__thumb--padding">
+												<span class="wsp_embedItemPrev__thumb__uIcon wsp_embedItemPrev__thumb__uIcon--grass"><!--# code Continuation (!--# value name #--) 1 \  #--></span>
+											</div>
+											<div class="wsp_embedItemPrev__body">
+												<div class="wsp_itemDataPrev wsp_itemDataPrev--small">
+													<div class="wsp_itemDataPrev__name"><span><!--# value name #--></span>&nbsp;さん</div>
+													<div class="wsp_itemDataPrev__data">
+														<ul class="wsp_articlePointList wsp_articlePointList--small">
+															<li class="wsp_articlePointList__item">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name">
+																		<!--# alias adds adds id name 未指定 #-->&nbsp;<!--# alias add_sub add_sub id name #-->
+																	</span>
+																</div>
+															</li>
+															<li class="wsp_articlePointList__item">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name"><!--# code drawAgeByBirth (!--# value birth_date_year #--) (!--# value birth_date_month #--) (!--# value birth_date_day #--) #-->歳/<!--# valueReplace sex m/f 男性/女性 #--></span>
+																</div>
+															</li>
+														</ul>
+														<ul class="wsp_articlePointList wsp_articlePointList--small">
+															<li class="wsp_articlePointList__item">
+																<div class="wsp_articlePointList__item__">
+																	<span class="wsp_articlePointList__item__label"><i class="fa fa-sliders" aria-hidden="true"></i></span>
+																	<span class="wsp_articlePointList__item__name"><!--# value recent_state #--></span>
+																</div>
+															</li>
+														</ul>
+													</div><!--wsp_itemDataPrev__data-->
+												</div><!--wsp_itemDataPrev-->
+											</div><!--wsp_embedItemPrev__body-->
+										</div>
+									</div><!--wsp_embedItemCard__body-->
+								</div>
+							</div><!--wsp_embedItemCard-->
+						</li>
+					</ul>
+					
+				</div><!--cmslPanel__body-->
+
+				<div class="cmslPanel__body cmslPanel__body--p20">
+
+					<div class="commonForm">
+						<div class="commonForm__">
+
+<!--# ifbegin get= view vm3 #-->
+<!--# // アクティブなタブがvm3 #-->
+							<div class="cmn-listTab">
+								<ul class="cmn-listTab__list">
+									<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm1">基本情報</a></li>
+									<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">学歴・職歴</a></li>
+									<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">希望・条件</a></li>
+								</ul>
+							</div>
+							<table class="commonForm__tbl commonForm__tbl--check commonForm__tbl--responsive">
+								<tr>
+									<th style="width:200px;">希望職種</th>
+									<td><p><!--# arrayAlias items_type hope_job_category id name #--></p></td>
+								</tr>
+								<tr>
+									<th>希望勤務形態</th>
+									<td><p><!--# arrayAlias items_form hope_work_style id name #--></p></td>
+								</tr>
+								<tr>
+									<th style="width:200px;">希望職種</th>
+									<td><p><!--# arrayAlias items_type hope_job_category id name #--></p></td>
+								</tr>
+								<tr>
+									<th>希望勤務形態</th>
+									<td><p><!--# arrayAlias items_form hope_work_style id name #--></p></td>
+								</tr>
+								<tr>
+									<th>現在の状況</th>
+									<td>
+										<p><!--# value recent_state #--></p>
+									</td>
+								</tr>
+								<tr>
+									<th>希望条件</th>
+									<td><p><!--# value hope  なし #--></p></td>
+								</tr>
+								<tr>
+									<th>備考</th>
+									<td><p><!--# value remarks  なし #--></p></td>
+								</tr>
+
+							</table>
+<!--# elseif get= view vm2 #-->
+<!--# // アクティブなタブがvm2 #-->
+							<div class="cmn-listTab">
+								<ul class="cmn-listTab__list">
+									<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm1">基本情報</a></li>
+									<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">学歴・職歴</a></li>
+									<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">希望・条件</a></li>
+								</ul>
+							</div>
+							<table class="commonForm__tbl commonForm__tbl--check commonForm__tbl--responsive">
+								<tr>
+									<th style="width:200px;">最終学歴・卒業学校名</th>
+									<td><p><!--# value school #--></p></td>
+								</tr>
+								<tr>
+									<th>職務経歴</th>
+									<td><p><!--# value history #--></p></td>
+								</tr>
+								<tr>
+									<th>資格・免許・表彰</th>
+									<td><p><!--# value license #--></p></td>
+								</tr>
+							</table>
+
+<!--# else #-->
+<!--# // アクティブなタブがそれら以外 #-->
+							<div class="cmn-listTab">
+								<ul class="cmn-listTab__list">
+									<li class="cmn-listTab__list__item cmn-listTab__list__item--active"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm1">基本情報</a></li>
+									<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm2">学歴・職歴</a></li>
+									<li class="cmn-listTab__list__item"><a href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)&view=vm3">希望・条件</a></li>
+								</ul>
+							</div>
+							<table class="commonForm__tbl commonForm__tbl--check commonForm__tbl--responsive">
+								<tr>
+									<th style="width:200px;">氏名</th>
+									<td>
+										<p><!--# value name #--></p>
+									</td>
+								</tr>
+								<tr>
+									<th style="width:200px;">氏名(フリガナ)</th>
+									<td>
+										<p><!--# value kana #--></p>
+									</td>
+								</tr>
+
+								<tr>
+									<th>住所</th>
+									<td>
+										<p>
+										〒<!--# value zip1 #-->-<!--# value zip2 #--><br>
+										<!--# alias adds adds id name #-->
+										<!--# alias add_sub add_sub id name #-->
+										<!--# value add_sub2 #-->
+										<!--# value add_sub3 #-->
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th>メールアドレス</th>
+									<td>
+										<p><a href="mailto:(!--# value mail #--)" style="text-decoration:underline;"><!--# value mail #--></a></p>
+									</td>
+								</tr>
+								<tr>
+									<th>電話番号</th>
+									<td>
+										<p><!--# value tel #--></p>
+									</td>
+								</tr>
+								<tr>
+									<th>携帯電話番号</th>
+									<td>
+										<p><!--# value mobile_tel #--></p>
+									</td>
+								</tr>
+								<tr>
+									<th>生年月日</th>
+									<td>
+										<p>
+											<!--# value birth_date_year #-->年
+											<!--# value birth_date_month #-->月
+											<!--# value birth_date_day #-->日&nbsp;生まれ
+										</p>
+									</td>
+								</tr>
+							</table>
+<!--# endif #-->
+						</div><!--commonForm__-->
+					</div><!--commonForm-->
+					
+				</div><!--cmslPanel__body-->
+			</div><!--cmslPanel-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

@@ -1,0 +1,135 @@
+
+				<div class="wsp_popover wsp_popover--shadow2" id="subMenuBody">
+					<div class="wsp_popover__">
+					
+						<div class="wsp_popoverMyAccount">
+							<div class="wsp_popoverMyAccount__">
+								<div class="wsp_myAccountHead">
+									<div class="wsp_myAccountHead__icon">
+										<div class="wsp_myAccountHead__icon__thumb">
+										<!--# ifbegin ! val_eq (!--# valueAlias cUser (!--# code loginid #--) id image #--) #-->
+											<!--# object image  src (!--# valueAlias cUser (!--# code loginid #--) id image #--) size 160 160 trimming true #-->
+										<!--# else #-->
+											<span class="wsp_myAccountHead__icon__thumb__icon wsp_myAccountHead__icon__thumb__icon--aqua"><!--# code Continuation (!--# valueAlias cUser (!--# code loginid #--) id name #--) 1 \  #--></span>
+										<!--# endif #-->
+										</div>
+									</div>
+									<div class="wsp_myAccountHead__name"><!--# valueAlias cUser (!--# code loginid #--) id name #--></div>
+									<div class="wsp_myAccountHead__mail"><!--# valueAlias cUser (!--# code loginid #--) id mail #--></div>
+									<div class="wsp_formELE wsp_formELE--center">
+										<a href="index.php?app_controller=edit&type=cUser" class="wsp_formELE__btn wsp_formELE__btn--black">ご登録情報</a>
+									</div><!--wsp_formELE-->
+
+									<a id="menuToggleSwitch2" class="wsp_popoverCloseBtn" href="javascript:void(0);">
+										<span><i class="fa fa-times" aria-hidden="true"></i></span>
+									</a>
+
+									<a href="./" class="wsp_popoverHomeBtn">
+										<span><i class="fa fa-home" aria-hidden="true"></i></span>
+									</a>
+
+								</div><!--wsp_myAccountHead-->
+							</div><!--wsp_popoverMyAccount__-->
+						</div><!--wsp_popoverMyAccount-->
+						<ul class="wsp_popoverMenu">
+							<li class="wsp_popoverMenu__item wsp_popoverMenu__item--spacer"></li>
+						<!--# ifbegin val= (!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=message&run=true&pal=rec" class="wsp_popoverMenu__item__">
+									メッセージボックス
+								</a>
+							</li>
+						<!--# else #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=message&run=true&pal=rec&read_flg=FALSE&read_flg_PAL[]=match+comp&receiver_del=FALSE&receiver_del_PAL[]=match+comp" class="wsp_popoverMenu__item__">
+									メッセージボックス
+									<span class="cmsBadge cmsBadge--red"><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></span>
+								</a>
+							</li>
+						<!--# endif #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=entry&run=true" class="wsp_popoverMenu__item__">
+									応募情報
+									<!--# ifbegin ! val= (!--# code getRow message mailtype = entry destination = (!--# code loginid #--) read_flg = 0 #--) 0 #-->
+										<span class="cmsBadge cmsBadge--red"><!--# code getRow message mailtype = entry destination = (!--# code loginid #--) read_flg = 0 #--></span>
+									<!--# endif #-->
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item wsp_popoverMenu__item--spacer"></li>
+						<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user disp_nuser #--) off #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=resume&run=true" class="wsp_popoverMenu__item__">
+									求職者を探す
+								</a>
+							</li>
+						<!--# endif #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=clip&run=true&pal=resume" class="wsp_popoverMenu__item__">
+									検討中リスト
+									<!--# ifbegin ! val= (!--# code getRow clip user_id = (!--# code loginid #--) c_type = resume #--) 0 #-->
+									<span class="cmsBadge cmsBadge--red"><!--# mod Clip drawCount4c #--></span>
+									<!--# endif #-->
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item wsp_popoverMenu__item--spacer"></li>
+						<!--# ifbegin val= (!--# view Conf drawData job type_check #--) mid/fresh #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=mid&run=true" class="wsp_popoverMenu__item__">
+									求人の管理
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=fresh&run=true" class="wsp_popoverMenu__item__">
+									求人の管理(新卒)
+								</a>
+							</li>
+						<!--# else #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=<!--# view Conf drawData job type_check #-->&run=true" class="wsp_popoverMenu__item__">
+									求人の管理
+								</a>
+							</li>
+						<!--# endif #-->
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=register&type=interview" class="wsp_popoverMenu__item__">
+									インタビューを作成
+								</a>
+							</li>
+						<!--# ifbegin val= (!--# view payJob drawOnPaySetting #--) TRUE #-->
+							<li class="wsp_popoverMenu__item wsp_popoverMenu__item--spacer"></li>
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=pay_job&run=true" class="wsp_popoverMenu__item__">
+									利用状況
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=bill&run=true" class="wsp_popoverMenu__item__">
+									料金請求
+								</a>
+							</li>
+						<!--# endif #-->
+							<li class="wsp_popoverMenu__item wsp_popoverMenu__item--spacer"></li>
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp" class="wsp_popoverMenu__item__">
+									お知らせ
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=page&p=qanda" class="wsp_popoverMenu__item__">
+									よくあるご質問
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item">
+								<a href="index.php?app_controller=register&type=inquiry" class="wsp_popoverMenu__item__">
+									お問い合わせ
+								</a>
+							</li>
+							<li class="wsp_popoverMenu__item">
+								<a href="login.php?logout=true" class="wsp_popoverMenu__item__">
+									ログアウト
+								</a>
+							</li>
+						</ul>
+				
+					</div><!--wsp_popover__-->
+				</div><!--wsp_popover-->

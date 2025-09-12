@@ -1,0 +1,37 @@
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">サイトからのお知らせ</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			<!--# form radio guide TRUE  TRUE/FALSE 受信する/受信しない #-->
+		</span>
+	</dd>
+</dl>
+
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">お得な情報</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			 <!--# form radio information TRUE  TRUE/FALSE 受信する/受信しない #-->
+		</span>
+	</dd>
+</dl>
+
+<!--# ifbegin val= (!--# login type #--) admin #-->
+<dl class="wsp_formSet">
+	<dt class="wsp_formSet__title">
+		<span class="wsp_formSet__title__name">強制送信除外</span>
+	</dt>
+	<dd class="wsp_formSet__desc">
+		<span class="wsp_stylishLabel">
+			  <!--# form radio forse_reject FALSE  TRUE/FALSE 有効/無効 #-->
+		</span>
+		<span class="wsp_formSet__desc__hint">
+			※　有効に設定している間、このユーザーへのDMは送信されません。
+		</span>
+	</dd>
+</dl>
+<!--# endif #-->

@@ -1,0 +1,37 @@
+<!--# include head #-->
+
+<div id="contents">
+	<div class="contents_inline c1 clearfix">
+
+		<div class="contents_m">
+			<h2>記事の管理</h2>
+			<p class="description">
+				記事の登録、編集、確認、削除ができます。<br />
+			</p>
+
+			<!-- ▼ 現在のポイント表示 ▼ -->
+			<div class="view-articleCard__body__description">
+				現在のポイント：<!--# view article drawUserPoints #-->pt
+			</div>
+			<!-- ▲ 現在のポイント表示 ▲ -->
+
+			<ul class="sub_menu">
+				<li><a href="(!--# code link regist article #--)">記事を登録する</a></li>
+			</ul>
+			<div class="main">
+
+				<!--# include (!--# get type #--)SearchForm #-->
+				<div class="message">
+					<p>その条件に一致する記事はありませんでした。</p>
+					<ul>
+						<li><a href="./">トップページ</a></li>
+					</ul>
+				</div><!--message END-->
+
+			</div><!--main END-->
+		</div><!--contents_m END-->
+
+	</div><!--contents_inline END-->
+</div><!--contents END-->
+
+<!--# include foot #-->

@@ -1,0 +1,115 @@
+<!--# include head #-->
+<style>
+	.p-profile .is-inner_content_left {
+		gap: 0;
+	}
+
+	.description {
+		font-size: 1.4rem;
+	}
+
+	.cancel {
+		background-color: #fff;
+		border: none;
+		border-radius: 4px;
+		color: #dd6e21;
+		cursor: pointer;
+		display: block;
+		font-size: 1.2rem;
+		font-weight: normal;
+		line-height: 180%;
+		margin: 1.6rem auto 0;
+		padding: 0.2rem .4rem;
+		width: 10rem;
+		text-align: center;
+		border: 1px solid #dd6e21;
+	}
+
+	.p-profile__policy {
+		margin-top: 2.4rem;
+
+		margin-bottom: 2.4rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-profile__policy {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.form_table {
+		padding: 0 0 0 0;
+	}
+</style>
+<main class="p-profile">
+	<div class="is-kv">
+		<div class="is-inner_content">
+			<h1>プロフィール</h1>
+		</div>
+	</div>
+	<!-- <div class="breadcrumb-box">
+            <nav class="is-inner_content">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">TOP</a></li>
+                    <i><img src="./assets/images/common/icon_arw_grey.svg" alt="" /></i>
+                    <li>業種トップ</li>
+                </ol>
+            </nav>
+        </div> -->
+	<div class="sidebar-toggle">
+		<span class="toggle-text">メニュー</span>
+		<span class="toggle-arrow">▶︎</span>
+	</div>
+	<div class="is-inner_content reverse">
+		<div class="is-inner_content_left">
+			<h2>登録情報の編集</h2>
+			<p class="description">※非公開項目は応募先の企業以外の第三者には公開されません。</p>
+			<!--# syscode validate is_error #-->
+			<div class="form_table">
+				<!--# variable form_begin #-->
+				<!--▼編集フォーム-->
+				<!--# include nUserRegistForm #-->
+				<!--# include DMConfRegistForm_n #-->
+				<p class="button"><input type="submit" name="Submit" value="確認する" class="btn_check" /></p>
+				<div><a href="index.php?app_controller=delete&type=nUser" class="cancel">退会する</a></div>
+				<!--# variable form_end #-->
+			</div><!--form_table END-->
+			<div class="p-profile__policy">
+				<a href="#">
+					<h2>個人情報の取扱いについて<i><img src="./common/images/common/icon_arw.svg" alt=""></i></h2>
+				</a>
+			</div>
+		</div>
+		<div class="is-inner_content_right">
+			<nav class="sidebar-nav">
+				<ul>
+					<li><a href="mypage.html">マイページ</a></li>
+					<li class="active"><a
+							href="https://childcare.try-job.com/index.php?app_controller=edit&type=nUser">プロフィール</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec">メッセージ</a>
+					</li>
+					<!-- <li><a href="interview.html">面接・選考</a></li> -->
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=entry&run=true">応募済み求人</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=resume&run=true">履歴書・職務経歴書</a>
+					</li>
+					<li><a
+							href="https://childcare.try-job.com/index.php?app_controller=search&type=clip&run=true&pal=mid">気になる求人</a>
+					</li>
+					<!-- <li><a href="#">勤続支援金の申請</a></li>
+																	<li><a href="inform.html">違反行為の報告</a></li>
+																	<li><a href="#">新着求人メール</a></li>
+																	<li><a href="#">企業・法人のブロック</a></li>
+																	<li><a href="#">設定</a></li> -->
+				</ul>
+			</nav>
+			<div class="sidebar-overlay"></div>
+		</div>
+	</div>
+</main>
+<!--# include foot #-->

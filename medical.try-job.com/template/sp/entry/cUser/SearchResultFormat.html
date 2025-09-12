@@ -1,0 +1,151 @@
+<!--# syscode searchResult setResultNum 20 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						応募情報
+					</li>
+				</ul>
+			</div>
+
+			<div class="wsp_resultNav">
+				<ul class="wsp_switchList">
+					<li><a onclick="$('#searchFormToggle').toggle();return false;"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;絞り込み</a></li>
+					<li><a href="index.php?app_controller=search&type=(!--# get type #--)&run=true"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+				</ul>
+				<div class="wsp_formELE wsp_formELE">
+					<button type="button" value=")" class="wsp_formELE__btn wsp_formELE__btn--active wsp_formELE__btn--blue" onClick="download();">検索結果(CSV)</button>
+				</div>
+			</div><!--wsp_resultNav-->
+
+			<script type="text/javascript">
+			function download(){
+				window.location = './index.php?app_controller=download&m=entryList'+location.search.replace('?','&').replace('app_controller=search','');
+			}
+			</script>
+
+			<!--# include (!--# get type #--)SearchForm #-->
+
+	<!--# ifbegin ! get= searchQuery true #-->
+	<!--# // 検索ボタンが押されていない #-->
+		<!--# ifbegin get= items_id #-->
+		<!--# // getパラメータに求人IDがない #-->
+			<!--# repeat entry_progress to entryProgressList search #-->
+		<!--# else #-->
+		<!--# // getパラメータに求人IDがある #-->
+			<ul class="wsp_articlePointList">
+				<li class="wsp_articlePointList__item">
+					<div class="wsp_articlePointList__item__">
+						<span class="wsp_articlePointList__item__label"><i class="fa fa-search" aria-hidden="true"></i></span>
+						<span class="wsp_articlePointList__item__name"><!--# convertString (!--# get items_id #--) to (!--# convertString (!--# get items_id #--) to entry.items_id to items_type #--).id to name #--></span>
+					</div>
+				</li>
+			</ul>
+			<!--# repeat entry_progress to entryProgressList2 search #-->
+		<!--# endif #-->
+	<!--# endif #-->
+
+			<!--# // ★getパラメータに求人IDがない場合のリピート部分 #-->
+			<!--# readhead entryProgressList_head #-->
+			<div class="wsp_resultNav">
+				<ul class="wsp_resultMenu">
+					<!--# ifbegin get= status #-->
+					<li class="wsp_resultMenu__item wsp_resultMenu__item--active">
+						<a href="index.php?app_controller=search&type=entry&run=true">
+							すべて
+							<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_owner = (!--# ecode getUserProfile id #--) #--></span>
+						</a>
+					</li>
+					<!--# else #-->
+					<li class="wsp_resultMenu__item">
+						<a href="index.php?app_controller=search&type=entry&run=true">
+							すべて
+							<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_owner = (!--# ecode getUserProfile id #--) #--></span>
+						</a>
+					</li>
+					<!--# endif #-->
+			<!--# readend #-->
+			<!--# readhead entryProgressList #-->
+					<!--# ifbegin val= (!--# get status #--) (!--# value id #--) #-->
+					<li class="wsp_resultMenu__item wsp_resultMenu__item--active">
+						<a href="index.php?app_controller=search&type=entry&run=true&status[]=(!--# value id #--)&status_PAL[]=match or">
+							<!--# valueAlias entry_progress (!--# value id #--) id name #-->
+							<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_owner = (!--# ecode getUserProfile id #--) status = (!--# value id #--) #--></span>
+						</a>
+					</li>
+					<!--# else #-->
+					<li class="wsp_resultMenu__item">
+						<a href="index.php?app_controller=search&type=entry&run=true&status[]=(!--# value id #--)&status_PAL[]=match or">
+							<!--# valueAlias entry_progress (!--# value id #--) id name #-->
+							<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_owner = (!--# ecode getUserProfile id #--) status = (!--# value id #--) #--></span>
+						</a>
+					</li>
+					<!--# endif #-->
+			<!--# readend #-->
+			<!--# readhead entryProgressList_foot #-->
+				</ul>
+			</div>
+			<!--# readend #-->
+
+			<!--# // ★getパラメータに求人IDがある場合のリピート部分 #-->
+			<!--# readhead entryProgressList2_head #-->
+			<div class="wsp_resultNav">
+				<ul class="wsp_resultMenu">
+					<!--# memo write (!--# get items_id #--) to jobID #-->
+					<!--# ifbegin get= status #-->
+					<li class="wsp_resultMenu__item wsp_resultMenu__item--active">
+						<a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# memo read jobID #--)&items_id_PAL[]=match+comp">すべて<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_id = (!--# memo read jobID #--) #--></span></a>
+					</li>
+					<!--# else #-->
+					<li class="wsp_resultMenu__item">
+						<a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# memo read jobID #--)&items_id_PAL[]=match+comp">すべて<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_id = (!--# memo read jobID #--) #--></span></a>
+					</li>
+					<!--# endif #-->
+			<!--# readend #-->
+			<!--# readhead entryProgressList2 #-->
+					<!--# ifbegin val= (!--# get status #--) (!--# value id #--) #-->
+					<li class="wsp_resultMenu__item wsp_resultMenu__item--active">
+						<a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# memo read jobID #--)&items_id_PAL[]=match+comp&status[]=(!--# value id #--)&status_PAL[]=match or">
+							<!--# valueAlias entry_progress (!--# value id #--) id name #-->
+							<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_id = (!--# memo read jobID #--) status = (!--# value id #--) #--></span>
+						</a>
+					</li>
+					<!--# else #-->
+					<li class="wsp_resultMenu__item">
+						<a href="index.php?app_controller=search&type=entry&run=true&items_id=(!--# memo read jobID #--)&items_id_PAL[]=match+comp&status[]=(!--# value id #--)&status_PAL[]=match or">
+							<!--# valueAlias entry_progress (!--# value id #--) id name #-->
+							<span class="wsp_resultMenu__item__count"><!--# code getRow entry items_id = (!--# memo read jobID #--) status = (!--# value id #--) #--></span>
+						</a>
+					</li>
+					<!--# endif #-->
+			<!--# readend #-->
+			<!--# readhead entryProgressList2_foot #-->
+				</ul>
+			</div>
+			<!--# readend #-->
+
+			<ul class="wsp_notification wsp_notification--auto">
+				<!--# syscode searchResult result #-->
+			</ul>
+
+			<!--# syscode searchResult info #-->
+			<!--# syscode searchResult pageChange #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

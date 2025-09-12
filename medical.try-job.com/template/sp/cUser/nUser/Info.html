@@ -1,0 +1,225 @@
+<!--# syscode setTitle (!--# value name #--)の詳細 - (!--# code getData system ADMIN site_title #--) #-->
+<!--# ifbegin = foreign_flg TRUE #-->
+<!--# syscode setKeywords (!--# value name #--),(!--# value foreign_address #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# else #-->
+<!--# syscode setKeywords (!--# value name #--),(!--# alias adds adds id name #--),(!--# alias add_sub add_sub id name #--),求人,募集,(!--# code getData system ADMIN site_title #--) #-->
+<!--# endif #-->
+<!--# syscode setDescription (!--# code Continuation (!--# escp value work_detail #--) 65 #--) #-->
+<!--# include head #-->
+<div id="contents">
+
+<div class="l-pagebody">
+	
+		<div class="jobDetailCard">
+			<div class="jobDetailCard__">
+				<div class="jobDetailCard__head">
+					<div class="jobDetailCard__head__data">
+						<span class="jobDetailCard__head__data__cate">
+						<!--# ifbegin = foreign_flg TRUE #-->
+							海外
+						<!--# else #-->
+							<!--# alias adds adds id name #-->
+						<!--# endif #-->
+						</span>
+					</div>
+				</div><!--jobDetailCard__head-->
+				<div class="jobDetailCard__body">
+					<h1 class="jobDetailCard__body__title"><!--# value name #--></h1>
+
+					<div class="jobDetailCard__body__data">
+					
+						<!--# ifbegin nullcheck image #-->
+						<div class="jobDetailCard__body__data__thumb"><!--# object imageSize image 600 450 #--></div>
+						<!--# endif #-->
+					
+						<table>
+							<tr>
+								<th>事業内容</th>
+								<td><!--# value work_detail #--></td>
+							</tr>
+							<tr>
+								<th>所在地</th>
+								<td>
+								<!--# ifbegin = foreign_flg TRUE #-->
+								<!--# value foreign_address #-->
+								<span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc value foreign_address #--)" target="_blank">地図を見る</a>）</span>
+								<!--# else #-->
+								〒<!--# value zip1 #-->-<!--# value zip2 #--><br />
+								<!--# alias adds adds id name #--><!--# alias add_sub add_sub id name #--><!--# value add_sub2 #--><!--# value add_sub3 #-->
+								<span class="googlemap">（<a href="https://maps.google.com/maps?q=(!--# urlenc alias adds adds id name #--)(!--# urlenc alias add_sub add_sub id name #--)(!--# urlenc value add_sub2 #--)(!--# urlenc value add_sub3 #--)" target="_blank">地図を見る</a>）</span>
+								<!--# endif #-->
+								</td>
+							</tr>
+							<tr>
+								<th>代表者名</th>
+								<td><!--# value owner_name #--></td>
+							</tr>
+							<tr>
+								<th>会社設立日</th>
+								<td><!--# value establish_date #--></td>
+							</tr>
+							<tr>
+								<th>従業員数</th>
+								<td><!--# value employee #-->人</td>
+							</tr>
+							<tr>
+								<th>平均年齢</th>
+								<td>
+								<!--# ifbegin ! = mean_age  #-->
+									<!--# value mean_age #-->歳
+								<!--# endif #-->
+								</td>
+							</tr>
+							<tr>
+								<th>電話番号</th>
+								<td><!--# value tel #--></td>
+							</tr>
+							<tr>
+								<th>FAX番号</th>
+								<td><!--# value fax #--></td>
+							</tr>
+							<tr>
+								<th>HP</th>
+								<td>
+								<!--# ifbegin ! val_eq url  #-->
+									<a href="(!--# value url #--)" target="_blank"><!--# code Continuation (!--# escp value url #--) 50 #--></a>
+								<!--# endif #-->
+								</td>
+							</tr>
+						</table>
+
+						<script type="text/javascript">
+						$(function(){
+							var dotw="<!--# post dotw_text #-->";
+							$(".dotw").hide();
+							if(dotw){
+								var dotw_list=dotw.split("/");
+								for(var i=0;i<dotw_list.length;i++){
+									$("."+dotw_list[i]).show();
+								}
+							}
+						});
+						</script>
+						<!--# setTimeFormat H:i #-->
+						<table id="business_hours" style="margin:10px 0 0;">
+							<tr>
+								<th>営業日</th>
+								<td>
+									<div id="dotw_common_set">
+									<!--# arrayValueReplace (!--# post dotw_text #--) / mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 未設定 #-->
+									<span style="display:none;">
+									<!--# form checkbox dotw   mon/tue/wed/thr/fri/sat/sun 月/火/水/木/金/土/日 #-->
+									</span>
+									</div>
+								</td>
+							</tr>
+							<tr class="dotw mon">
+								<th>月曜日</th>
+								<td>
+									【午前】<!--# value start_mon_am #--> ～ <!--# value end_mon_am #-->
+									【午後】<!--# value start_mon_pm #--> ～ <!--# value end_mon_pm #-->
+								</td>
+							</tr>
+							<tr class="dotw tue">
+								<th>火曜日</th>
+								<td>
+									【午前】<!--# value start_tue_am #--> ～ <!--# value end_tue_am #-->
+									【午後】<!--# value start_tue_pm #--> ～ <!--# value end_tue_pm #-->
+								</td>
+							</tr>
+							<tr class="dotw wed">
+								<th>水曜日</th>
+								<td>
+									【午前】<!--# value start_wed_am #--> ～ <!--# value end_wed_am #-->
+									【午後】<!--# value start_wed_pm #--> ～ <!--# value end_wed_pm #-->
+								</td>
+							</tr>
+							<tr class="dotw thr">
+								<th>木曜日</th>
+								<td>
+									【午前】<!--# value start_thr_am #--> ～ <!--# value end_thr_am #-->
+									【午後】<!--# value start_thr_pm #--> ～ <!--# value end_thr_pm #-->
+								</td>
+							</tr>
+							<tr class="dotw fri">
+								<th>金曜日</th>
+								<td>
+									【午前】<!--# value start_fri_am #--> ～ <!--# value end_fri_am #-->
+									【午後】<!--# value start_fri_pm #--> ～ <!--# value end_fri_pm #-->
+								</td>
+							</tr>
+							<tr class="dotw sat">
+								<th>土曜日</th>
+								<td>
+									【午前】<!--# value start_sat_am #--> ～ <!--# value end_sat_am #-->
+									【午後】<!--# value start_sat_pm #--> ～ <!--# value end_sat_pm #-->
+								</td>
+							</tr>
+							<tr class="dotw sun">
+								<th>日曜日</th>
+								<td>
+									【午前】<!--# value start_sun_am #--> ～ <!--# value end_sun_am #-->
+									【午後】<!--# value start_sun_pm #--> ～ <!--# value end_sun_pm #-->
+								</td>
+							</tr>
+							<tr>
+								<th>取り扱い<br>内容</th>
+								<td>
+									<!--# arrayAlias items_elements manage_type id name <br> 未設定 #-->
+								</td>
+							</tr>
+						</table>
+
+					</div><!--jobDetailCard__body__data END-->
+
+				</div><!--jobDetailCard__body-->
+
+			<!--# ifbegin val= (!--# code getData cUser (!--# value id #--) inquiry #--) on #-->
+				<div class="jobDetailCard__action">
+					<div class="userActionLinks">
+						<div class="userActionLinks__entry">
+							<a href="index.php?app_controller=register&type=message&mailtype=inquiry&destination=(!--# value id #--)" class="userActionLinks__entry__btn">
+								<span>この企業に問い合わせ</span>
+								<i class="fa fa-caret-right" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div><!--jobDetailCard__action-->
+			<!--# endif #-->
+
+			</div><!--jobDetailCard__-->
+		</div><!--jobDetailCard-->
+
+	</div><!--l-pagebody-->
+
+	<section class="contents_box new">
+		<h2>この企業のインタビュー</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=interview&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp&embedID=interview_simple #-->
+		</div>
+	</section><!--contents_box END-->
+
+	<section class="contents_box new">
+		<h2>この企業が掲載中の求人情報</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&owner=(!--# value id #--)&owner_PAL[]=match+comp&embedID=items_new #-->
+		</div>
+	</section><!--contents_box END-->
+
+	<section class="contents_box other">
+		<h2><!--# value name #-->を見た人は<br />こんな企業も見ています</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=cUser&run=true&id=<!--# value id #-->&id_PAL[]=unmatch+comp&adds=(!--# value adds #--)&adds_PAL[]=match+comp&edit_comp=true&edit_comp_PAL[]=match+comp&rand=true&embedID=other_cuser #-->
+		</div>
+	</section><!--contents_box END-->
+
+	<section class="contents_box pickup">
+		<h2>おすすめの求人情報</h2>
+		<div class="item_list body">
+			<!--# async code embedSearch type=(!--# mod viewMode getSelectedType #--)&run=true&rand=(!--# valueValueReplace (!--# view Conf drawData job attention_list #--) /rand /true #--)&attention=true&attention_PAL[]=match+comp&attention_time_PAL[]=match gt&attention_time=(!--# code now u #--)&embedID=items_new #-->
+		</div>
+	</section><!--contents_box END-->
+
+</div><!--contents END-->
+
+<!--# include foot #-->

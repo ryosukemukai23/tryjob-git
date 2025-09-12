@@ -1,0 +1,46 @@
+<!--# syscode searchResult setResultNum 10 #-->
+<!--# syscode searchResult setPagejumpNum 5 #-->
+
+<!--# include head #-->
+<div id="contents">
+
+<div class="wsp_l-section">
+	<div class="wsp_l-section__">
+		<div class="wsp_l-section__body">
+
+			<div class="wsp_breadcrumnb">
+				<ul class="wsp_breadcrumnbList">
+					<li class="wsp_breadcrumnbList__item">
+						<a href="./"><i class="fa fa-home" aria-hidden="true"></i></a>
+					</li>
+				<!--# ifbegin val= (!--# view Conf drawData user use_nuser #--) on &AND& not val= (!--# view Conf drawData user scout #--) off &AND& not val= (!--# view Conf drawData user disp_nuser #--) off #-->
+					<li class="wsp_breadcrumnbList__item">
+						<a href="index.php?app_controller=search&type=resume&run=true">求職者を探す</a>
+					</li>
+					<li class="wsp_breadcrumnbList__item">
+						検討中リスト
+					</li>
+				<!--# else #-->
+					<li class="wsp_breadcrumnbList__item">
+						検討中リスト
+					</li>
+				<!--# endif #-->
+				</ul>
+			</div>
+
+			<div class="main">
+				<ul class="wsp_itemList">
+					<!--# syscode searchResult result #-->
+				</ul>
+			</div>
+
+			<!--# syscode searchResult info #-->
+			<!--# syscode searchResult pageChange #-->
+
+		</div><!--wsp_l-section__body-->
+	</div><!--wsp_l-section__-->
+</div><!--wsp_l-section-->
+
+</div><!--contents-->
+
+<!--# include foot #-->

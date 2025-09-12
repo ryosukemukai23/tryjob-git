@@ -1,0 +1,62 @@
+<!--# setTimeFormat Y/m/d\ H:i #-->
+<li class="wsp_notification__item">
+	<a class="wsp_notification__item__link" href="index.php?app_controller=info&type=(!--# get type #--)&id=(!--# value id #--)"></a>
+
+<!--# ifbegin match (!--# value entry_user #--) NB #-->
+	<div class="wsp_notificationCard">
+		<div class="wsp_notificationCard__thumb"><span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--grass"><!--# code Continuation (!--# alias nobody entry_user id name #--) 1 \  #--></span></div>
+		<div class="wsp_notificationCard__body">
+			<div class="wsp_notificationCard__body__message"><span><!--# alias nobody entry_user id name #--></span>&nbsp;さん</div>
+			<div class="wsp_notificationCard__body__message">
+				<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id category #--) to items_type #-->
+				(<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id work_style #--) to items_form #-->)
+			</div>
+			<ul class="wsp_articlePointList">
+				<li class="wsp_articlePointList__item">
+					<div class="wsp_articlePointList__item__">
+						<span class="wsp_articlePointList__item__label"><i class="fa fa-envelope(!--# valueValueReplace (!--# alias message message_id id read_flg #--) TRUE/FALSE -open-o/ #--)" aria-hidden="true"></i></span>
+						<span class="wsp_articlePointList__item__name"><!--# valueValueReplace (!--# alias message message_id id read_flg #--) TRUE/FALSE 既読/未読 #--></span>
+					</div>
+				</li>
+				<li class="wsp_articlePointList__item">
+					<div class="wsp_articlePointList__item__">
+						<span class="wsp_articlePointList__item__label"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+						<span class="wsp_articlePointList__item__name"><!--# alias entry_progress status id name #--></span>
+					</div>
+				</li>
+			</ul>
+			<div class="wsp_notificationCard__body__date">
+				<!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #-->
+			</div>
+		</div>
+	</div><!--wsp_notificationCard-->
+<!--# else #-->
+	<div class="wsp_notificationCard">
+		<div class="wsp_notificationCard__thumb"><span class="wsp_notificationCard__thumb__icon wsp_notificationCard__thumb__icon--blue"><!--# code Continuation (!--# alias nUser entry_user id name 退会ユーザー #--) 1 \  #--></span></div>
+		<div class="wsp_notificationCard__body">
+			<div class="wsp_notificationCard__body__message"><span><!--# alias nUser entry_user id name 退会ユーザー #--></span>&nbsp;さん</div>
+			<div class="wsp_notificationCard__body__message">
+				<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id category #--) to items_type #-->
+				(<!--# convertString (!--# valueAlias (!--# value items_type #--) (!--# value items_id #--) id work_style #--) to items_form #-->)
+			</div>
+			<ul class="wsp_articlePointList">
+				<li class="wsp_articlePointList__item">
+					<div class="wsp_articlePointList__item__">
+						<span class="wsp_articlePointList__item__label"><i class="fa fa-envelope(!--# valueValueReplace (!--# alias message message_id id read_flg #--) TRUE/FALSE -open-o/ #--)" aria-hidden="true"></i></span>
+						<span class="wsp_articlePointList__item__name"><!--# valueValueReplace (!--# alias message message_id id read_flg #--) TRUE/FALSE 既読/未読 #--></span>
+					</div>
+				</li>
+				<li class="wsp_articlePointList__item">
+					<div class="wsp_articlePointList__item__">
+						<span class="wsp_articlePointList__item__label"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+						<span class="wsp_articlePointList__item__name"><!--# alias entry_progress status id name #--></span>
+					</div>
+				</li>
+			</ul>
+			<div class="wsp_notificationCard__body__date">
+				<!--# setTimeFormat Y/m/d\ H:i #--><!--# value regist #-->
+			</div>
+		</div>
+	</div><!--wsp_notificationCard-->
+<!--# endif #-->
+</li>
