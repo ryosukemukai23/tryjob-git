@@ -1,105 +1,43 @@
 <style>
-  .p-recently_viewed--header,
-  .is-howto,
-  .apply {
-    display: none;
-  }
+	.p-recently_viewed--header,
+	.is-howto,
+	.apply {
+		display: none;
+	}
 
-  .p-recently_viewed .is-search__tab__content {
-    margin-top: 0;
-  }
-
-  .is-message {
-    padding: 0.45rem 2.5rem;
-  }
+	.p-recently_viewed .is-search__tab__content {
+		margin-top: 0;
+	}
 </style>
 <header class="l-header">
-  <div class="l-header__content">
-    <div class="l-header__content__logo">
-      <a href="./">
-        <h1><img src="./common/images/common/logo.png" alt="TRY JOB 医療" /></h1>
-      </a>
-    </div>
-    <div class="l-header__content__list">
-      <dl>
-        <dt>
-          <a
-            href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)"
-            class="is-keep"
-            >キープ</a
-          >
-          <a href="index.php?app_controller=other&key=history" class="is-check">最近見た求人</a>
-          <a href="index.php?app_controller=search&type=message&run=true&pal=rec" class="is-message"
-            >メッセージ<span class="badge"
-              ><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></span
-            ></a
-          >
-        </dt>
-      </dl>
-    </div>
-    <div class="l-header__content__btn sp">
-      <a href="login.php" class="o-btn is-pink is-mypage"><i class="is-home"></i>マイページ</a>
-      <!-- <a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser" class="o-btn"><i
+	<div class="l-header__content">
+		<div class="l-header__content__logo">
+			<a href="https://childcare.try-job.com/index.php">
+				<h1><img src="./common/images/common/logo.png" alt="TRY JOB 医療" /></h1>
+			</a>
+		</div>
+		<div class="l-header__content__list">
+			<dl>
+				<dt>
+					<a href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)"
+						class="is-keep">キープ</a>
+					<a href="https://childcare.try-job.com/index.php?app_controller=other&key=history"
+						class="is-check" style="border-right: 1px #DD6E21 solid;">最近見た求人</a>
+					<a href="https://childcare.try-job.com/index.php?app_controller=search&type=message&run=true&pal=rec"
+						class="is-message">メッセージ<span
+							class="badge"><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></span></a>
+				</dt>
+			</dl>
+		</div>
+		<div class="l-header__content__btn">
+			<a href="login.php" class="o-btn is-pink"><i class="is-home"></i>マイページ</a>
+			<!-- <a href="index.php?app_controller=other&key=CheckValidityForm&type=nUser" class="o-btn"><i
 					class="is-face"></i>会員登録</a> -->
-    </div>
-    <div class="l-header__content__hamburger">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </div>
-  </div>
+		</div>
+		<div class="l-header__content__hamburger">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</div>
+	</div>
 </header>
-
-<nav class="l-global-nav">
-  <div class="l-grobal-nav-header flex">
-    <h2 class="l-global-nav__title">メニュー</h2>
-    <button class="l-global-nav__close" aria-label="メニューを閉じる">
-      <img src="./common/images/top/header_close.svg" alt="" />
-    </button>
-  </div>
-
-  <div class="l-global-nav__inner">
-    <ul class="l-global-nav__menu">
-      <li>
-        <a href="index.php?app_controller=search&type=clip&run=true&pal=(!--# mod viewMode getSelectedType #--)"
-          >キープリスト<img src="./common/images/common/icon_arw.svg" alt=""
-        /></a>
-      </li>
-      <li>
-        <a
-          href="https://test.valentia.design/gc/tryjob_childcare/index.php?app_controller=other&key=history"
-          class="is-check"
-          style="border-right: 1px #dd6e21 solid"
-          >最近見た求人</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://test.valentia.design/gc/tryjob_childcare/index.php?app_controller=search&type=message&run=true&pal=rec"
-          ><div class="flex">
-            メッセージ<span class="badge"
-              ><!--# code getRow message destination = (!--# code loginid #--) read_flg = 0 receiver_del = 0 #--></span
-            >
-          </div>
-          <img src="./common/images/common/icon_arw.svg" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href="#">マイページ<img src="./common/images/common/icon_arw.svg" alt="" /></a>
-      </li>
-      <li>
-        <a href="./">求人募集トップ<img src="./common/images/common/icon_arw.svg" alt="" /></a>
-      </li>
-      <li>
-        <a href="index.php?app_controller=search&type=news&run=true&category=news&category_PAL[]=match+comp"
-          >お知らせ<img src="./common/images/common/icon_arw.svg" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href="index.php?app_controller=search&type=article&run=true"
-          >求人特集コラム<img src="./common/images/common/icon_arw.svg" alt=""
-        /></a>
-      </li>
-    </ul>
-  </div>
-</nav>
