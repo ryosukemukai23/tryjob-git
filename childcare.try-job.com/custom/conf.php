@@ -50,7 +50,7 @@
 	$COOKIE_PATH 									 = '/';
 
 $IMAGE_NOT_FOUND								= '<span></span>';
-	$IMAGE_NOT_FOUND_SRC							= './common/img/noimage.gif';
+	$IMAGE_NOT_FOUND_SRC							= './common/img/noimage.jpg';
 
 	$CSS_PATH										= './common/css/';
 

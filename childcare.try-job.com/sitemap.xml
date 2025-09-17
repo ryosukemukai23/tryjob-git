@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemapindex xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://childcare.try-job.com/addssitemap.xml</loc>
   </sitemap>
@@ -35,33 +35,6 @@
   </sitemap>
   <sitemap>
     <loc>https://childcare.try-job.com/midsitemap.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap2.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap3.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap4.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap5.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap6.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap7.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap8.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap9.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://childcare.try-job.com/midsitemap10.xml</loc>
   </sitemap>
   <sitemap>
     <loc>https://childcare.try-job.com/othersitemap.xml</loc>

@@ -42,7 +42,7 @@ function drawJobHistoryData(mode,itemsData){
 		if(itemsData[i].image1){
 			var image='<img src="thumb.php?src='+itemsData[i].image1+'&width=133&height=100" />';
 		}else{
-			var image='<img src="common/img/noimage.gif" />';
+			var image='<img src="common/img/noimage.jpg" />';
 		}
 
 		var html="";

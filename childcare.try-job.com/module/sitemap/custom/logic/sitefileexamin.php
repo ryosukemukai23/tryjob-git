@@ -85,7 +85,7 @@ class fileexamin
         }
 
         $head  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $head .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        $head .= '<sitemapindex xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
         if (fwrite($f, $head) === false) {
             fclose($f);

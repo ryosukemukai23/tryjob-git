@@ -1,0 +1,12 @@
+# ログファイル
+*.log
+
+# Node.js の依存関係
+node_modules/
+
+# OS 固有のファイル
+.DS_Store
+Thumbs.db
+
+# 環境設定ファイル
+.env

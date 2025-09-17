@@ -12203,3 +12203,18 @@ select,
 textarea {
   font-size: 16px !important;
 }
+
+/* 管理者用ボタン */
+#super_user a {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  right: 0.8em;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #fff;
+  padding: 0.6em 1.5em;
+  background: #333;
+  border-radius: 0.4em 0.4em 0 0;
+}
